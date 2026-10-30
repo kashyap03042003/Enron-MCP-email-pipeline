@@ -36,3 +36,9 @@ def test_time_helpers():
     assert utc_now().tzinfo == timezone.utc
     pst = timezone(timedelta(hours=-8))
     assert to_db_datetime(datetime(2001, 11, 13, 18, 25, 59, tzinfo=pst)) == "2001-11-14 02:25:59"
+
+
+def test_html_to_text():
+    from enron_pipeline.utils import html_to_text
+    html = "<style>p{color:red}</style><h1>Title</h1><p>a &amp; b</p><br><script>x()</script>end"
+    assert html_to_text(html) == "Title\n\na & b\n\nend"

@@ -220,3 +220,47 @@ def test_attachment_detected_from_mime_part():
 
 def test_attachment_detected_from_body_reference():
     assert parse(make_email(body="Here it is.\n - Budget.xls\n")).has_attachment is True
+
+
+@pytest.mark.parametrize("header, expected_hour", [
+    ("13 Nov 2001 4:39 PM", 16),        # RFC-like prefix, AM/PM, no zone
+    ("13 Nov 2001 4:39 am", 4),
+])
+def test_am_pm_is_not_mistaken_for_a_timezone(header, expected_hour):
+    assert parse(make_email(Date=header)).date.hour == expected_hour
+
+
+@pytest.mark.parametrize("header", ["Mon, 14 May 2001 16:39:00 XYZ", "Monday, May 14, 2001 4:39 PM XYZ"])
+def test_unknown_timezone_is_rejected_not_assumed_utc(header):
+    with pytest.raises(ParseError, match="unknown timezone"):
+        parse(make_email(Date=header))
+
+
+def html_only(html: str, content_type: str = "multipart/alternative") -> bytes:
+    if content_type == "text/html":
+        return make_email(body=html, Content_Type="text/html; charset=us-ascii")
+    body = f"--B\nContent-Type: text/html\n\n{html}\n--B--\n"
+    return make_email(body=body, Content_Type=f'{content_type}; boundary="B"')
+
+
+def test_html_only_multipart_body_is_converted_to_text():
+    email = parse(html_only("<p>Quarterly numbers&nbsp;attached</p><p>Thanks, Ken</p>"))
+    assert email.body == "Quarterly numbers attached\n\nThanks, Ken"  # &nbsp; -> space
+
+
+def test_single_part_html_body_is_converted_to_text():
+    assert parse(html_only("<div>Hello <b>Ken</b></div>", "text/html")).body == "Hello Ken"
+
+
+def test_different_html_emails_get_different_bodies():
+    # Regression: both used to become body="" and then matched as duplicates.
+    first = parse(html_only("<p>Quarterly numbers attached</p>")).body
+    second = parse(html_only("<p>Lunch on Friday?</p>")).body
+    assert first and second and first != second
+
+
+def test_plain_text_is_preferred_over_html():
+    body = ("--B\nContent-Type: text/plain\n\nPlain version\n"
+            "--B\nContent-Type: text/html\n\n<p>HTML version</p>\n--B--\n")
+    email = parse(make_email(body=body, Content_Type='multipart/alternative; boundary="B"'))
+    assert email.body == "Plain version"

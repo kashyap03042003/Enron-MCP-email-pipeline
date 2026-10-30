@@ -8,6 +8,7 @@ fixes for quirks found in the Enron data:
 """
 
 import re
+import warnings
 from datetime import datetime, timezone
 from email import message_from_bytes
 from email.header import decode_header, make_header
@@ -17,14 +18,15 @@ from email.utils import getaddresses, parsedate_to_datetime
 from pathlib import Path
 
 from dateutil import parser as date_parser
+from dateutil.parser import UnknownTimezoneWarning
 
 from .body import extract_headings, mentions_attachment, split_body
 from .models import ParsedEmail, ParseError
-from .utils import decode_bytes
+from .utils import decode_bytes, html_to_text
 
 # Zone abbreviations for the dateutil fallback (offsets in seconds).
 TZ_ABBREVIATIONS = {
-    "UT": 0, "UTC": 0, "GMT": 0,
+    "UT": 0, "UTC": 0, "GMT": 0, "Z": 0,
     "EST": -5 * 3600, "EDT": -4 * 3600,
     "CST": -6 * 3600, "CDT": -5 * 3600,
     "MST": -7 * 3600, "MDT": -6 * 3600,
@@ -39,9 +41,10 @@ _CONTROL_CHARS = re.compile(r"[\x00-\x08\x0a-\x1f\x7f]+")
 # A complete RFC 2822 date: "[Tue, ]13 Nov 2001 18:25[:59] [-0800|PST] [(PST)]".
 # The stdlib parser silently misreads anything else (e.g. it ignores "PM"),
 # so other layouts go to dateutil.
+# AM/PM is not a zone: "4:39 PM" must go to dateutil.
 _RFC2822_DATE = re.compile(
     r"^\s*(?:[A-Za-z]{3},\s*)?\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4}\s+\d{1,2}:\d{2}(?::\d{2})?"
-    r"\s*(?:[+-]\d{4}|[A-Za-z]{1,5})?\s*(?:\([^)]*\))?\s*$"
+    r"\s*(?P<zone>[+-]\d{4}|(?![AaPp][Mm]\b)[A-Za-z]{1,5})?\s*(?:\([^)]*\))?\s*$"
 )
 
 
@@ -153,7 +156,10 @@ def _parse_date(value: str | None) -> datetime:
     if not value:
         raise ParseError("missing Date header")
     dt = None
-    if _RFC2822_DATE.match(value):
+    if rfc := _RFC2822_DATE.match(value):
+        zone = rfc["zone"]
+        if zone and zone.isalpha() and zone.upper() not in TZ_ABBREVIATIONS:
+            raise ParseError(f"unknown timezone in Date header: {value!r}")
         try:
             dt = parsedate_to_datetime(value)
         except (TypeError, ValueError):
@@ -170,10 +176,16 @@ def _parse_date_fallback(value: str) -> datetime:
     date, so parse with two different defaults: if the results differ, the
     header lacks a year, month or day and is rejected rather than guessed."""
     try:
-        first, second = (
-            date_parser.parse(value, tzinfos=TZ_ABBREVIATIONS, fuzzy=True, default=default)
-            for default in (datetime(1901, 1, 1), datetime(1902, 2, 2))
-        )
+        with warnings.catch_warnings():
+            # A zone name dateutil doesn't know would otherwise be dropped
+            # silently and the time read as UTC.
+            warnings.simplefilter("error", UnknownTimezoneWarning)
+            first, second = (
+                date_parser.parse(value, tzinfos=TZ_ABBREVIATIONS, fuzzy=True, default=default)
+                for default in (datetime(1901, 1, 1), datetime(1902, 2, 2))
+            )
+    except UnknownTimezoneWarning as exc:
+        raise ParseError(f"unknown timezone in Date header: {value!r}") from exc
     except (ValueError, OverflowError) as exc:
         raise ParseError(f"unparseable Date header: {value!r}") from exc
     if first != second:
@@ -184,14 +196,15 @@ def _parse_date_fallback(value: str) -> datetime:
 # --- body ------------------------------------------------------------------
 
 def _body(msg: Message) -> str:
-    if msg.is_multipart():
-        parts = [
-            p for p in msg.walk()
-            if p.get_content_type() == "text/plain" and not p.get_filename()
-        ]
-        text = "\n".join(_payload_text(p) for p in parts)
+    """The message text: its text/plain parts, or, when there are none, its
+    text/html parts converted to text. Attachments are never included."""
+    inline = [p for p in msg.walk() if not p.is_multipart() and not p.get_filename()]
+    plain = [p for p in inline if p.get_content_type() == "text/plain"]
+    if plain:
+        text = "\n".join(_payload_text(p) for p in plain)
     else:
-        text = _payload_text(msg)
+        html = [p for p in inline if p.get_content_type() == "text/html"]
+        text = "\n".join(html_to_text(_payload_text(p)) for p in html)
     return text.replace("\r\n", "\n")
 
 
