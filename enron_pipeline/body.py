@@ -8,6 +8,8 @@ without building full email messages.
 import re
 from dataclasses import dataclass
 
+from .utils import none_if_blank
+
 # Lines that open an embedded (forwarded or replied-to) message.
 _EMBEDDED_START = re.compile(
     r"""^\s*(?:
@@ -79,8 +81,8 @@ def split_body(text: str) -> BodyParts:
 
     return BodyParts(
         body="\n".join(body).strip(),
-        forwarded_content=_none_if_blank("\n".join(embedded)),
-        quoted_content=_none_if_blank("\n".join(quoted)),
+        forwarded_content=none_if_blank("\n".join(embedded)),
+        quoted_content=none_if_blank("\n".join(quoted)),
     )
 
 
@@ -155,7 +157,3 @@ def _upper_ratio(text: str) -> float:
 
 def _is_quoted(line: str) -> bool:
     return line.lstrip().startswith(">")
-
-
-def _none_if_blank(text: str) -> str | None:
-    return text.strip() or None

@@ -5,7 +5,7 @@ from email.policy import default
 
 import pytest
 
-from enron_pipeline import db, dedupe, notify
+from enron_pipeline import db, dedupe, notify, reports
 from enron_pipeline.config import SCHEMA_PATH
 from enron_pipeline.models import ParsedEmail
 
@@ -33,7 +33,7 @@ def conn(tmp_path):
         parsed(5, 5, sender="b@enron.com", subject="Lunch", body="Lunch at noon on Friday at the usual place?"),
         parsed(6, 6, sender="c@enron.com", subject="Solo"),
     ])
-    dedupe.apply_flags(conn, dedupe.find_duplicate_groups(dedupe.load_candidates(conn), 90.0))
+    db.save_duplicate_flags(conn, dedupe.find_duplicate_groups(db.load_candidates(conn), 90.0))
     yield conn
     conn.close()
 
@@ -75,7 +75,7 @@ def test_write_drafts_replaces_previous_drafts(conn, tmp_path):
     out = tmp_path / "replies"
     out.mkdir()
     (out / "stale.eml").write_text("old")
-    assert notify.write_drafts(notify.load_notifications(conn), out, NOW) == 2
+    assert reports.write_drafts([notify.to_eml(n, NOW) for n in notify.load_notifications(conn)], out) == 2
     files = sorted(p.name for p in out.glob("*.eml"))
     assert files == ["3@x.eml", "5@x.eml"]
     parsed_back = message_from_bytes((out / "3@x.eml").read_bytes(), policy=default)
@@ -96,7 +96,7 @@ def test_live_send_redirects_to_test_inbox_and_marks_db(conn, tmp_path):
     assert row["notification_sent"] == 1 and row["notification_date"] is not None
     with log.open() as fh:
         rows = list(csv.DictReader(fh))
-    assert list(rows[0]) == list(notify.SEND_LOG_COLUMNS)
+    assert list(rows[0]) == list(reports.SEND_LOG_COLUMNS)
     assert [(r["recipient"], r["status"], r["intended_recipient"]) for r in rows] == [
         ("me@gmail.com", "sent", "a@enron.com"), ("me@gmail.com", "sent", "b@enron.com"),
     ]

@@ -9,10 +9,9 @@ Run `python main.py --help` for all options.
 
 import argparse
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
-from enron_pipeline import db, dedupe, notify
+from enron_pipeline import db, dedupe, notify, reports
 from enron_pipeline.config import (
     DB_PATH, DEDUPE_STATS, DEFAULT_MAILBOXES, DUPLICATES_REPORT, ERROR_LOG, EXTRACTION_STATS,
     MAILDIR, MCP_CONFIG, PROJECT_ROOT, REPLIES_DIR, SCHEMA_PATH, SEND_LOG, SIMILARITY_THRESHOLD,
@@ -20,15 +19,16 @@ from enron_pipeline.config import (
 from enron_pipeline.discovery import discover_emails
 from enron_pipeline.extract import extract
 from enron_pipeline.mcp_client import McpEmailSender, load_server_config
-from enron_pipeline.stats import build_stats, format_stats, write_error_log, write_stats
+from enron_pipeline.stats import build_stats, format_stats
+from enron_pipeline.utils import utc_now
 
 
 def ingest(args: argparse.Namespace) -> None:
     """Stage 1+2: parse the mailboxes, log failures and stats, load SQLite."""
     result = extract(discover_emails(MAILDIR, args.mailboxes), PROJECT_ROOT)
     stats = build_stats(result, args.mailboxes)
-    write_stats(stats, EXTRACTION_STATS)
-    write_error_log(result.failures, ERROR_LOG)
+    reports.write_json(stats, EXTRACTION_STATS)
+    reports.write_error_log(result.failures, ERROR_LOG)
     print(format_stats(stats))
 
     if args.reset and args.db.exists():
@@ -48,15 +48,15 @@ def find_duplicates(args: argparse.Namespace) -> None:
     conn = db.connect(args.db)
     try:
         db.init_schema(conn, SCHEMA_PATH)
-        candidates = dedupe.load_candidates(conn)
+        candidates = db.load_candidates(conn)
         groups = dedupe.find_duplicate_groups(candidates, args.threshold)
-        dedupe.apply_flags(conn, groups)
+        db.save_duplicate_flags(conn, groups)
     finally:
         conn.close()
 
-    dedupe.write_report(groups, DUPLICATES_REPORT)
+    reports.write_duplicates_report(groups, DUPLICATES_REPORT)
     stats = dedupe.summarize(groups, len(candidates), args.threshold)
-    write_stats(stats, DEDUPE_STATS)
+    reports.write_json(stats, DEDUPE_STATS)
     print(f"Emails scanned:      {stats['emails_scanned']:,}")
     print(f"Duplicate groups:    {stats['groups']:,}")
     print(f"Emails flagged:      {stats['emails_flagged']:,}")
@@ -70,7 +70,8 @@ def send_notices(args: argparse.Namespace) -> None:
     try:
         db.init_schema(conn, SCHEMA_PATH)
         notifications = notify.load_notifications(conn)
-        notify.write_drafts(notifications, REPLIES_DIR, datetime.now(timezone.utc))
+        now = utc_now()
+        reports.write_drafts([notify.to_eml(n, now) for n in notifications], REPLIES_DIR)
         print(f"Drafts written: {len(notifications):,} -> output/replies/")
         if not args.send_live:
             print("Dry run: nothing was sent. Add --send-live to send through the MCP server.")

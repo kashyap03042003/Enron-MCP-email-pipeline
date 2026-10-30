@@ -1,30 +1,25 @@
-"""Task 4: duplicate notices — dry-run .eml drafts and live sending.
+"""Task 4: duplicate notices.
 
 One notice per duplicate group, addressed to the sender of the group's
-latest duplicate. Targets are read from the database, so this stage only
-depends on the flags written by `dedupe`.
+latest duplicate and following the assignment's template. This module builds
+the notices and runs the live send loop; db.py supplies the targets and
+records what was sent, and reports.py writes the drafts and the send log.
 
 Live sends are always redirected to a test inbox: the real recipients are
 (often still live) Enron addresses. The intended recipient is kept in an
 X-Original-To header and a note at the top of the body.
 """
 
-import csv
-import re
 import sqlite3
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from email.message import EmailMessage
 from email.utils import format_datetime
 from pathlib import Path
 from typing import Protocol
 
-from .db import to_db_datetime
-
-SEND_LOG_COLUMNS = (
-    "timestamp", "recipient", "subject", "status", "error",
-    "intended_recipient", "duplicate_message_id",
-)
+from . import db, reports
+from .utils import utc_now
 
 _BODY_TEMPLATE = """\
 This is an automated notification from the Email Deduplication System.
@@ -46,24 +41,6 @@ If this was NOT a duplicate and you intended to send this email,
 please reply with CONFIRM to restore it to active status.
 
 No action is required if this is indeed a duplicate.
-"""
-
-# The latest flagged email of each group (ties broken by source_file, as in
-# dedupe), together with that group's original.
-_TARGETS_SQL = """
-SELECT d.message_id, d.date, d.subject, d.from_address, d.similarity_score,
-       d.notification_sent,
-       o.message_id AS original_message_id, o.date AS original_date,
-       o.subject    AS original_subject
-FROM email_details d
-JOIN emails o ON o.message_id = d.duplicate_of
-WHERE d.is_duplicate = 1
-  AND NOT EXISTS (
-      SELECT 1 FROM emails later
-      WHERE later.duplicate_of = d.duplicate_of
-        AND (later.date, later.source_file) > (d.date, d.source_file)
-  )
-ORDER BY o.date, o.source_file
 """
 
 
@@ -104,7 +81,7 @@ def load_notifications(conn: sqlite3.Connection) -> list[Notification]:
             ),
             already_sent=bool(row["notification_sent"]),
         )
-        for row in conn.execute(_TARGETS_SQL)
+        for row in db.load_notification_targets(conn)
     ]
 
 
@@ -118,17 +95,6 @@ def to_eml(notification: Notification, now: datetime) -> EmailMessage:
     return msg
 
 
-def write_drafts(notifications: list[Notification], out_dir: Path, now: datetime) -> int:
-    """Write one .eml per notification, replacing drafts from earlier runs."""
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for old in out_dir.glob("*.eml"):
-        old.unlink()
-    for notification in notifications:
-        path = out_dir / f"{_safe_filename(notification.references)}.eml"
-        path.write_bytes(to_eml(notification, now).as_bytes())
-    return len(notifications)
-
-
 def send_live(
     conn: sqlite3.Connection,
     notifications: list[Notification],
@@ -137,56 +103,39 @@ def send_live(
     log_path: Path,
     limit: int | None,
 ) -> SendSummary:
-    """Send pending notices to the test inbox, logging each attempt.
+    """Send pending notices to the test inbox.
 
-    A notice whose duplicate is already marked notification_sent is skipped,
-    so repeated runs carry on where the last one stopped. `limit` caps the
-    number of send attempts per run.
+    For each notice: send it, log the attempt, and on success record it in
+    the database. Notices already marked as sent are skipped, so repeated runs
+    carry on where the last one stopped. `limit` caps send attempts per run.
     """
     summary = SendSummary()
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    write_header = not log_path.exists() or log_path.stat().st_size == 0
-    with log_path.open("a", newline="", encoding="utf-8") as log_file:
-        log = csv.writer(log_file)
-        if write_header:
-            log.writerow(SEND_LOG_COLUMNS)
+    for notification in notifications:
+        if notification.already_sent:
+            summary.skipped += 1
+            continue
+        if limit is not None and summary.sent + summary.failed >= limit:
+            break
 
-        for notification in notifications:
-            if notification.already_sent:
-                summary.skipped += 1
-                continue
-            if limit is not None and summary.sent + summary.failed >= limit:
-                break
+        now = utc_now()
+        try:
+            sender.send(
+                to=test_recipient,
+                subject=notification.subject,
+                body=f"[Test delivery: intended for {notification.to}]\n\n{notification.body}",
+                headers={"References": notification.references, "X-Original-To": notification.to},
+            )
+            status, error = "sent", ""
+        except Exception as exc:  # one failed send must not stop the rest
+            status, error = "failed", f"{type(exc).__name__}: {exc}"
 
-            now = datetime.now(timezone.utc)
-            try:
-                sender.send(
-                    to=test_recipient,
-                    subject=notification.subject,
-                    body=f"[Test delivery: intended for {notification.to}]\n\n{notification.body}",
-                    headers={"References": notification.references, "X-Original-To": notification.to},
-                )
-                status, error = "sent", ""
-            except Exception as exc:  # one failed send must not stop the rest
-                status, error = "failed", f"{type(exc).__name__}: {exc}"
-
-            log.writerow([
-                now.isoformat(timespec="seconds"), test_recipient, notification.subject, status, error,
-                notification.to, notification.references,
-            ])
-            log_file.flush()  # keep the log accurate even if the run is interrupted
-
-            if status == "failed":
-                summary.failed += 1
-                continue
+        reports.append_send_log(log_path, [
+            now.isoformat(timespec="seconds"), test_recipient, notification.subject, status, error,
+            notification.to, notification.references,
+        ])
+        if status == "sent":
             summary.sent += 1
-            with conn:
-                conn.execute(
-                    "UPDATE emails SET notification_sent = 1, notification_date = ? WHERE message_id = ?",
-                    (to_db_datetime(now), notification.references),
-                )
+            db.mark_notified(conn, notification.references, now)
+        else:
+            summary.failed += 1
     return summary
-
-
-def _safe_filename(message_id: str) -> str:
-    return re.sub(r"[^\w.@-]", "_", message_id.strip("<>"))

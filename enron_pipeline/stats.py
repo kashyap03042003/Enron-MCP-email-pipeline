@@ -1,12 +1,12 @@
-"""Extraction statistics and the parse-failure log."""
+"""Extraction statistics: counts, failure reasons and per-field completeness.
 
-import json
+Computes and formats only; reports.py writes the files."""
+
 from collections import Counter
-from datetime import datetime, timezone
-from pathlib import Path
 
 from .extract import ExtractionResult
 from .models import MANDATORY_FIELDS, OPTIONAL_FIELDS
+from .utils import utc_now
 
 
 def build_stats(result: ExtractionResult, mailboxes: list[str]) -> dict:
@@ -21,7 +21,7 @@ def build_stats(result: ExtractionResult, mailboxes: list[str]) -> dict:
             "rate": round(present / parsed * 100, 2) if parsed else 0.0,
         }
     return {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generated_at": utc_now().isoformat(timespec="seconds"),
         "mailboxes": mailboxes,
         "total_files": result.total_files,
         "parsed": parsed,
@@ -29,19 +29,6 @@ def build_stats(result: ExtractionResult, mailboxes: list[str]) -> dict:
         "failure_reasons": dict(Counter(_reason_category(r) for _, r in result.failures).most_common()),
         "field_completeness": completeness,
     }
-
-
-def write_stats(stats: dict, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(stats, indent=2) + "\n")
-
-
-def write_error_log(failures: list[tuple[str, str]], path: Path) -> None:
-    """One line per failed file: <source_file><TAB><reason>."""
-    with path.open("w", encoding="utf-8") as fh:
-        fh.write(f"# Parse failures: {len(failures)}\n# source_file\treason\n")
-        for source_file, reason in failures:
-            fh.write(f"{source_file}\t{reason}\n")
 
 
 def format_stats(stats: dict) -> str:

@@ -20,6 +20,7 @@ from dateutil import parser as date_parser
 
 from .body import extract_headings, mentions_attachment, split_body
 from .models import ParsedEmail, ParseError
+from .utils import decode_bytes
 
 # Zone abbreviations for the dateutil fallback (offsets in seconds).
 TZ_ABBREVIATIONS = {
@@ -185,15 +186,3 @@ def _payload_text(part: Message) -> str:
     if payload is None:
         return ""
     return decode_bytes(payload, part.get_content_charset())
-
-
-def decode_bytes(data: bytes, charset: str | None = None) -> str:
-    """Decode with the declared charset, then UTF-8, then cp1252; latin-1 never fails."""
-    for encoding in (charset, "utf-8", "cp1252"):
-        if not encoding:
-            continue
-        try:
-            return data.decode(encoding)
-        except (UnicodeDecodeError, LookupError):
-            continue
-    return data.decode("latin-1")

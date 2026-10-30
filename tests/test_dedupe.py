@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 
 import pytest
 
-from enron_pipeline import db, dedupe
+from enron_pipeline import db, dedupe, reports
 from enron_pipeline.config import SCHEMA_PATH
 from enron_pipeline.dedupe import Candidate, find_duplicate_groups, normalize_subject, normalize_text
 from enron_pipeline.models import ParsedEmail
@@ -139,8 +139,8 @@ def conn(tmp_path):
 
 
 def run_dedupe(conn):
-    groups = find_duplicate_groups(dedupe.load_candidates(conn), 90.0)
-    dedupe.apply_flags(conn, groups)
+    groups = find_duplicate_groups(db.load_candidates(conn), 90.0)
+    db.save_duplicate_flags(conn, groups)
     return groups
 
 
@@ -167,10 +167,10 @@ def test_rescan_is_idempotent_and_keeps_notification_state(conn):
 def test_report_and_summary(conn, tmp_path):
     groups = run_dedupe(conn)
     report = tmp_path / "report.csv"
-    dedupe.write_report(groups, report)
+    reports.write_duplicates_report(groups, report)
     with report.open() as fh:
         rows = list(csv.DictReader(fh))
-    assert list(rows[0]) == list(dedupe.REPORT_COLUMNS)
+    assert list(rows[0]) == list(reports.DUPLICATES_REPORT_COLUMNS)
     assert [(r["duplicate_message_id"], r["original_message_id"]) for r in rows] == [
         ("<2@x>", "<1@x>"), ("<3@x>", "<1@x>"),
     ]

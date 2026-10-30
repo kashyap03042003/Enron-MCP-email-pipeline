@@ -1,12 +1,18 @@
-"""SQLite storage: apply the schema and load parsed emails."""
+"""SQLite storage. This is the only module that runs SQL.
+
+Every read and write of the database goes through a function here, so a
+schema change touches schema.sql and this file only.
+"""
 
 import sqlite3
 from collections.abc import Iterable
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 
+from .dedupe import Candidate, DuplicateGroup, normalize_text
 from .models import ParsedEmail
+from .utils import to_db_datetime
 
 _EMAIL_COLUMNS = (
     "message_id", "date", "sender_id", "subject", "body", "source_file",
@@ -26,6 +32,8 @@ class LoadResult:
     skipped: int = 0  # already in the database (same message_id or source_file)
 
 
+# --- connection --------------------------------------------------------------
+
 def connect(path: Path) -> sqlite3.Connection:
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
@@ -37,10 +45,7 @@ def init_schema(conn: sqlite3.Connection, schema_path: Path) -> None:
     conn.executescript(schema_path.read_text())
 
 
-def to_db_datetime(dt: datetime) -> str:
-    """Aware datetime -> 'YYYY-MM-DD HH:MM:SS' in UTC."""
-    return dt.astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
-
+# --- Task 2: load parsed emails ---------------------------------------------
 
 def load_emails(conn: sqlite3.Connection, emails: Iterable[ParsedEmail]) -> LoadResult:
     """Insert emails and their recipients in a single transaction."""
@@ -85,3 +90,73 @@ def _address_id(conn: sqlite3.Connection, address_ids: dict[str, int], email: st
     if email not in address_ids:
         address_ids[email] = conn.execute("INSERT INTO addresses (email) VALUES (?)", (email,)).lastrowid
     return address_ids[email]
+
+
+# --- Task 3: duplicate flags -------------------------------------------------
+
+def load_candidates(conn: sqlite3.Connection) -> list[Candidate]:
+    rows = conn.execute(
+        "SELECT message_id, date, from_address, subject, source_file, "
+        "body, quoted_content, forwarded_content FROM email_details"
+    )
+    return [
+        Candidate(
+            message_id=r["message_id"], date=r["date"], from_address=r["from_address"],
+            subject=r["subject"], source_file=r["source_file"],
+            body=normalize_text(r["body"]),
+            text=normalize_text(r["body"], r["quoted_content"], r["forwarded_content"]),
+        )
+        for r in rows
+    ]
+
+
+def save_duplicate_flags(conn: sqlite3.Connection, groups: list[DuplicateGroup]) -> None:
+    """Replace all duplicate flags with the given groups (a re-scan starts clean).
+    Notification columns are left alone so sent notices are never forgotten."""
+    with conn:
+        conn.execute(
+            "UPDATE emails SET is_duplicate = 0, duplicate_of = NULL, similarity_score = NULL "
+            "WHERE is_duplicate = 1"
+        )
+        conn.executemany(
+            "UPDATE emails SET is_duplicate = 1, duplicate_of = ?, similarity_score = ? "
+            "WHERE message_id = ?",
+            [
+                (group.original.message_id, score, duplicate.message_id)
+                for group in groups
+                for duplicate, score in group.duplicates
+            ],
+        )
+
+
+# --- Task 4: notification targets and state --------------------------------
+
+# The latest flagged email of each group (ties broken by source_file, as in
+# dedupe), together with that group's original.
+_NOTIFICATION_TARGETS_SQL = """
+SELECT d.message_id, d.date, d.subject, d.from_address, d.similarity_score,
+       d.notification_sent,
+       o.message_id AS original_message_id, o.date AS original_date,
+       o.subject    AS original_subject
+FROM email_details d
+JOIN emails o ON o.message_id = d.duplicate_of
+WHERE d.is_duplicate = 1
+  AND NOT EXISTS (
+      SELECT 1 FROM emails later
+      WHERE later.duplicate_of = d.duplicate_of
+        AND (later.date, later.source_file) > (d.date, d.source_file)
+  )
+ORDER BY o.date, o.source_file
+"""
+
+
+def load_notification_targets(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    return conn.execute(_NOTIFICATION_TARGETS_SQL).fetchall()
+
+
+def mark_notified(conn: sqlite3.Connection, message_id: str, when: datetime) -> None:
+    with conn:
+        conn.execute(
+            "UPDATE emails SET notification_sent = 1, notification_date = ? WHERE message_id = ?",
+            (to_db_datetime(when), message_id),
+        )
