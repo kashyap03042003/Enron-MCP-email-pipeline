@@ -2,6 +2,7 @@
 
     python main.py parse   [--mailboxes ...] [--limit N]   # extraction stats only, no DB
     python main.py ingest  [--mailboxes ...] [--reset]     # parse + load into SQLite
+    python main.py dedupe  [--threshold 90]                # flag near-duplicates
 """
 
 import argparse
@@ -10,9 +11,10 @@ import time
 from itertools import islice
 from pathlib import Path
 
-from enron_pipeline import db
+from enron_pipeline import db, dedupe
 from enron_pipeline.config import (
-    DB_PATH, DEFAULT_MAILBOXES, ERROR_LOG, EXTRACTION_STATS, MAILDIR, PROJECT_ROOT, SCHEMA_PATH,
+    DB_PATH, DEDUPE_STATS, DEFAULT_MAILBOXES, DUPLICATES_REPORT, ERROR_LOG, EXTRACTION_STATS,
+    MAILDIR, PROJECT_ROOT, SCHEMA_PATH, SIMILARITY_THRESHOLD,
 )
 from enron_pipeline.discovery import discover_emails
 from enron_pipeline.extract import ExtractionResult, extract
@@ -62,6 +64,33 @@ def cmd_ingest(args: argparse.Namespace) -> None:
     print(f"Total rows: {total:,}")
 
 
+def cmd_dedupe(args: argparse.Namespace) -> None:
+    conn = db.connect(args.db)
+    try:
+        db.init_schema(conn, SCHEMA_PATH)
+        started = time.perf_counter()
+        candidates = dedupe.load_candidates(conn)
+        groups = dedupe.find_duplicate_groups(candidates, args.threshold)
+        dedupe.apply_flags(conn, groups)
+        elapsed = time.perf_counter() - started
+    finally:
+        conn.close()
+
+    dedupe.write_report(groups, DUPLICATES_REPORT)
+    stats = dedupe.summarize(groups, len(candidates), args.threshold)
+    write_stats(stats, DEDUPE_STATS)
+
+    print(f"Emails scanned:      {stats['emails_scanned']:,}")
+    print(f"Similarity cutoff:   {stats['threshold']}%")
+    print(f"Duplicate groups:    {stats['groups']:,}")
+    print(f"Emails flagged:      {stats['emails_flagged']:,}")
+    print(f"Average group size:  {stats['average_group_size']}")
+    print(f"Largest group:       {stats['largest_group']}")
+    print(f"\nScanned in {elapsed:.1f}s")
+    print(f"Report:     {_display(DUPLICATES_REPORT)}")
+    print(f"Stats JSON: {_display(DEDUPE_STATS)}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Enron email extraction pipeline")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -79,6 +108,11 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("ingest", parents=[extraction, database], help="parse emails and load them into SQLite")
     p.add_argument("--reset", action="store_true", help="delete the database first and rebuild it")
     p.set_defaults(func=cmd_ingest)
+
+    p = sub.add_parser("dedupe", parents=[database], help="flag near-duplicate emails in the database")
+    p.add_argument("--threshold", type=float, default=SIMILARITY_THRESHOLD,
+                   help="minimum content similarity, 0-100 (default: %(default)s)")
+    p.set_defaults(func=cmd_dedupe)
     return parser
 
 

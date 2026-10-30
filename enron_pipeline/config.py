@@ -19,3 +19,8 @@ DEFAULT_MAILBOXES = (
     "lavorato-j",  # John Lavorato, head of trading
     "haedicke-m",  # Mark Haedicke, General Counsel
 )
+
+# Duplicate detection (Task 3)
+SIMILARITY_THRESHOLD = 90.0
+DUPLICATES_REPORT = PROJECT_ROOT / "duplicates_report.csv"
+DEDUPE_STATS = OUTPUT_DIR / "dedupe_stats.json"

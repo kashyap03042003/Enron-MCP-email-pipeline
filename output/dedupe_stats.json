@@ -1,0 +1,8 @@
+{
+  "emails_scanned": 22081,
+  "threshold": 90.0,
+  "groups": 5575,
+  "emails_flagged": 10610,
+  "average_group_size": 2.9,
+  "largest_group": 68
+}

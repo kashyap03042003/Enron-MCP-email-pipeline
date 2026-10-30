@@ -89,3 +89,22 @@ SELECT substr(source_file, 9, instr(substr(source_file, 9), '/') - 1) AS mailbox
 FROM emails
 GROUP BY mailbox
 ORDER BY emails DESC;
+
+
+-- 7. Largest duplicate groups (after `python main.py dedupe`).
+--    Each flagged email points at its original through duplicate_of.
+--    Expected: 10610 emails flagged out of 22081. The largest groups are
+--    repeated automated or template emails:
+--      Approval for reviewer   2000-11-06  67 duplicates, latest 2000-11-21
+--      New Kudlow Commentary   2001-10-12  28 duplicates, latest 2002-01-18
+--      Staff Meeting           2000-06-01  15 duplicates, latest 2000-06-30
+SELECT o.message_id     AS original,
+       o.subject,
+       o.date           AS original_date,
+       COUNT(d.id)      AS duplicates,
+       MAX(d.date)      AS latest_duplicate
+FROM emails o
+JOIN emails d ON d.duplicate_of = o.message_id
+GROUP BY o.id
+ORDER BY duplicates DESC, o.date
+LIMIT 3;
