@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-10-30T02:10:24+00:00",
+  "mailboxes": [
+    "lay-k",
+    "skilling-j",
+    "delainey-d",
+    "lavorato-j",
+    "haedicke-m"
+  ],
+  "total_files": 23573,
+  "parsed": 22081,
+  "failed": 1492,
+  "failure_reasons": {
+    "missing or unparseable To addresses": 1492
+  },
+  "field_completeness": {
+    "message_id": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "date": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "from_address": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "to_addresses": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "subject": {
+      "present": 20610,
+      "rate": 93.34
+    },
+    "body": {
+      "present": 21168,
+      "rate": 95.87
+    },
+    "source_file": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "cc_addresses": {
+      "present": 5645,
+      "rate": 25.56
+    },
+    "bcc_addresses": {
+      "present": 0,
+      "rate": 0.0
+    },
+    "x_from": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "x_to": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "x_cc": {
+      "present": 5678,
+      "rate": 25.71
+    },
+    "x_bcc": {
+      "present": 13,
+      "rate": 0.06
+    },
+    "x_folder": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "x_origin": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "content_type": {
+      "present": 22081,
+      "rate": 100.0
+    },
+    "has_attachment": {
+      "present": 1914,
+      "rate": 8.67
+    },
+    "forwarded_content": {
+      "present": 6025,
+      "rate": 27.29
+    },
+    "quoted_content": {
+      "present": 366,
+      "rate": 1.66
+    },
+    "headings": {
+      "present": 1332,
+      "rate": 6.03
+    }
+  }
+}

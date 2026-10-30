@@ -6,12 +6,14 @@
 import argparse
 import sys
 import time
-from collections import Counter
 from itertools import islice
 
-from enron_pipeline.config import DEFAULT_MAILBOXES, MAILDIR, PROJECT_ROOT
+from enron_pipeline.config import (
+    DEFAULT_MAILBOXES, ERROR_LOG, EXTRACTION_STATS, MAILDIR, PROJECT_ROOT,
+)
 from enron_pipeline.discovery import discover_emails
 from enron_pipeline.extract import extract
+from enron_pipeline.stats import build_stats, format_stats, write_error_log, write_stats
 
 
 def cmd_parse(args: argparse.Namespace) -> None:
@@ -23,16 +25,14 @@ def cmd_parse(args: argparse.Namespace) -> None:
     result = extract(paths, PROJECT_ROOT)
     elapsed = time.perf_counter() - started
 
-    print(f"Mailboxes:   {', '.join(args.mailboxes)}")
-    print(f"Files found: {result.total_files:,}")
-    print(f"Parsed:      {len(result.emails):,}")
-    print(f"Failed:      {len(result.failures):,}")
-    print(f"Time:        {elapsed:.1f}s")
-    if result.failures:
-        print("\nFailure reasons:")
-        reasons = Counter(reason.split(":")[0] for _, reason in result.failures)
-        for reason, count in reasons.most_common():
-            print(f"  {count:>6,}  {reason}")
+    stats = build_stats(result, args.mailboxes)
+    write_stats(stats, EXTRACTION_STATS)
+    write_error_log(result.failures, ERROR_LOG)
+
+    print(format_stats(stats))
+    print(f"\nParsed in {elapsed:.1f}s")
+    print(f"Error log:  {ERROR_LOG.relative_to(PROJECT_ROOT)}")
+    print(f"Stats JSON: {EXTRACTION_STATS.relative_to(PROJECT_ROOT)}")
 
 
 def build_parser() -> argparse.ArgumentParser:

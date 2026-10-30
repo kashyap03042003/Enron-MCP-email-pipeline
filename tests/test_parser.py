@@ -37,7 +37,7 @@ def test_extracts_mandatory_fields():
     assert email.from_address == "lucy.ortiz@enron.com"
     assert email.to_addresses == ["kenneth.lay@enron.com"]
     assert email.subject == "Re: Thank you"  # Re: prefix preserved
-    assert email.body == "Hello Ken.\n"
+    assert email.body == "Hello Ken."
     assert email.source_file == "maildir/test/inbox/1."
 
 
@@ -89,7 +89,7 @@ def test_non_ascii_bytes_in_headers_and_body():
     raw = make_email(Subject="Caf\xe9 meeting", body="It\x92s done\n")
     email = parse(raw)
     assert email.subject == "Café meeting"
-    assert email.body == "It’s done\n"  # 0x92 is a cp1252 curly apostrophe
+    assert email.body == "It’s done"  # 0x92 is a cp1252 curly apostrophe
 
 
 def test_encoded_word_subject_is_decoded():
@@ -129,3 +129,64 @@ def test_unparseable_date_raises():
 def test_undisclosed_recipients_counts_as_missing_to():
     with pytest.raises(ParseError, match="To addresses"):
         parse(make_email(To="undisclosed-recipients:;"))
+
+
+def test_optional_fields_absent_are_empty():
+    email = parse(make_email())
+    assert email.cc_addresses == [] and email.bcc_addresses == []
+    assert email.x_from is None and email.x_folder is None
+    assert email.content_type is None
+    assert email.has_attachment is False
+    assert email.forwarded_content is None and email.quoted_content is None
+    assert email.headings == []
+
+
+def test_optional_enron_headers():
+    raw = make_email(
+        Cc="x@enron.com,\n\ty@enron.com", Bcc="z@enron.com",
+        X_From="Ortiz, Lucy </O=ENRON/OU=NA/CN=RECIPIENTS/CN=LORTIZ>",
+        X_To="Lay, Kenneth", X_cc="", X_bcc="",
+        X_Folder="\\KLAY (Non-Privileged)\\Lay, Kenneth\\Inbox", X_Origin="Lay-K",
+        Content_Type="text/plain; charset=us-ascii",
+    )
+    email = parse(raw)
+    assert email.cc_addresses == ["x@enron.com", "y@enron.com"]
+    assert email.bcc_addresses == ["z@enron.com"]
+    assert email.x_from == "Ortiz, Lucy </O=ENRON/OU=NA/CN=RECIPIENTS/CN=LORTIZ>"
+    assert email.x_to == "Lay, Kenneth"
+    assert email.x_cc is None and email.x_bcc is None  # empty header -> NULL
+    assert email.x_folder == "\\KLAY (Non-Privileged)\\Lay, Kenneth\\Inbox"
+    assert email.x_origin == "Lay-K"
+    assert email.content_type == "text/plain"
+
+
+def test_bcc_copied_from_cc_is_treated_as_export_artifact():
+    email = parse(make_email(Cc="x@enron.com, y@enron.com", Bcc="x@enron.com, y@enron.com"))
+    assert email.cc_addresses == ["x@enron.com", "y@enron.com"]
+    assert email.bcc_addresses == []
+
+
+def test_body_split_and_headings_are_wired_in():
+    body = (
+        "AGENDA\n\nSee below.\n> quoted line\n"
+        "-----Original Message-----\nFrom: a\n\nMARKET UPDATE\nprices up\n"
+    )
+    email = parse(make_email(body=body))
+    assert email.body == "AGENDA\n\nSee below."
+    assert email.quoted_content == "> quoted line"
+    assert email.forwarded_content.startswith("-----Original Message-----")
+    assert email.headings == ["AGENDA", "MARKET UPDATE"]
+
+
+def test_attachment_detected_from_mime_part():
+    body = (
+        "--XYZ\nContent-Type: text/plain\n\nSee attached\n"
+        "--XYZ\nContent-Type: application/pdf\nContent-Disposition: attachment; filename=a.pdf\n\nPDF\n"
+        "--XYZ--\n"
+    )
+    raw = make_email(body=body, Content_Type='multipart/mixed; boundary="XYZ"')
+    assert parse(raw).has_attachment is True
+
+
+def test_attachment_detected_from_body_reference():
+    assert parse(make_email(body="Here it is.\n - Budget.xls\n")).has_attachment is True

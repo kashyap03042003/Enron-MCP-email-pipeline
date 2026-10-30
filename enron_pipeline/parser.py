@@ -18,6 +18,7 @@ from pathlib import Path
 
 from dateutil import parser as date_parser
 
+from .body import extract_headings, mentions_attachment, split_body
 from .models import ParsedEmail, ParseError
 
 # Zone abbreviations for the dateutil fallback (offsets in seconds).
@@ -65,14 +66,34 @@ def parse_bytes(raw: bytes, source_file: str) -> ParsedEmail:
     if subject is None:
         raise ParseError("missing Subject header")
 
+    text = _body(msg)
+    parts = split_body(text)
+    cc_addresses = _addresses(msg, "Cc")
+    bcc_addresses = _addresses(msg, "Bcc")
+    if bcc_addresses == cc_addresses:
+        # Enron export artifact: Bcc is a verbatim copy of Cc, not real blind copies.
+        bcc_addresses = []
     return ParsedEmail(
         message_id=message_id,
         date=_parse_date(_header(msg, "Date")),
         from_address=from_addresses[0],
         to_addresses=to_addresses,
         subject=subject,
-        body=_body(msg),
+        body=parts.body,
         source_file=source_file,
+        cc_addresses=cc_addresses,
+        bcc_addresses=bcc_addresses,
+        x_from=_header(msg, "X-From") or None,
+        x_to=_header(msg, "X-To") or None,
+        x_cc=_header(msg, "X-cc") or None,
+        x_bcc=_header(msg, "X-bcc") or None,
+        x_folder=_header(msg, "X-Folder") or None,
+        x_origin=_header(msg, "X-Origin") or None,
+        content_type=msg.get_content_type() if _raw_headers(msg, "Content-Type") else None,
+        has_attachment=_has_mime_attachment(msg) or mentions_attachment(text),
+        forwarded_content=parts.forwarded_content,
+        quoted_content=parts.quoted_content,
+        headings=extract_headings("\n\n".join(filter(None, (parts.body, parts.forwarded_content)))),
     )
 
 
@@ -149,6 +170,14 @@ def _body(msg: Message) -> str:
     else:
         text = _payload_text(msg)
     return text.replace("\r\n", "\n")
+
+
+def _has_mime_attachment(msg: Message) -> bool:
+    return any(
+        part.get_filename() or (part.get("Content-Disposition") or "").lower().startswith("attachment")
+        for part in msg.walk()
+        if not part.is_multipart()
+    )
 
 
 def _payload_text(part: Message) -> str:
