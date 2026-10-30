@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Project-specific ---
+# Raw Enron dataset (~1.7 GB) — download separately, see README
+maildir/
+# Generated SQLite database (rebuilt by `python main.py run`)
+*.db
+*.db-journal
+# Real MCP credentials (only the .example template is committed)
+mcp_config.json
+.DS_Store
