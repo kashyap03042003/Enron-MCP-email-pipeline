@@ -18,3 +18,7 @@ def test_defaults():
 def test_invalid_values_are_rejected(argv):
     with pytest.raises(SystemExit):
         parse_args(argv)
+
+
+def test_plain_python_main_runs_the_full_pipeline():
+    assert parse_args([]).stage == "run"

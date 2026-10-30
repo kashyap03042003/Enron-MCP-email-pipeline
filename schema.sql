@@ -11,7 +11,8 @@
 
 PRAGMA foreign_keys = ON;
 
--- Every distinct email address, whether it appears as a sender or recipient.
+-- Every distinct recipient address (To/Cc/Bcc), stored once and referenced
+-- from email_recipients instead of as comma-separated strings.
 CREATE TABLE IF NOT EXISTS addresses (
     id    INTEGER PRIMARY KEY,
     email TEXT    NOT NULL UNIQUE           -- lowercased
@@ -23,7 +24,7 @@ CREATE TABLE IF NOT EXISTS emails (
     -- Mandatory fields
     message_id        TEXT    NOT NULL UNIQUE,      -- blocks exact duplicates on insert
     date              TEXT    NOT NULL,             -- UTC
-    sender_id         INTEGER NOT NULL REFERENCES addresses(id),
+    from_address      TEXT    NOT NULL,             -- sender address only, lowercased
     subject           TEXT    NOT NULL,             -- may be '' (header present but empty)
     body              TEXT    NOT NULL,             -- author's own text only
     source_file       TEXT    NOT NULL UNIQUE,      -- e.g. maildir/lay-k/inbox/1.
@@ -63,13 +64,8 @@ CREATE TABLE IF NOT EXISTS email_recipients (
 );
 
 CREATE INDEX IF NOT EXISTS idx_emails_date         ON emails(date);
-CREATE INDEX IF NOT EXISTS idx_emails_sender       ON emails(sender_id);
+CREATE INDEX IF NOT EXISTS idx_emails_from_address ON emails(from_address);
 CREATE INDEX IF NOT EXISTS idx_emails_subject      ON emails(subject);
 CREATE INDEX IF NOT EXISTS idx_emails_duplicate_of ON emails(duplicate_of);
 CREATE INDEX IF NOT EXISTS idx_recipients_address  ON email_recipients(address_id);
 
--- Emails with the sender's address as a column, for convenient querying.
-CREATE VIEW IF NOT EXISTS email_details AS
-SELECT e.*, a.email AS from_address
-FROM emails e
-JOIN addresses a ON a.id = e.sender_id;

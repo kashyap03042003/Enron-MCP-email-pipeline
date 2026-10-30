@@ -7,7 +7,7 @@
 
 
 -- 1. Emails sent per sender (top 5).
---    Uses the email_details view, which joins in the sender's address.
+--    Uses idx_emails_from_address.
 --    Expected: the mailbox owners lead, followed by their assistants:
 --      david.delainey@enron.com   2948
 --      john.lavorato@enron.com    2280
@@ -15,7 +15,7 @@
 --      rosalee.fleming@enron.com   885   (Ken Lay's assistant)
 --      sherri.sera@enron.com       674   (Jeff Skilling's assistant)
 SELECT from_address, COUNT(*) AS emails_sent
-FROM email_details
+FROM emails
 GROUP BY from_address
 ORDER BY emails_sent DESC
 LIMIT 5;
@@ -58,15 +58,14 @@ ORDER BY times_received DESC
 LIMIT 5;
 
 
--- 5. Everything one person sent OR received. The shared addresses table
---    makes this one lookup instead of matching strings in two places.
+-- 5. Everything one person sent OR received: the sender is matched on
+--    emails.from_address, recipients through the addresses table.
 --    Expected: one row per role, so an email where Skilling is both a To and
 --    a Bcc recipient appears twice ('to' and 'bcc'); role is 'from', 'to',
 --    'cc' or 'bcc'.
 SELECT e.date, e.subject, 'from' AS role
 FROM emails e
-JOIN addresses a ON a.id = e.sender_id
-WHERE a.email = 'jeff.skilling@enron.com'
+WHERE e.from_address = 'jeff.skilling@enron.com'
 UNION ALL
 SELECT e.date, e.subject, r.kind
 FROM emails e

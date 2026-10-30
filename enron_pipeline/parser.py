@@ -22,7 +22,7 @@ from dateutil.parser import UnknownTimezoneWarning
 
 from .body import extract_headings, mentions_attachment, split_body
 from .models import ParsedEmail, ParseError
-from .utils import decode_bytes, html_to_text
+from .utils import decode_bytes, html_to_text, none_if_blank
 
 # Zone abbreviations for the dateutil fallback (offsets in seconds).
 TZ_ABBREVIATIONS = {
@@ -89,10 +89,10 @@ def parse_bytes(raw: bytes, source_file: str) -> ParsedEmail:
         source_file=source_file,
         cc_addresses=_addresses(msg, "Cc"),
         bcc_addresses=_addresses(msg, "Bcc"),
-        x_from=_header(msg, "X-From") or None,
-        x_to=_header(msg, "X-To") or None,
-        x_cc=_header(msg, "X-cc") or None,
-        x_bcc=_header(msg, "X-bcc") or None,
+        x_from=_display_names(_header(msg, "X-From")),
+        x_to=_display_names(_header(msg, "X-To")),
+        x_cc=_display_names(_header(msg, "X-cc")),
+        x_bcc=_display_names(_header(msg, "X-bcc")),
         x_folder=_header(msg, "X-Folder") or None,
         x_origin=_header(msg, "X-Origin") or None,
         content_type=msg.get_content_type() if _raw_headers(msg, "Content-Type") else None,
@@ -129,6 +129,16 @@ def _clean_header(value: str) -> str:
     # A decoded encoded-word can still contain a line break, which is not
     # allowed in a header we later write (drafts, notices).
     return _CONTROL_CHARS.sub(" ", value).strip()
+
+
+def _display_names(value: str | None) -> str | None:
+    """Display names only, as the X-From/To/cc/bcc fields require:
+    '"Lay, Kenneth" </O=ENRON/...>, Doe, Jane <jd@x.com>' -> 'Lay, Kenneth; Doe, Jane'.
+    Each <...> part ends one person, so people are separated by '; '."""
+    if not value:
+        return None
+    names = re.sub(r"\s*<[^>]*>\s*,?\s*", "; ", value).replace('"', "")
+    return none_if_blank(names.strip("; ").strip())
 
 
 def _addresses(msg: Message, name: str) -> list[str]:

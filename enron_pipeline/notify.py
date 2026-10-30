@@ -6,8 +6,8 @@ the notices and runs the live send loop; db.py supplies the targets and
 records what was sent, and reports.py writes the drafts and the send log.
 
 Live sends are always redirected to a test inbox: the real recipients are
-(often still live) Enron addresses. The intended recipient is kept in an
-X-Original-To header and a note at the top of the body.
+(often still live) Enron addresses. The body is exactly the template; the
+intended recipient is kept in an X-Original-To header.
 """
 
 import sqlite3
@@ -126,7 +126,7 @@ def send_live(
             sender.send(
                 to=test_recipient,
                 subject=notification.subject,
-                body=f"[Test delivery: intended for {notification.to}]\n\n{notification.body}",
+                body=notification.body,  # exactly the template; the intended recipient is in X-Original-To
                 headers={"References": notification.references, "X-Original-To": notification.to},
             )
             status, error = "sent", ""

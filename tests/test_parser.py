@@ -152,7 +152,7 @@ def test_optional_enron_headers():
     email = parse(raw)
     assert email.cc_addresses == ["x@enron.com", "y@enron.com"]
     assert email.bcc_addresses == ["z@enron.com"]
-    assert email.x_from == "Ortiz, Lucy </O=ENRON/OU=NA/CN=RECIPIENTS/CN=LORTIZ>"
+    assert email.x_from == "Ortiz, Lucy"  # display name only
     assert email.x_to == "Lay, Kenneth"
     assert email.x_cc is None and email.x_bcc is None  # empty header -> NULL
     assert email.x_folder == "\\KLAY (Non-Privileged)\\Lay, Kenneth\\Inbox"
@@ -278,3 +278,14 @@ def test_attachment_without_filename_is_not_the_body():
 def test_unknown_timezone_is_rejected_in_any_case(header):
     with pytest.raises(ParseError, match="unknown timezone|unparseable Date"):
         parse(make_email(Date=header))
+
+
+@pytest.mark.parametrize("raw, expected", [
+    ("Ortiz, Lucy </O=ENRON/OU=NA/CN=RECIPIENTS/CN=LORTIZ>", "Ortiz, Lucy"),
+    ('"Garten, Jeffrey" <jeffrey.garten@yale.edu>', "Garten, Jeffrey"),
+    ("Rieker, Paula </O=ENRON/CN=Prieker>, Valencia, Laura </O=ENRON/CN=Lvalenc>", "Rieker, Paula; Valencia, Laura"),
+    ("Lay, Kenneth", "Lay, Kenneth"),
+    ("<only@address.com>", None),
+])
+def test_x_headers_keep_display_names_only(raw, expected):
+    assert parse(make_email(X_To=raw)).x_to == expected

@@ -15,7 +15,7 @@ from .models import ParsedEmail
 from .utils import to_db_datetime
 
 _EMAIL_COLUMNS = (
-    "message_id", "date", "sender_id", "subject", "body", "source_file",
+    "message_id", "date", "from_address", "subject", "body", "source_file",
     "x_from", "x_to", "x_cc", "x_bcc", "x_folder", "x_origin", "content_type",
     "has_attachment", "forwarded_content", "quoted_content", "headings",
 )
@@ -54,8 +54,7 @@ def load_emails(conn: sqlite3.Connection, emails: Iterable[ParsedEmail]) -> Load
     address_ids = {row["email"]: row["id"] for row in conn.execute("SELECT id, email FROM addresses")}
     with conn:
         for email in emails:
-            sender_id = _address_id(conn, address_ids, email.from_address)
-            cursor = conn.execute(_INSERT_EMAIL, _email_row(email, sender_id))
+            cursor = conn.execute(_INSERT_EMAIL, _email_row(email))
             if cursor.rowcount == 0:
                 result.skipped += 1
                 continue
@@ -76,9 +75,9 @@ def load_emails(conn: sqlite3.Connection, emails: Iterable[ParsedEmail]) -> Load
     return result
 
 
-def _email_row(email: ParsedEmail, sender_id: int) -> tuple:
+def _email_row(email: ParsedEmail) -> tuple:
     return (
-        email.message_id, to_db_datetime(email.date), sender_id, email.subject,
+        email.message_id, to_db_datetime(email.date), email.from_address, email.subject,
         email.body, email.source_file, email.x_from, email.x_to, email.x_cc,
         email.x_bcc, email.x_folder, email.x_origin, email.content_type,
         int(email.has_attachment), email.forwarded_content, email.quoted_content,
@@ -96,7 +95,7 @@ def _address_id(conn: sqlite3.Connection, address_ids: dict[str, int], email: st
 
 def load_candidates(conn: sqlite3.Connection) -> list[Candidate]:
     rows = conn.execute(
-        "SELECT message_id, date, from_address, subject, source_file, body FROM email_details"
+        "SELECT message_id, date, from_address, subject, source_file, body FROM emails"
     )
     return [
         Candidate(
@@ -138,7 +137,7 @@ SELECT * FROM (
            o.subject    AS original_subject, o.source_file AS original_source_file,
            ROW_NUMBER() OVER (PARTITION BY d.duplicate_of
                               ORDER BY d.date DESC, d.source_file DESC) AS newest_in_group
-    FROM email_details d
+    FROM emails d
     JOIN emails o ON o.message_id = d.duplicate_of
     WHERE d.is_duplicate = 1
 )

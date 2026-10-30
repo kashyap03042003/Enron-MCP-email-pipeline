@@ -90,7 +90,7 @@ def test_live_send_redirects_to_test_inbox_and_marks_db(conn, tmp_path):
     first = sender.sent[0]
     assert first["to"] == "me@gmail.com"
     assert first["headers"] == {"References": "<3@x>", "X-Original-To": "a@enron.com"}
-    assert first["body"].startswith("[Test delivery: intended for a@enron.com]")
+    assert first["body"] == notify.load_notifications(conn)[0].body  # exactly the template
 
     row = conn.execute("SELECT notification_sent, notification_date FROM emails WHERE message_id = '<3@x>'").fetchone()
     assert row["notification_sent"] == 1 and row["notification_date"] is not None

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T05:20:54+00:00",
+  "generated_at": "2026-10-30T06:24:08+00:00",
   "mailboxes": [
     "lay-k",
     "skilling-j",
@@ -52,16 +52,16 @@
       "rate": 25.58
     },
     "x_from": {
-      "present": 22068,
-      "rate": 100.0
+      "present": 22003,
+      "rate": 99.71
     },
     "x_to": {
-      "present": 22068,
-      "rate": 100.0
+      "present": 21703,
+      "rate": 98.35
     },
     "x_cc": {
-      "present": 5678,
-      "rate": 25.73
+      "present": 5645,
+      "rate": 25.58
     },
     "x_bcc": {
       "present": 13,

@@ -39,7 +39,7 @@ def test_schema_can_be_applied_twice(conn):
 
 def test_email_round_trip(conn):
     db.load_emails(conn, [make_email()])
-    row = conn.execute("SELECT * FROM email_details").fetchone()
+    row = conn.execute("SELECT * FROM emails").fetchone()
     assert row["message_id"] == "<1@thyme>"
     assert row["date"] == "2001-05-14 23:39:00"
     assert row["from_address"] == "jeff.skilling@enron.com"
@@ -60,11 +60,11 @@ def test_recipients_are_normalized_with_order(conn):
     ]
 
 
-def test_addresses_are_shared_between_senders_and_recipients(conn):
-    reply = make_email(2, from_address="kenneth.lay@enron.com", to_addresses=["jeff.skilling@enron.com"])
-    db.load_emails(conn, [make_email(), reply])
-    # jeff, ken, a, b: each stored once even though jeff and ken play both roles
-    assert conn.execute("SELECT COUNT(*) FROM addresses").fetchone()[0] == 4
+def test_recipient_addresses_are_stored_once(conn):
+    second = make_email(2, to_addresses=["kenneth.lay@enron.com"], cc_addresses=["b@enron.com"])
+    db.load_emails(conn, [make_email(), second])
+    # ken, a, b: each stored once although ken and b are recipients of both emails
+    assert conn.execute("SELECT COUNT(*) FROM addresses").fetchone()[0] == 3
 
 
 def test_reloading_skips_existing_emails(conn):
@@ -79,8 +79,8 @@ def test_message_id_is_unique(conn):
     db.load_emails(conn, [make_email(1)])
     with pytest.raises(sqlite3.IntegrityError):
         conn.execute(
-            "INSERT INTO emails (message_id, date, sender_id, subject, body, source_file) "
-            "VALUES ('<1@thyme>', '2001-01-01 00:00:00', 1, '', '', 'other')"
+            "INSERT INTO emails (message_id, date, from_address, subject, body, source_file) "
+            "VALUES ('<1@thyme>', '2001-01-01 00:00:00', 'x@y.com', '', '', 'other')"
         )
 
 
@@ -102,7 +102,7 @@ def test_required_indexes_exist(conn):
         for row in conn.execute("SELECT name, tbl_name FROM sqlite_master WHERE type = 'index'")
         for col in conn.execute(f"PRAGMA index_info('{row['name']}')")
     }
-    assert {("emails", "date"), ("emails", "sender_id"), ("emails", "subject")} <= indexed
+    assert {("emails", "date"), ("emails", "from_address"), ("emails", "subject")} <= indexed
 
 
 def test_sample_queries_run(conn):

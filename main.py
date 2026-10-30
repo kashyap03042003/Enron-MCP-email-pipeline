@@ -1,7 +1,7 @@
 """Enron email pipeline — command-line entry point.
 
-    python main.py run                          # full pipeline: ingest -> dedupe -> notify (dry run)
-    python main.py run --send-live --limit 5    # same, and send up to 5 notices via MCP
+    python main.py                              # full pipeline: ingest -> dedupe -> notify (dry run)
+    python main.py --send-live --limit 5        # same, and send up to 5 notices via MCP
 
 Each stage can also run on its own: `ingest`, `dedupe`, `notify`.
 Run `python main.py --help` for all options.
@@ -110,7 +110,8 @@ STAGES = {"run": run_all, "ingest": ingest, "dedupe": find_duplicates, "notify":
 
 def parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Enron email extraction pipeline")
-    parser.add_argument("stage", choices=STAGES, help="run = all stages in order")
+    parser.add_argument("stage", nargs="?", default="run", choices=STAGES,
+                        help="run = all stages in order (default)")
     parser.add_argument("--mailboxes", nargs="+", default=list(DEFAULT_MAILBOXES))
     parser.add_argument("--db", type=Path, default=DB_PATH, help="SQLite database file")
     parser.add_argument("--reset", action="store_true", help="delete the database first and rebuild it")
