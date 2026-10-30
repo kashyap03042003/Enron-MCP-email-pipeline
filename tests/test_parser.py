@@ -264,3 +264,17 @@ def test_plain_text_is_preferred_over_html():
             "--B\nContent-Type: text/html\n\n<p>HTML version</p>\n--B--\n")
     email = parse(make_email(body=body, Content_Type='multipart/alternative; boundary="B"'))
     assert email.body == "Plain version"
+
+
+def test_attachment_without_filename_is_not_the_body():
+    body = ("--B\nContent-Type: text/html\n\n<p>Real message</p>\n"
+            "--B\nContent-Type: text/plain\nContent-Disposition: attachment\n\nATTACHED FILE TEXT\n--B--\n")
+    email = parse(make_email(body=body, Content_Type='multipart/mixed; boundary="B"'))
+    assert email.body == "Real message"
+    assert email.has_attachment is True
+
+
+@pytest.mark.parametrize("header", ["Monday, May 14, 2001 4:39 PM xyz", "Monday, May 14, 2001 4:39 PM Xyz"])
+def test_unknown_timezone_is_rejected_in_any_case(header):
+    with pytest.raises(ParseError, match="unknown timezone|unparseable Date"):
+        parse(make_email(Date=header))

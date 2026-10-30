@@ -172,7 +172,9 @@ def _parse_date(value: str | None) -> datetime:
 
 
 def _parse_date_fallback(value: str) -> datetime:
-    """dateutil for non-RFC layouts. It fills missing parts from a default
+    """dateutil for non-RFC layouts, in strict (non-fuzzy) mode so that any
+    word it cannot interpret, such as an unknown zone, is an error rather
+    than silently skipped. It fills missing parts from a default
     date, so parse with two different defaults: if the results differ, the
     header lacks a year, month or day and is rejected rather than guessed."""
     try:
@@ -181,7 +183,7 @@ def _parse_date_fallback(value: str) -> datetime:
             # silently and the time read as UTC.
             warnings.simplefilter("error", UnknownTimezoneWarning)
             first, second = (
-                date_parser.parse(value, tzinfos=TZ_ABBREVIATIONS, fuzzy=True, default=default)
+                date_parser.parse(value, tzinfos=TZ_ABBREVIATIONS, default=default)
                 for default in (datetime(1901, 1, 1), datetime(1902, 2, 2))
             )
     except UnknownTimezoneWarning as exc:
@@ -197,8 +199,12 @@ def _parse_date_fallback(value: str) -> datetime:
 
 def _body(msg: Message) -> str:
     """The message text: its text/plain parts, or, when there are none, its
-    text/html parts converted to text. Attachments are never included."""
-    inline = [p for p in msg.walk() if not p.is_multipart() and not p.get_filename()]
+    text/html parts converted to text. Attachments (a filename or a
+    Content-Disposition of attachment) are never included."""
+    inline = [
+        p for p in msg.walk()
+        if not p.is_multipart() and not p.get_filename() and p.get_content_disposition() != "attachment"
+    ]
     plain = [p for p in inline if p.get_content_type() == "text/plain"]
     if plain:
         text = "\n".join(_payload_text(p) for p in plain)
