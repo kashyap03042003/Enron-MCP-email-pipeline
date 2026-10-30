@@ -33,9 +33,16 @@ TZ_ABBREVIATIONS = {
 
 _FOLDING = re.compile(r"\s*\r?\n\s+")
 _ADDR_SPEC = re.compile(r"[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+")
-# "[Tue, ]13 Nov 2001 18:25[:59]" — the stdlib parser silently misreads other
-# layouts (e.g. it ignores "PM"), so anything else goes to dateutil.
-_RFC2822_DATE = re.compile(r"^\s*(?:[A-Za-z]{3},\s*)?\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4}\s+\d{1,2}:\d{2}")
+_VALID_ADDRESS = re.compile(r"^[^@\s<>(),;:\"\[\]]+@[^@\s<>(),;:\"\[\]]+$")
+# Line breaks and other control characters (tab excepted) left after decoding.
+_CONTROL_CHARS = re.compile(r"[\x00-\x08\x0a-\x1f\x7f]+")
+# A complete RFC 2822 date: "[Tue, ]13 Nov 2001 18:25[:59] [-0800|PST] [(PST)]".
+# The stdlib parser silently misreads anything else (e.g. it ignores "PM"),
+# so other layouts go to dateutil.
+_RFC2822_DATE = re.compile(
+    r"^\s*(?:[A-Za-z]{3},\s*)?\d{1,2}\s+[A-Za-z]{3}\s+\d{2,4}\s+\d{1,2}:\d{2}(?::\d{2})?"
+    r"\s*(?:[+-]\d{4}|[A-Za-z]{1,5})?\s*(?:\([^)]*\))?\s*$"
+)
 
 
 def parse_file(path: Path, project_root: Path) -> ParsedEmail:
@@ -69,11 +76,6 @@ def parse_bytes(raw: bytes, source_file: str) -> ParsedEmail:
 
     text = _body(msg)
     parts = split_body(text)
-    cc_addresses = _addresses(msg, "Cc")
-    bcc_addresses = _addresses(msg, "Bcc")
-    if bcc_addresses == cc_addresses:
-        # Enron export artifact: Bcc is a verbatim copy of Cc, not real blind copies.
-        bcc_addresses = []
     return ParsedEmail(
         message_id=message_id,
         date=_parse_date(_header(msg, "Date")),
@@ -82,8 +84,8 @@ def parse_bytes(raw: bytes, source_file: str) -> ParsedEmail:
         subject=subject,
         body=parts.body,
         source_file=source_file,
-        cc_addresses=cc_addresses,
-        bcc_addresses=bcc_addresses,
+        cc_addresses=_addresses(msg, "Cc"),
+        bcc_addresses=_addresses(msg, "Bcc"),
         x_from=_header(msg, "X-From") or None,
         x_to=_header(msg, "X-To") or None,
         x_cc=_header(msg, "X-cc") or None,
@@ -120,24 +122,31 @@ def _clean_header(value: str) -> str:
             value = str(make_header(decode_header(value)))
         except (ValueError, LookupError):
             pass
-    return _FOLDING.sub(" ", value).strip()
+    value = _FOLDING.sub(" ", value)
+    # A decoded encoded-word can still contain a line break, which is not
+    # allowed in a header we later write (drafts, notices).
+    return _CONTROL_CHARS.sub(" ", value).strip()
 
 
 def _addresses(msg: Message, name: str) -> list[str]:
-    """All addresses in every occurrence of a header: lowercased, de-duplicated, in order."""
+    """All valid addresses in every occurrence of a header: lowercased,
+    de-duplicated, in order. Tokens that are not user@domain are dropped."""
     found: dict[str, None] = {}
     for value in _raw_headers(msg, name):
         value = _clean_header(value)
-        parsed = [addr for _, addr in getaddresses([value]) if addr]
+        parsed = [_normalize_address(addr) for _, addr in getaddresses([value])]
+        parsed = [addr for addr in parsed if _VALID_ADDRESS.match(addr)]
         if not parsed:
             # Strict getaddresses returns nothing if any one entry is malformed;
             # fall back to pulling out anything shaped like an address.
-            parsed = _ADDR_SPEC.findall(value)
+            parsed = [_normalize_address(addr) for addr in _ADDR_SPEC.findall(value)]
         for addr in parsed:
-            addr = addr.strip().strip("'\"").lower()
-            if addr:
-                found.setdefault(addr)
+            found.setdefault(addr)
     return list(found)
+
+
+def _normalize_address(addr: str) -> str:
+    return addr.strip().strip("'\"").lower()
 
 
 def _parse_date(value: str | None) -> datetime:
@@ -150,13 +159,26 @@ def _parse_date(value: str | None) -> datetime:
         except (TypeError, ValueError):
             pass
     if dt is None:
-        try:
-            dt = date_parser.parse(value, tzinfos=TZ_ABBREVIATIONS, fuzzy=True)
-        except (ValueError, OverflowError) as exc:
-            raise ParseError(f"unparseable Date header: {value!r}") from exc
+        dt = _parse_date_fallback(value)
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)  # no zone information: assume UTC
     return dt.astimezone(timezone.utc)
+
+
+def _parse_date_fallback(value: str) -> datetime:
+    """dateutil for non-RFC layouts. It fills missing parts from a default
+    date, so parse with two different defaults: if the results differ, the
+    header lacks a year, month or day and is rejected rather than guessed."""
+    try:
+        first, second = (
+            date_parser.parse(value, tzinfos=TZ_ABBREVIATIONS, fuzzy=True, default=default)
+            for default in (datetime(1901, 1, 1), datetime(1902, 2, 2))
+        )
+    except (ValueError, OverflowError) as exc:
+        raise ParseError(f"unparseable Date header: {value!r}") from exc
+    if first != second:
+        raise ParseError(f"incomplete Date header: {value!r}")
+    return first
 
 
 # --- body ------------------------------------------------------------------

@@ -13,11 +13,10 @@ BODY = "Please review the attached budget numbers before Friday's meeting with t
 
 
 def cand(n: int, date: str = "2001-05-01 10:00:00", body: str = BODY, *,
-         sender="a@enron.com", subject="Budget", quoted="", forwarded="") -> Candidate:
+         sender="a@enron.com", subject="Budget") -> Candidate:
     return Candidate(
         message_id=f"<{n}@x>", date=date, from_address=sender, subject=subject,
         source_file=f"maildir/a/inbox/{n}.", body=normalize_text(body),
-        text=normalize_text(body, quoted, forwarded),
     )
 
 
@@ -87,21 +86,20 @@ def test_score_is_reported_and_threshold_respected():
     assert find_duplicate_groups([cand(1), cand(2, "2001-05-02 00:00:00", edited)], score + 1) == []
 
 
-def test_replies_quoting_the_same_thread_are_not_duplicates():
-    thread = "> " + " ".join(["Long original message text that both replies quote."] * 20)
-    first = cand(1, body="Sounds good to me.", quoted=thread)
-    second = cand(2, "2001-05-02 00:00:00", body="I disagree, let's talk.", quoted=thread)
+def test_different_own_text_is_not_a_duplicate():
+    first = cand(1, body="Sounds good to me.")
+    second = cand(2, "2001-05-02 00:00:00", body="I disagree, let's talk.")
     assert dedupe.similarity(first, second, 90.0) == 0
     assert groups_of(first, second) == []
 
 
-def test_pure_forwards_compare_forwarded_content():
-    fwd = "-----Original Message----- " + BODY
-    other = "-----Original Message----- Quarterly gas storage report attached for review."
-    same = groups_of(cand(1, body="", forwarded=fwd), cand(2, "2001-05-02 00:00:00", body="", forwarded=fwd))
-    different = groups_of(cand(1, body="", forwarded=fwd), cand(2, "2001-05-02 00:00:00", body="", forwarded=other))
-    assert same == [("<1@x>", ["<2@x>"])]
-    assert different == []
+def test_empty_bodies_match_as_the_spec_defines():
+    # The rule compares `body` only; two pure forwards (empty body) from the
+    # same sender with the same subject are therefore 100% similar.
+    found = find_duplicate_groups([cand(1, body=""), cand(2, "2001-05-02 00:00:00", body="")], 90.0)
+    assert [(g.original.message_id, [(d.message_id, s) for d, s in g.duplicates]) for g in found] == [
+        ("<1@x>", [("<2@x>", 100.0)])
+    ]
 
 
 def test_each_duplicate_is_compared_to_the_original_not_a_chain():
@@ -121,11 +119,11 @@ def test_equal_timestamps_break_ties_by_source_file():
 
 # --- database integration ----------------------------------------------------
 
-def parsed(n: int, day: int, body: str = BODY) -> ParsedEmail:
+def parsed(n: int, day: int, body: str = BODY, **optional) -> ParsedEmail:
     return ParsedEmail(
         message_id=f"<{n}@x>", date=datetime(2001, 5, day, tzinfo=timezone.utc),
         from_address="a@enron.com", to_addresses=["b@enron.com"], subject="Budget",
-        body=body, source_file=f"maildir/a/inbox/{n}.",
+        body=body, source_file=f"maildir/a/inbox/{n}.", **optional,
     )
 
 
@@ -182,3 +180,17 @@ def test_report_and_summary(conn, tmp_path):
     assert stats["groups"] == 1
     assert stats["emails_flagged"] == 2
     assert stats["average_group_size"] == 3.0
+
+
+def test_identical_bodies_match_even_when_quoted_and_forwarded_content_differ(tmp_path):
+    conn = db.connect(tmp_path / "q.db")
+    db.init_schema(conn, SCHEMA_PATH)
+    db.load_emails(conn, [
+        parsed(1, 1, quoted_content="> first thread", forwarded_content="-----Original Message----- A"),
+        parsed(2, 2, quoted_content="> a different thread", forwarded_content="-----Original Message----- B"),
+    ])
+    groups = find_duplicate_groups(db.load_candidates(conn), 90.0)
+    conn.close()
+    assert [(g.original.message_id, [d.message_id for d, _ in g.duplicates]) for g in groups] == [
+        ("<1@x>", ["<2@x>"])
+    ]

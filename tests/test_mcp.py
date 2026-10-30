@@ -15,6 +15,7 @@ class FakeSMTP:
     """Stands in for smtplib.SMTP_SSL and records what would be sent."""
     sent: list = []
     fail_login = False
+    refuse: dict = {}  # address -> (code, message), as smtplib reports rejections
 
     def __init__(self, host, port, timeout):
         self.address = (host, port)
@@ -32,11 +33,12 @@ class FakeSMTP:
 
     def send_message(self, msg):
         FakeSMTP.sent.append((self.address, self.credentials, msg))
+        return FakeSMTP.refuse
 
 
 @pytest.fixture
 def smtp(monkeypatch):
-    FakeSMTP.sent, FakeSMTP.fail_login = [], False
+    FakeSMTP.sent, FakeSMTP.fail_login, FakeSMTP.refuse = [], False, {}
     monkeypatch.setattr(gmail.smtplib, "SMTP_SSL", FakeSMTP)
     monkeypatch.setenv("GMAIL_ADDRESS", "me@gmail.com")
     monkeypatch.setenv("GMAIL_APP_PASSWORD", "abcd efgh ijkl mnop")
@@ -93,6 +95,14 @@ def test_invalid_requests_are_rejected_with_a_reason(smtp, arguments, message):
     assert result.is_error
     assert message in text_of(result)
     assert smtp.sent == []
+
+
+def test_partially_refused_recipients_are_reported_not_hidden(smtp):
+    smtp.refuse = {"bad@example.com": (550, b"No such user")}
+    result = call({"to": ["good@example.com", "bad@example.com"], "subject": "s", "body": "b"})
+    assert result.is_error
+    assert "rejected bad@example.com" in text_of(result)
+    assert "accepted good@example.com" in text_of(result)
 
 
 def test_bad_app_password_gives_a_helpful_error(smtp):

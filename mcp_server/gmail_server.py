@@ -66,7 +66,7 @@ def send_email(
     try:
         with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=30) as smtp:
             smtp.login(sender, password)
-            smtp.send_message(msg)
+            refused = smtp.send_message(msg)  # recipients the server rejected
     except smtplib.SMTPAuthenticationError as exc:
         raise ToolError(
             "Gmail rejected the login. GMAIL_APP_PASSWORD must be an App Password "
@@ -74,6 +74,12 @@ def send_email(
         ) from exc
     except (smtplib.SMTPException, OSError) as exc:
         raise ToolError(f"SMTP error: {type(exc).__name__}: {exc}") from exc
+    if refused:
+        delivered = [a for a in [*to, *(cc or [])] if a not in refused]
+        raise ToolError(
+            f"partially delivered: rejected {', '.join(refused)}; "
+            f"accepted {', '.join(delivered) or 'none'} (Message-ID: {msg['Message-ID']})"
+        )
     return f"Sent to {', '.join(to)} (Message-ID: {msg['Message-ID']})"
 
 

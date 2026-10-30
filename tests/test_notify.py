@@ -123,3 +123,21 @@ def test_failed_send_is_logged_and_does_not_stop_the_run(conn, tmp_path):
     with log.open() as fh:
         failed = next(r for r in csv.DictReader(fh) if r["status"] == "failed")
     assert failed["error"] == "ConnectionError: SMTP unavailable"
+
+
+# --- regressions from code review --------------------------------------------
+
+def test_drafts_cover_every_flagged_email(conn):
+    drafts = notify.load_notifications(conn, all_flagged=True)
+    assert [n.references for n in drafts] == ["<2@x>", "<3@x>", "<5@x>"]
+    assert [n.to for n in drafts] == ["a@enron.com", "a@enron.com", "b@enron.com"]
+
+
+def test_delivered_notice_is_recorded_even_if_logging_fails(conn, tmp_path):
+    unwritable_log = tmp_path / "is_a_directory"
+    unwritable_log.mkdir()
+    with pytest.raises(OSError):
+        notify.send_live(conn, notify.load_notifications(conn), FakeSender(), "me@gmail.com",
+                         unwritable_log, limit=1)
+    # The send succeeded, so it must not be retried on the next run.
+    assert conn.execute("SELECT notification_sent FROM emails WHERE message_id = '<3@x>'").fetchone()[0] == 1

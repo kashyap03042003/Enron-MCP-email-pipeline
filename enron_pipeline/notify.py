@@ -65,7 +65,9 @@ class SendSummary:
     skipped: int = 0  # already notified in an earlier run
 
 
-def load_notifications(conn: sqlite3.Connection) -> list[Notification]:
+def load_notifications(conn: sqlite3.Connection, all_flagged: bool = False) -> list[Notification]:
+    """One notice per duplicate group (its latest email), or one per flagged
+    email with all_flagged=True."""
     return [
         Notification(
             to=row["from_address"],
@@ -81,7 +83,7 @@ def load_notifications(conn: sqlite3.Connection) -> list[Notification]:
             ),
             already_sent=bool(row["notification_sent"]),
         )
-        for row in db.load_notification_targets(conn)
+        for row in db.load_notification_targets(conn, all_flagged)
     ]
 
 
@@ -105,9 +107,11 @@ def send_live(
 ) -> SendSummary:
     """Send pending notices to the test inbox.
 
-    For each notice: send it, log the attempt, and on success record it in
-    the database. Notices already marked as sent are skipped, so repeated runs
-    carry on where the last one stopped. `limit` caps send attempts per run.
+    For each notice: send it, record a success in the database, then log the
+    attempt. The database is updated before the log so that a logging failure
+    can never cause a delivered notice to be sent again. Notices already
+    marked as sent are skipped, so repeated runs carry on where the last one
+    stopped. `limit` caps send attempts per run.
     """
     summary = SendSummary()
     for notification in notifications:
@@ -129,13 +133,13 @@ def send_live(
         except Exception as exc:  # one failed send must not stop the rest
             status, error = "failed", f"{type(exc).__name__}: {exc}"
 
-        reports.append_send_log(log_path, [
-            now.isoformat(timespec="seconds"), test_recipient, notification.subject, status, error,
-            notification.to, notification.references,
-        ])
         if status == "sent":
             summary.sent += 1
             db.mark_notified(conn, notification.references, now)
         else:
             summary.failed += 1
+        reports.append_send_log(log_path, [
+            now.isoformat(timespec="seconds"), test_recipient, notification.subject, status, error,
+            notification.to, notification.references,
+        ])
     return summary

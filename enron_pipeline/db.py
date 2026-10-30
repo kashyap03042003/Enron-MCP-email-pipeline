@@ -96,15 +96,12 @@ def _address_id(conn: sqlite3.Connection, address_ids: dict[str, int], email: st
 
 def load_candidates(conn: sqlite3.Connection) -> list[Candidate]:
     rows = conn.execute(
-        "SELECT message_id, date, from_address, subject, source_file, "
-        "body, quoted_content, forwarded_content FROM email_details"
+        "SELECT message_id, date, from_address, subject, source_file, body FROM email_details"
     )
     return [
         Candidate(
             message_id=r["message_id"], date=r["date"], from_address=r["from_address"],
-            subject=r["subject"], source_file=r["source_file"],
-            body=normalize_text(r["body"]),
-            text=normalize_text(r["body"], r["quoted_content"], r["forwarded_content"]),
+            subject=r["subject"], source_file=r["source_file"], body=normalize_text(r["body"]),
         )
         for r in rows
     ]
@@ -131,27 +128,29 @@ def save_duplicate_flags(conn: sqlite3.Connection, groups: list[DuplicateGroup])
 
 # --- Task 4: notification targets and state --------------------------------
 
-# The latest flagged email of each group (ties broken by source_file, as in
-# dedupe), together with that group's original.
-_NOTIFICATION_TARGETS_SQL = """
-SELECT d.message_id, d.date, d.subject, d.from_address, d.similarity_score,
-       d.notification_sent,
-       o.message_id AS original_message_id, o.date AS original_date,
-       o.subject    AS original_subject
-FROM email_details d
-JOIN emails o ON o.message_id = d.duplicate_of
-WHERE d.is_duplicate = 1
-  AND NOT EXISTS (
-      SELECT 1 FROM emails later
-      WHERE later.duplicate_of = d.duplicate_of
-        AND (later.date, later.source_file) > (d.date, d.source_file)
-  )
-ORDER BY o.date, o.source_file
+# Every flagged email with its group's original. `newest_in_group` is 1 for
+# the latest duplicate of each group (ties broken by source_file, as in dedupe).
+_FLAGGED_EMAILS_SQL = """
+SELECT * FROM (
+    SELECT d.message_id, d.date, d.subject, d.from_address, d.similarity_score,
+           d.notification_sent, d.source_file,
+           o.message_id AS original_message_id, o.date AS original_date,
+           o.subject    AS original_subject, o.source_file AS original_source_file,
+           ROW_NUMBER() OVER (PARTITION BY d.duplicate_of
+                              ORDER BY d.date DESC, d.source_file DESC) AS newest_in_group
+    FROM email_details d
+    JOIN emails o ON o.message_id = d.duplicate_of
+    WHERE d.is_duplicate = 1
+)
+WHERE newest_in_group = 1 OR :all_flagged
+ORDER BY original_date, original_source_file, date, source_file
 """
 
 
-def load_notification_targets(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute(_NOTIFICATION_TARGETS_SQL).fetchall()
+def load_notification_targets(conn: sqlite3.Connection, all_flagged: bool = False) -> list[sqlite3.Row]:
+    """The latest duplicate of each group (who gets notified), or with
+    all_flagged=True every flagged email (for the dry-run drafts)."""
+    return conn.execute(_FLAGGED_EMAILS_SQL, {"all_flagged": all_flagged}).fetchall()
 
 
 def mark_notified(conn: sqlite3.Connection, message_id: str, when: datetime) -> None:

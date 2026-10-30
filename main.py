@@ -69,10 +69,13 @@ def send_notices(args: argparse.Namespace) -> None:
     conn = db.connect(args.db)
     try:
         db.init_schema(conn, SCHEMA_PATH)
-        notifications = notify.load_notifications(conn)
+        # Dry run: a draft for every flagged email. Live: one notice per group,
+        # to the sender of its latest duplicate (assignment sections 7 and 4.2).
+        drafts = notify.load_notifications(conn, all_flagged=True)
         now = utc_now()
-        reports.write_drafts([notify.to_eml(n, now) for n in notifications], REPLIES_DIR)
-        print(f"Drafts written: {len(notifications):,} -> output/replies/")
+        reports.write_drafts([notify.to_eml(n, now) for n in drafts], REPLIES_DIR)
+        print(f"Drafts written: {len(drafts):,} -> output/replies/")
+        notifications = notify.load_notifications(conn)
         if not args.send_live:
             print("Dry run: nothing was sent. Add --send-live to send through the MCP server.")
             return
@@ -121,7 +124,12 @@ def parse_args(argv: list[str] | None) -> argparse.Namespace:
                         help="inbox for live notices (default: GMAIL_ADDRESS from the MCP config)")
     parser.add_argument("--mcp-config", type=Path, default=MCP_CONFIG,
                         help="mcpServers config file (default: mcp_config.json)")
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    if not 0 <= args.threshold <= 100:
+        parser.error("--threshold must be between 0 and 100")
+    if args.limit < 1:
+        parser.error("--limit must be at least 1")
+    return args
 
 
 def main(argv: list[str] | None = None) -> int:

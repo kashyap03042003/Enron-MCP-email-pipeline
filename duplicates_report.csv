@@ -68,8 +68,8 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <6458946.1075840255272.JavaMail.evans@thyme>,<10250203.1075840200733.JavaMail.evans@thyme>,Re: Contact information,elizabeth.lay@enron.com,1999-07-27 17:26:00,1999-07-27 17:26:00,100.00
 <29020904.1075840230207.JavaMail.evans@thyme>,<6708801.1075840200757.JavaMail.evans@thyme>,Franco Bernabe's tel number,ggalata@enron.co.uk,1999-08-02 15:33:00,1999-08-02 15:33:00,100.00
 <4373267.1075840230368.JavaMail.evans@thyme>,<6708801.1075840200757.JavaMail.evans@thyme>,Franco Bernabe's tel number,ggalata@enron.co.uk,1999-08-02 15:33:00,1999-08-02 15:33:00,100.00
-<7111253.1075840230266.JavaMail.evans@thyme>,<11927727.1075840200780.JavaMail.evans@thyme>,"Statements concerning last week,s price spike",maureen.mcvicker@enron.com,1999-08-03 11:49:00,1999-08-03 11:49:00,100.00
-<17294524.1075840230392.JavaMail.evans@thyme>,<11927727.1075840200780.JavaMail.evans@thyme>,"Statements concerning last week,s price spike",maureen.mcvicker@enron.com,1999-08-03 11:49:00,1999-08-03 11:49:00,100.00
+<7111253.1075840230266.JavaMail.evans@thyme>,<11927727.1075840200780.JavaMail.evans@thyme>,"Statements concerning last week ,s price spike",maureen.mcvicker@enron.com,1999-08-03 11:49:00,1999-08-03 11:49:00,100.00
+<17294524.1075840230392.JavaMail.evans@thyme>,<11927727.1075840200780.JavaMail.evans@thyme>,"Statements concerning last week ,s price spike",maureen.mcvicker@enron.com,1999-08-03 11:49:00,1999-08-03 11:49:00,100.00
 <11628383.1075840081987.JavaMail.evans@thyme>,<5062879.1075840066095.JavaMail.evans@thyme>,,markskilling@hotmail.com,1999-08-10 03:09:00,1999-08-10 03:09:00,100.00
 <27240695.1075840094692.JavaMail.evans@thyme>,<5062879.1075840066095.JavaMail.evans@thyme>,,markskilling@hotmail.com,1999-08-10 03:09:00,1999-08-10 03:09:00,100.00
 <17227506.1075840082017.JavaMail.evans@thyme>,<31327262.1075840066122.JavaMail.evans@thyme>,,markskilling@hotmail.com,1999-08-10 03:34:00,1999-08-10 03:34:00,100.00
@@ -453,10 +453,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <6907095.1075845529785.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-28 16:06:00,2000-01-28 16:06:00,100.00
 <561433.1075857722812.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-28 16:06:00,2000-01-28 16:06:00,100.00
 <30953098.1075845550660.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-28 16:06:00,2000-01-28 16:06:00,100.00
-<20933042.1075857757288.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,94.67
-<14162662.1075845529831.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,94.67
-<19406749.1075857722857.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,94.67
-<820356.1075845550683.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,94.67
+<20933042.1075857757288.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,100.00
+<14162662.1075845529831.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,100.00
+<19406749.1075857722857.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,100.00
+<820356.1075845550683.JavaMail.evans@thyme>,<3418850.1075857757310.JavaMail.evans@thyme>,Memo re Ontario/Alberta power markets,john.lavorato@enron.com,2000-01-31 13:04:00,2000-01-28 16:06:00,100.00
 <7210356.1075857722835.JavaMail.evans@thyme>,<22770420.1075845529808.JavaMail.evans@thyme>,Legal Risks of Alberta PPAs,robert.hemstock@enron.com,2000-01-28 19:34:00,2000-01-28 19:34:00,100.00
 <10267461.1075845043945.JavaMail.evans@thyme>,<17285904.1075844999925.JavaMail.evans@thyme>,Re: TBMA,mark.haedicke@enron.com,2000-01-31 12:01:00,2000-01-31 12:01:00,100.00
 <28332227.1075845043967.JavaMail.evans@thyme>,<9928224.1075844999948.JavaMail.evans@thyme>,Re: Backup,mark.haedicke@enron.com,2000-02-01 14:58:00,2000-02-01 14:58:00,100.00
@@ -1252,9 +1252,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <26223084.1075854444380.JavaMail.evans@thyme>,<9588403.1075854493950.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:02:00,2000-05-24 09:02:00,100.00
 <29173274.1075854446758.JavaMail.evans@thyme>,<9588403.1075854493950.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:02:00,2000-05-24 09:02:00,100.00
 <28990854.1075854477481.JavaMail.evans@thyme>,<9588403.1075854493950.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:02:00,2000-05-24 09:02:00,100.00
-<11858511.1075854444359.JavaMail.evans@thyme>,<14896126.1075854493928.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:03:00,2000-05-24 09:03:00,100.00
-<17863315.1075854446780.JavaMail.evans@thyme>,<14896126.1075854493928.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:03:00,2000-05-24 09:03:00,100.00
-<4801204.1075854477460.JavaMail.evans@thyme>,<14896126.1075854493928.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:03:00,2000-05-24 09:03:00,100.00
+<14896126.1075854493928.JavaMail.evans@thyme>,<9588403.1075854493950.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:03:00,2000-05-24 09:02:00,100.00
+<11858511.1075854444359.JavaMail.evans@thyme>,<9588403.1075854493950.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:03:00,2000-05-24 09:02:00,100.00
+<17863315.1075854446780.JavaMail.evans@thyme>,<9588403.1075854493950.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:03:00,2000-05-24 09:02:00,100.00
+<4801204.1075854477460.JavaMail.evans@thyme>,<9588403.1075854493950.JavaMail.evans@thyme>,"Re: Super Saturday, June 3, 2000",david.delainey@enron.com,2000-05-24 09:03:00,2000-05-24 09:02:00,100.00
 <12221157.1075854444315.JavaMail.evans@thyme>,<20275211.1075854493885.JavaMail.evans@thyme>,Re:Build Out Power Mid Market Group,david.delainey@enron.com,2000-05-24 09:05:00,2000-05-24 09:05:00,100.00
 <17238543.1075854446802.JavaMail.evans@thyme>,<20275211.1075854493885.JavaMail.evans@thyme>,Re:Build Out Power Mid Market Group,david.delainey@enron.com,2000-05-24 09:05:00,2000-05-24 09:05:00,100.00
 <32084466.1075854477416.JavaMail.evans@thyme>,<20275211.1075854493885.JavaMail.evans@thyme>,Re:Build Out Power Mid Market Group,david.delainey@enron.com,2000-05-24 09:05:00,2000-05-24 09:05:00,100.00
@@ -1292,10 +1293,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <7773323.1075845532914.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 09:19:00,2000-05-26 09:19:00,100.00
 <6631730.1075857724791.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 09:19:00,2000-05-26 09:19:00,100.00
 <17159257.1075845552924.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 09:19:00,2000-05-26 09:19:00,100.00
-<31480901.1075857755086.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,99.47
-<18842248.1075845532936.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,99.47
-<25219328.1075857724813.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,99.47
-<28852854.1075845552946.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,99.47
+<31480901.1075857755086.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,100.00
+<18842248.1075845532936.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,100.00
+<25219328.1075857724813.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,100.00
+<28852854.1075845552946.JavaMail.evans@thyme>,<13227980.1075857755107.JavaMail.evans@thyme>,Molson ad,john.lavorato@enron.com,2000-05-26 10:50:00,2000-05-26 09:19:00,100.00
 <4952321.1075840203372.JavaMail.evans@thyme>,<33426891.1075840284515.JavaMail.evans@thyme>,"Attachments to e-mail letter of May 18, 2000",rosalee.fleming@enron.com,2000-05-26 10:03:00,2000-05-26 10:03:00,100.00
 <18861805.1075840231916.JavaMail.evans@thyme>,<33426891.1075840284515.JavaMail.evans@thyme>,"Attachments to e-mail letter of May 18, 2000",rosalee.fleming@enron.com,2000-05-26 10:03:00,2000-05-26 10:03:00,100.00
 <21823875.1075840281791.JavaMail.evans@thyme>,<33426891.1075840284515.JavaMail.evans@thyme>,"Attachments to e-mail letter of May 18, 2000",rosalee.fleming@enron.com,2000-05-26 10:03:00,2000-05-26 10:03:00,100.00
@@ -1425,6 +1426,25 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <8523874.1075845533278.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-05 14:00:00,2000-06-05 14:00:00,100.00
 <10571987.1075857724966.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-05 14:00:00,2000-06-05 14:00:00,100.00
 <11097963.1075845553169.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-05 14:00:00,2000-06-05 14:00:00,100.00
+<13723811.1075857754539.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-20 12:19:00,2000-06-05 14:00:00,100.00
+<28327859.1075845533876.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-20 12:19:00,2000-06-05 14:00:00,100.00
+<29795308.1075857725477.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-20 12:19:00,2000-06-05 14:00:00,100.00
+<3173641.1075845553503.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-20 12:19:00,2000-06-05 14:00:00,100.00
+<25238778.1075857751297.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:00:00,2000-06-05 14:00:00,100.00
+<7011372.1075845537920.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:00:00,2000-06-05 14:00:00,100.00
+<31107237.1075857728027.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:00:00,2000-06-05 14:00:00,100.00
+<32300319.1075845556880.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:00:00,2000-06-05 14:00:00,100.00
+<26786799.1075857749679.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:54:00,2000-06-05 14:00:00,100.00
+<29996618.1075845539635.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:54:00,2000-06-05 14:00:00,100.00
+<881973.1075857728706.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:54:00,2000-06-05 14:00:00,100.00
+<3678817.1075845558495.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:54:00,2000-06-05 14:00:00,100.00
+<27265183.1075857746432.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-07 20:04:00,2000-06-05 14:00:00,100.00
+<25464269.1075845543542.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-07 20:04:00,2000-06-05 14:00:00,100.00
+<5586394.1075857730948.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-07 20:04:00,2000-06-05 14:00:00,100.00
+<22548972.1075845561802.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-07 20:04:00,2000-06-05 14:00:00,100.00
+<19417384.1075845547177.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2001-01-22 21:55:00,2000-06-05 14:00:00,100.00
+<11626218.1075845564594.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2001-01-22 21:55:00,2000-06-05 14:00:00,100.00
+<27759086.1075857684763.JavaMail.evans@thyme>,<6053244.1075857754891.JavaMail.evans@thyme>,,john.lavorato@enron.com,2001-01-23 09:55:00,2000-06-05 14:00:00,100.00
 <22680623.1075840084578.JavaMail.evans@thyme>,<15383855.1075840069974.JavaMail.evans@thyme>,we knew we were right,jeffrey.shankman@enron.com,2000-06-05 14:09:00,2000-06-05 14:09:00,100.00
 <14893135.1075840084606.JavaMail.evans@thyme>,<19560686.1075840070012.JavaMail.evans@thyme>,"EnronOnline Management Report for June 2, 2000",leonardo.pacheco@enron.com,2000-06-05 14:15:00,2000-06-05 14:15:00,100.00
 <24338308.1075840084666.JavaMail.evans@thyme>,<3753803.1075840070076.JavaMail.evans@thyme>,,jeffrey.shankman@enron.com,2000-06-05 15:13:00,2000-06-05 15:13:00,100.00
@@ -1489,10 +1509,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <18359210.1075854443642.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-08 08:58:00,2000-06-08 08:58:00,100.00
 <2961378.1075854447357.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-08 08:58:00,2000-06-08 08:58:00,100.00
 <3810540.1075854476749.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-08 08:58:00,2000-06-08 08:58:00,100.00
-<28013394.1075854492645.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,91.12
-<11738473.1075854443061.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,91.12
-<16896857.1075854447892.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,91.12
-<28562124.1075854476172.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,91.12
+<28013394.1075854492645.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,100.00
+<11738473.1075854443061.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,100.00
+<16896857.1075854447892.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,100.00
+<28562124.1075854476172.JavaMail.evans@thyme>,<4328595.1075854493247.JavaMail.evans@thyme>,Reviewer Approval,david.delainey@enron.com,2000-06-15 09:14:00,2000-06-08 08:58:00,100.00
 <14237818.1075854443620.JavaMail.evans@thyme>,<12020917.1075854493225.JavaMail.evans@thyme>,Re: Confidential,david.delainey@enron.com,2000-06-08 08:59:00,2000-06-08 08:59:00,100.00
 <23151127.1075854476727.JavaMail.evans@thyme>,<12020917.1075854493225.JavaMail.evans@thyme>,Re: Confidential,david.delainey@enron.com,2000-06-08 08:59:00,2000-06-08 08:59:00,100.00
 <20716393.1075840085362.JavaMail.evans@thyme>,<21005093.1075840070745.JavaMail.evans@thyme>,"EnronOnline Management Report for June 7, 2000",leonardo.pacheco@enron.com,2000-06-08 13:34:00,2000-06-08 13:34:00,100.00
@@ -1702,9 +1722,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <20376750.1075854442761.JavaMail.evans@thyme>,<25637250.1075854492348.JavaMail.evans@thyme>,Distributed Generation Business Overview Meeting,david.delainey@enron.com,2000-06-20 09:44:00,2000-06-20 09:44:00,100.00
 <2798860.1075854448192.JavaMail.evans@thyme>,<25637250.1075854492348.JavaMail.evans@thyme>,Distributed Generation Business Overview Meeting,david.delainey@enron.com,2000-06-20 09:44:00,2000-06-20 09:44:00,100.00
 <14758937.1075854475872.JavaMail.evans@thyme>,<25637250.1075854492348.JavaMail.evans@thyme>,Distributed Generation Business Overview Meeting,david.delainey@enron.com,2000-06-20 09:44:00,2000-06-20 09:44:00,100.00
-<28327859.1075845533876.JavaMail.evans@thyme>,<13723811.1075857754539.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-20 12:19:00,2000-06-20 12:19:00,100.00
-<29795308.1075857725477.JavaMail.evans@thyme>,<13723811.1075857754539.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-20 12:19:00,2000-06-20 12:19:00,100.00
-<3173641.1075845553503.JavaMail.evans@thyme>,<13723811.1075857754539.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-06-20 12:19:00,2000-06-20 12:19:00,100.00
 <15638291.1075840203845.JavaMail.evans@thyme>,<33008786.1075840284913.JavaMail.evans@thyme>,"Re: EXECUTIVE COMMITTEE MEETING - MONDAY, JUNE 26, 2000",rosalee.fleming@enron.com,2000-06-20 13:26:00,2000-06-20 13:26:00,100.00
 <6940466.1075840281398.JavaMail.evans@thyme>,<33008786.1075840284913.JavaMail.evans@thyme>,"Re: EXECUTIVE COMMITTEE MEETING - MONDAY, JUNE 26, 2000",rosalee.fleming@enron.com,2000-06-20 13:26:00,2000-06-20 13:26:00,100.00
 <3411751.1075857725499.JavaMail.evans@thyme>,<2492362.1075845533898.JavaMail.evans@thyme>,The Absolute End.....,dawn.doucet@enron.com,2000-06-20 15:53:00,2000-06-20 15:53:00,100.00
@@ -1940,10 +1957,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <14422723.1075854441939.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:49:00,2000-06-29 12:49:00,100.00
 <2236846.1075854448973.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:49:00,2000-06-29 12:49:00,100.00
 <17328907.1075854475071.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:49:00,2000-06-29 12:49:00,100.00
-<9890000.1075854491527.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,99.93
-<16224057.1075854441917.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,99.93
-<13709525.1075854448997.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,99.93
-<12147467.1075854475049.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,99.93
+<9890000.1075854491527.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,100.00
+<16224057.1075854441917.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,100.00
+<13709525.1075854448997.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,100.00
+<12147467.1075854475049.JavaMail.evans@thyme>,<26131270.1075854491549.JavaMail.evans@thyme>,Executive Impact and Influence Course,david.delainey@enron.com,2000-06-29 12:50:00,2000-06-29 12:49:00,100.00
 <32397810.1075845048567.JavaMail.evans@thyme>,<32899987.1075845004852.JavaMail.evans@thyme>,E-Signature Protocol,mark.haedicke@enron.com,2000-06-29 12:49:00,2000-06-29 12:49:00,100.00
 <22241141.1075845048591.JavaMail.evans@thyme>,<6602353.1075845004876.JavaMail.evans@thyme>,Re: E-Signature Protocol,mark.haedicke@enron.com,2000-06-29 12:51:00,2000-06-29 12:51:00,100.00
 <8967048.1075854441895.JavaMail.evans@thyme>,<10276346.1075854491505.JavaMail.evans@thyme>,Executive Impact and Influence Course,kay.chapman@enron.com,2000-06-29 12:54:00,2000-06-29 12:54:00,100.00
@@ -2567,10 +2584,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <16244752.1075854439198.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:08:00,2000-08-01 18:08:00,100.00
 <30262579.1075854451456.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:08:00,2000-08-01 18:08:00,100.00
 <25550268.1075854472343.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:08:00,2000-08-01 18:08:00,100.00
-<7516149.1075854488857.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,99.85
-<23924495.1075854439176.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,99.85
-<5097839.1075854451479.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,99.85
-<13822983.1075854472321.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,99.85
+<7516149.1075854488857.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,100.00
+<23924495.1075854439176.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,100.00
+<5097839.1075854451479.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,100.00
+<13822983.1075854472321.JavaMail.evans@thyme>,<25037930.1075854488879.JavaMail.evans@thyme>,Status Report - ENA NI/Issues - Manager/Director Level,david.delainey@enron.com,2000-08-01 18:13:00,2000-08-01 18:08:00,100.00
 <8532278.1075854439153.JavaMail.evans@thyme>,<5596512.1075854488834.JavaMail.evans@thyme>,California ISO Board Vote - 8/1,david.delainey@enron.com,2000-08-01 18:14:00,2000-08-01 18:14:00,100.00
 <14916792.1075854451500.JavaMail.evans@thyme>,<5596512.1075854488834.JavaMail.evans@thyme>,California ISO Board Vote - 8/1,david.delainey@enron.com,2000-08-01 18:14:00,2000-08-01 18:14:00,100.00
 <5087791.1075854472298.JavaMail.evans@thyme>,<5596512.1075854488834.JavaMail.evans@thyme>,California ISO Board Vote - 8/1,david.delainey@enron.com,2000-08-01 18:14:00,2000-08-01 18:14:00,100.00
@@ -3043,6 +3060,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <6746764.1075854437566.JavaMail.evans@thyme>,<14117859.1075854487273.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-21 10:26:00,2000-08-21 10:26:00,100.00
 <23856222.1075854453080.JavaMail.evans@thyme>,<14117859.1075854487273.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-21 10:26:00,2000-08-21 10:26:00,100.00
 <1951568.1075854470727.JavaMail.evans@thyme>,<14117859.1075854487273.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-21 10:26:00,2000-08-21 10:26:00,100.00
+<33094249.1075854487085.JavaMail.evans@thyme>,<14117859.1075854487273.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-25 12:54:00,2000-08-21 10:26:00,100.00
+<20908759.1075854437386.JavaMail.evans@thyme>,<14117859.1075854487273.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-25 12:54:00,2000-08-21 10:26:00,100.00
+<31486696.1075854453217.JavaMail.evans@thyme>,<14117859.1075854487273.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-25 12:54:00,2000-08-21 10:26:00,100.00
+<2469966.1075854470544.JavaMail.evans@thyme>,<14117859.1075854487273.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-25 12:54:00,2000-08-21 10:26:00,100.00
 <32789222.1075845537714.JavaMail.evans@thyme>,<30592135.1075857751448.JavaMail.evans@thyme>,Re:,john.lavorato@enron.com,2000-08-21 10:42:00,2000-08-21 10:42:00,100.00
 <25370347.1075845556718.JavaMail.evans@thyme>,<30592135.1075857751448.JavaMail.evans@thyme>,Re:,john.lavorato@enron.com,2000-08-21 10:42:00,2000-08-21 10:42:00,100.00
 <11431150.1075845050512.JavaMail.evans@thyme>,<5171323.1075845006868.JavaMail.evans@thyme>,Re: resent resume,mark.haedicke@enron.com,2000-08-21 10:50:00,2000-08-21 10:50:00,100.00
@@ -3158,9 +3179,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <5889611.1075854470566.JavaMail.evans@thyme>,<16789924.1075854487107.JavaMail.evans@thyme>,ENA Litigation Status Report,david.delainey@enron.com,2000-08-25 10:29:00,2000-08-25 10:29:00,100.00
 <16327997.1075845537873.JavaMail.evans@thyme>,<26577898.1075857751318.JavaMail.evans@thyme>,Re: Board of Directors Meeting - August 1st,kimberly.hillis@enron.com,2000-08-25 12:04:00,2000-08-25 12:04:00,100.00
 <13565842.1075845556858.JavaMail.evans@thyme>,<26577898.1075857751318.JavaMail.evans@thyme>,Re: Board of Directors Meeting - August 1st,kimberly.hillis@enron.com,2000-08-25 12:04:00,2000-08-25 12:04:00,100.00
-<20908759.1075854437386.JavaMail.evans@thyme>,<33094249.1075854487085.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-25 12:54:00,2000-08-25 12:54:00,100.00
-<31486696.1075854453217.JavaMail.evans@thyme>,<33094249.1075854487085.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-25 12:54:00,2000-08-25 12:54:00,100.00
-<2469966.1075854470544.JavaMail.evans@thyme>,<33094249.1075854487085.JavaMail.evans@thyme>,Memo on Vitro Project,david.delainey@enron.com,2000-08-25 12:54:00,2000-08-25 12:54:00,100.00
 <8938671.1075840233645.JavaMail.evans@thyme>,<28031006.1075840206168.JavaMail.evans@thyme>,from:Marilyn Hurt Friday 8/25/00,whurt@cvalley.net,2000-08-25 13:36:00,2000-08-25 13:36:00,100.00
 <4667798.1075840257321.JavaMail.evans@thyme>,<28031006.1075840206168.JavaMail.evans@thyme>,from:Marilyn Hurt Friday 8/25/00,whurt@cvalley.net,2000-08-25 13:36:00,2000-08-25 13:36:00,100.00
 <9060694.1075840233669.JavaMail.evans@thyme>,<12899346.1075840206191.JavaMail.evans@thyme>,My Retirement,joe.hillings@enron.com,2000-08-25 14:09:00,2000-08-25 14:09:00,100.00
@@ -3345,9 +3363,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <26981448.1075840280090.JavaMail.evans@thyme>,<8614673.1075840286195.JavaMail.evans@thyme>,Re: Breakfast Club,rosalee.fleming@enron.com,2000-09-05 16:01:00,2000-09-05 16:01:00,100.00
 <11824204.1075840234769.JavaMail.evans@thyme>,<6170099.1075840207256.JavaMail.evans@thyme>,New e-mail address,kirbynrg@swbell.net,2000-09-05 17:25:00,2000-09-05 17:25:00,100.00
 <11203311.1075840258301.JavaMail.evans@thyme>,<6170099.1075840207256.JavaMail.evans@thyme>,New e-mail address,kirbynrg@swbell.net,2000-09-05 17:25:00,2000-09-05 17:25:00,100.00
-<7011372.1075845537920.JavaMail.evans@thyme>,<25238778.1075857751297.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:00:00,2000-09-05 20:00:00,100.00
-<31107237.1075857728027.JavaMail.evans@thyme>,<25238778.1075857751297.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:00:00,2000-09-05 20:00:00,100.00
-<32300319.1075845556880.JavaMail.evans@thyme>,<25238778.1075857751297.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:00:00,2000-09-05 20:00:00,100.00
 <30519032.1075845537943.JavaMail.evans@thyme>,<25833642.1075857751276.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:01:00,2000-09-05 20:01:00,100.00
 <7736701.1075857728048.JavaMail.evans@thyme>,<25833642.1075857751276.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:01:00,2000-09-05 20:01:00,100.00
 <27862890.1075845556903.JavaMail.evans@thyme>,<25833642.1075857751276.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-05 20:01:00,2000-09-05 20:01:00,100.00
@@ -3843,6 +3858,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <1772209.1075845539074.JavaMail.evans@thyme>,<6543866.1075857750216.JavaMail.evans@thyme>,EOL,john.lavorato@enron.com,2000-09-20 18:37:00,2000-09-20 18:37:00,100.00
 <2747755.1075857728472.JavaMail.evans@thyme>,<6543866.1075857750216.JavaMail.evans@thyme>,EOL,john.lavorato@enron.com,2000-09-20 18:37:00,2000-09-20 18:37:00,100.00
 <15081472.1075845557955.JavaMail.evans@thyme>,<6543866.1075857750216.JavaMail.evans@thyme>,EOL,john.lavorato@enron.com,2000-09-20 18:37:00,2000-09-20 18:37:00,100.00
+<2359056.1075857748558.JavaMail.evans@thyme>,<6543866.1075857750216.JavaMail.evans@thyme>,eol,john.lavorato@enron.com,2000-10-27 11:38:00,2000-09-20 18:37:00,100.00
+<2512495.1075845541041.JavaMail.evans@thyme>,<6543866.1075857750216.JavaMail.evans@thyme>,eol,john.lavorato@enron.com,2000-10-27 11:38:00,2000-09-20 18:37:00,100.00
+<11631894.1075857729520.JavaMail.evans@thyme>,<6543866.1075857750216.JavaMail.evans@thyme>,eol,john.lavorato@enron.com,2000-10-27 11:38:00,2000-09-20 18:37:00,100.00
+<12065421.1075845559650.JavaMail.evans@thyme>,<6543866.1075857750216.JavaMail.evans@thyme>,eol,john.lavorato@enron.com,2000-10-27 11:38:00,2000-09-20 18:37:00,100.00
 <12874904.1075840087704.JavaMail.evans@thyme>,<27835764.1075840073891.JavaMail.evans@thyme>,-kai-,fredinvt@juno.com,2000-09-20 23:07:00,2000-09-20 23:07:00,100.00
 <1526759.1075840260674.JavaMail.evans@thyme>,<27468736.1075840209900.JavaMail.evans@thyme>,Re: Storage Trading,ravi.thuraisingham@enron.com,2000-09-21 07:48:00,2000-09-21 07:48:00,100.00
 <25173599.1075840209923.JavaMail.evans@thyme>,<24733837.1075840286474.JavaMail.evans@thyme>,Re: Attached paper and September 27 Panel Meeting,rosalee.fleming@enron.com,2000-09-21 08:41:00,2000-09-21 08:41:00,100.00
@@ -4144,9 +4163,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <27708597.1075845539613.JavaMail.evans@thyme>,<5917646.1075857749700.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:53:00,2000-09-28 10:53:00,100.00
 <26331307.1075857728684.JavaMail.evans@thyme>,<5917646.1075857749700.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:53:00,2000-09-28 10:53:00,100.00
 <26612974.1075845558473.JavaMail.evans@thyme>,<5917646.1075857749700.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:53:00,2000-09-28 10:53:00,100.00
-<29996618.1075845539635.JavaMail.evans@thyme>,<26786799.1075857749679.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:54:00,2000-09-28 10:54:00,100.00
-<881973.1075857728706.JavaMail.evans@thyme>,<26786799.1075857749679.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:54:00,2000-09-28 10:54:00,100.00
-<3678817.1075845558495.JavaMail.evans@thyme>,<26786799.1075857749679.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-09-28 10:54:00,2000-09-28 10:54:00,100.00
 <6615024.1075840238290.JavaMail.evans@thyme>,<7486530.1075840211150.JavaMail.evans@thyme>,TEST,skimmel@iexalt.net,2000-09-28 11:42:00,2000-09-28 11:42:00,100.00
 <11437378.1075840261768.JavaMail.evans@thyme>,<7486530.1075840211150.JavaMail.evans@thyme>,TEST,skimmel@iexalt.net,2000-09-28 11:42:00,2000-09-28 11:42:00,100.00
 <10643938.1075840238337.JavaMail.evans@thyme>,<30552078.1075840211174.JavaMail.evans@thyme>,Prague 2001 Registration - C,jwg101@aol.com,2000-09-28 13:11:00,2000-09-28 13:11:00,100.00
@@ -4163,9 +4179,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <2872853.1075840211230.JavaMail.evans@thyme>,<3730371.1075840286614.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:14:00,2000-09-28 15:14:00,100.00
 <12891748.1075840238313.JavaMail.evans@thyme>,<3730371.1075840286614.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:14:00,2000-09-28 15:14:00,100.00
 <13447909.1075840279669.JavaMail.evans@thyme>,<3730371.1075840286614.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:14:00,2000-09-28 15:14:00,100.00
-<32783721.1075840211254.JavaMail.evans@thyme>,<16677479.1075840286638.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:15:00,2000-09-28 15:15:00,100.00
-<7807191.1075840238403.JavaMail.evans@thyme>,<16677479.1075840286638.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:15:00,2000-09-28 15:15:00,100.00
-<4854184.1075840279644.JavaMail.evans@thyme>,<16677479.1075840286638.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:15:00,2000-09-28 15:15:00,100.00
+<16677479.1075840286638.JavaMail.evans@thyme>,<3730371.1075840286614.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:15:00,2000-09-28 15:14:00,95.16
+<32783721.1075840211254.JavaMail.evans@thyme>,<3730371.1075840286614.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:15:00,2000-09-28 15:14:00,95.16
+<7807191.1075840238403.JavaMail.evans@thyme>,<3730371.1075840286614.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:15:00,2000-09-28 15:14:00,95.16
+<4854184.1075840279644.JavaMail.evans@thyme>,<3730371.1075840286614.JavaMail.evans@thyme>,Re: TEST,rosalee.fleming@enron.com,2000-09-28 15:15:00,2000-09-28 15:14:00,95.16
 <17637168.1075840238427.JavaMail.evans@thyme>,<32240107.1075840211278.JavaMail.evans@thyme>,Lilly Press Release,brown_mary_jo@lilly.com,2000-09-28 18:07:00,2000-09-28 18:07:00,100.00
 <5707400.1075840261851.JavaMail.evans@thyme>,<32240107.1075840211278.JavaMail.evans@thyme>,Lilly Press Release,brown_mary_jo@lilly.com,2000-09-28 18:07:00,2000-09-28 18:07:00,100.00
 <2957462.1075854435342.JavaMail.evans@thyme>,<712970.1075854485120.JavaMail.evans@thyme>,Various,david.delainey@enron.com,2000-09-28 19:16:00,2000-09-28 19:16:00,100.00
@@ -4633,6 +4650,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <23396850.1075854434303.JavaMail.evans@thyme>,<14288232.1075854484086.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-10-11 08:03:00,2000-10-11 08:03:00,100.00
 <18650978.1075854455832.JavaMail.evans@thyme>,<14288232.1075854484086.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-10-11 08:03:00,2000-10-11 08:03:00,100.00
 <6238773.1075854467508.JavaMail.evans@thyme>,<14288232.1075854484086.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-10-11 08:03:00,2000-10-11 08:03:00,100.00
+<22207768.1075854480816.JavaMail.evans@thyme>,<14288232.1075854484086.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-11-22 14:53:00,2000-10-11 08:03:00,100.00
+<21016490.1075854430991.JavaMail.evans@thyme>,<14288232.1075854484086.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-11-22 14:53:00,2000-10-11 08:03:00,100.00
+<21745299.1075854458688.JavaMail.evans@thyme>,<14288232.1075854484086.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-11-22 14:53:00,2000-10-11 08:03:00,100.00
+<9527752.1075854464220.JavaMail.evans@thyme>,<14288232.1075854484086.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-11-22 14:53:00,2000-10-11 08:03:00,100.00
 <18237019.1075854434281.JavaMail.evans@thyme>,<22934137.1075854484064.JavaMail.evans@thyme>,ENA Legal Department Monthly Report,david.delainey@enron.com,2000-10-11 08:04:00,2000-10-11 08:04:00,100.00
 <1499667.1075854455881.JavaMail.evans@thyme>,<22934137.1075854484064.JavaMail.evans@thyme>,ENA Legal Department Monthly Report,david.delainey@enron.com,2000-10-11 08:04:00,2000-10-11 08:04:00,100.00
 <8485308.1075854467485.JavaMail.evans@thyme>,<22934137.1075854484064.JavaMail.evans@thyme>,ENA Legal Department Monthly Report,david.delainey@enron.com,2000-10-11 08:04:00,2000-10-11 08:04:00,100.00
@@ -5202,9 +5223,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <32380441.1075840269515.JavaMail.evans@thyme>,<7735352.1075840219302.JavaMail.evans@thyme>,Trading Window,linda.auwers@compaq.com,2000-10-27 10:27:00,2000-10-27 10:27:00,100.00
 <2141016.1075845540996.JavaMail.evans@thyme>,<9946504.1075857748601.JavaMail.evans@thyme>,Re: Desk limit tool,john.lavorato@enron.com,2000-10-27 11:34:00,2000-10-27 11:34:00,100.00
 <10679565.1075845559605.JavaMail.evans@thyme>,<9946504.1075857748601.JavaMail.evans@thyme>,Re: Desk limit tool,john.lavorato@enron.com,2000-10-27 11:34:00,2000-10-27 11:34:00,100.00
-<2512495.1075845541041.JavaMail.evans@thyme>,<2359056.1075857748558.JavaMail.evans@thyme>,eol,john.lavorato@enron.com,2000-10-27 11:38:00,2000-10-27 11:38:00,100.00
-<11631894.1075857729520.JavaMail.evans@thyme>,<2359056.1075857748558.JavaMail.evans@thyme>,eol,john.lavorato@enron.com,2000-10-27 11:38:00,2000-10-27 11:38:00,100.00
-<12065421.1075845559650.JavaMail.evans@thyme>,<2359056.1075857748558.JavaMail.evans@thyme>,eol,john.lavorato@enron.com,2000-10-27 11:38:00,2000-10-27 11:38:00,100.00
 <13719793.1075845541018.JavaMail.evans@thyme>,<20875533.1075857748580.JavaMail.evans@thyme>,Re: Update On CA ISO Price Caps -- MAY NOT VOTE TO LOWER,john.lavorato@enron.com,2000-10-27 11:38:00,2000-10-27 11:38:00,100.00
 <8799098.1075845559627.JavaMail.evans@thyme>,<20875533.1075857748580.JavaMail.evans@thyme>,Re: Update On CA ISO Price Caps -- MAY NOT VOTE TO LOWER,john.lavorato@enron.com,2000-10-27 11:38:00,2000-10-27 11:38:00,100.00
 <16032493.1075845541063.JavaMail.evans@thyme>,<12871290.1075857748537.JavaMail.evans@thyme>,Re: poaching your guys,john.lavorato@enron.com,2000-10-27 11:50:00,2000-10-27 11:50:00,100.00
@@ -5503,10 +5521,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <6130480.1075845055855.JavaMail.evans@thyme>,<26214697.1075845012959.JavaMail.evans@thyme>,Re: Canadian Form of Physical Power Master,mark.haedicke@enron.com,2000-11-03 13:53:00,2000-11-03 13:53:00,100.00
 <22885874.1075845055877.JavaMail.evans@thyme>,<20734442.1075845012982.JavaMail.evans@thyme>,Re:,mark.haedicke@enron.com,2000-11-03 15:27:00,2000-11-03 15:27:00,100.00
 <8432056.1075845055901.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:27:00,2000-11-03 16:27:00,100.00
-<16917583.1075845013184.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:50:00,2000-11-03 16:27:00,99.98
-<22419556.1075845056002.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:50:00,2000-11-03 16:27:00,99.98
-<27119741.1075845013208.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:53:00,2000-11-03 16:27:00,99.96
-<22762515.1075845056027.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:53:00,2000-11-03 16:27:00,99.96
+<16917583.1075845013184.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:50:00,2000-11-03 16:27:00,100.00
+<22419556.1075845056002.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:50:00,2000-11-03 16:27:00,100.00
+<27119741.1075845013208.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:53:00,2000-11-03 16:27:00,100.00
+<22762515.1075845056027.JavaMail.evans@thyme>,<23978433.1075845013084.JavaMail.evans@thyme>,New Security and Human Rights Policy - Legal Comments,mark.haedicke@enron.com,2000-11-03 16:53:00,2000-11-03 16:27:00,100.00
 <17211789.1075845055925.JavaMail.evans@thyme>,<16810267.1075845013108.JavaMail.evans@thyme>,Re: USA: FACTBOX-FERC details changes for Calif power market.,mark.haedicke@enron.com,2000-11-03 16:33:00,2000-11-03 16:33:00,100.00
 <5793766.1075845055950.JavaMail.evans@thyme>,<1846725.1075845013133.JavaMail.evans@thyme>,USA: FACTBOX-FERC details changes for Calif power market.,mark.haedicke@enron.com,2000-11-03 16:35:00,2000-11-03 16:35:00,100.00
 <873785.1075845055976.JavaMail.evans@thyme>,<70882.1075845013157.JavaMail.evans@thyme>,Re: Cypress Exploration Program - Operator/Cash Call Issue,mark.haedicke@enron.com,2000-11-03 16:43:00,2000-11-03 16:43:00,100.00
@@ -5594,70 +5612,70 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <11889144.1075854432495.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-06 18:45:00,2000-11-06 18:45:00,100.00
 <30119016.1075854457286.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-06 18:45:00,2000-11-06 18:45:00,100.00
 <16642742.1075854465702.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-06 18:45:00,2000-11-06 18:45:00,100.00
-<22391122.1075854482264.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,93.96
-<3903778.1075854432474.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,93.96
-<8143621.1075854457307.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,93.96
-<4479040.1075854465681.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,93.96
-<4509329.1075854482243.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,99.22
-<21825486.1075854432453.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,99.22
-<1323738.1075854457329.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,99.22
-<6674418.1075854465656.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,99.22
-<11764079.1075854482177.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,92.08
-<16596851.1075854432386.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,92.08
-<33313493.1075854457395.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,92.08
-<5234639.1075854465586.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,92.08
-<5724046.1075854482126.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,91.98
-<31224078.1075854432304.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,91.98
-<569041.1075854457477.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,91.98
-<10663298.1075854465536.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,91.98
-<24662292.1075854481995.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,91.71
-<25632040.1075854432173.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,91.71
-<4826505.1075854457545.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,91.71
-<5268869.1075854465406.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,91.71
-<20224600.1075854481775.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,91.87
-<23712330.1075854431951.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,91.87
-<27546762.1075854457766.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,91.87
-<15240897.1075854465179.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,91.87
-<21503855.1075854481635.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.83
-<517999.1075854481657.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.77
-<11836964.1075854431812.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.83
-<33191123.1075854431834.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.77
-<32018324.1075854457906.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.77
-<19558077.1075854457928.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.83
-<11717929.1075854465039.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.83
-<12286618.1075854465061.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,92.77
-<12846475.1075854481614.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,91.19
-<33313565.1075854431791.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,91.19
-<13388096.1075854457949.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,91.19
-<19130736.1075854465018.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,91.19
-<14860153.1075854481376.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,92.65
-<17904576.1075854431552.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,92.65
-<23026860.1075854458168.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,92.65
-<20075456.1075854464778.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,92.65
-<11160386.1075854481331.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,92.78
-<12061907.1075854431506.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,92.78
-<31666719.1075854458214.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,92.78
-<20922250.1075854464733.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,92.78
-<25639148.1075854481310.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,92.06
-<21688216.1075854431485.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,92.06
-<15700791.1075854458236.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,92.06
-<372585.1075854464712.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,92.06
-<11463178.1075854481289.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,93.33
-<31918628.1075854431464.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,93.33
-<11148564.1075854458257.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,93.33
-<15300859.1075854464691.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,93.33
-<18509630.1075854481192.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,92.93
-<19750788.1075854431367.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,92.93
-<3461610.1075854458353.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,92.93
-<20754271.1075854464593.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,92.93
-<19937552.1075854481081.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,93.54
-<19427851.1075854431257.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,93.54
-<12244874.1075854458443.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,93.54
-<21166367.1075854464484.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,93.54
-<23528595.1075854480968.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,93.62
-<1113252.1075854431146.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,93.62
-<27864142.1075854458555.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,93.62
-<7506178.1075854464372.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,93.62
+<22391122.1075854482264.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,100.00
+<3903778.1075854432474.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,100.00
+<8143621.1075854457307.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,100.00
+<4479040.1075854465681.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:03:00,2000-11-06 18:45:00,100.00
+<4509329.1075854482243.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,100.00
+<21825486.1075854432453.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,100.00
+<1323738.1075854457329.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,100.00
+<6674418.1075854465656.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 08:05:00,2000-11-06 18:45:00,100.00
+<11764079.1075854482177.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,100.00
+<16596851.1075854432386.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,100.00
+<33313493.1075854457395.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,100.00
+<5234639.1075854465586.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-07 12:05:00,2000-11-06 18:45:00,100.00
+<5724046.1075854482126.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,100.00
+<31224078.1075854432304.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,100.00
+<569041.1075854457477.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,100.00
+<10663298.1075854465536.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-08 11:52:00,2000-11-06 18:45:00,100.00
+<24662292.1075854481995.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,100.00
+<25632040.1075854432173.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,100.00
+<4826505.1075854457545.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,100.00
+<5268869.1075854465406.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-09 17:28:00,2000-11-06 18:45:00,100.00
+<20224600.1075854481775.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,100.00
+<23712330.1075854431951.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,100.00
+<27546762.1075854457766.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,100.00
+<15240897.1075854465179.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-12 15:51:00,2000-11-06 18:45:00,100.00
+<21503855.1075854481635.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<517999.1075854481657.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<11836964.1075854431812.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<33191123.1075854431834.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<32018324.1075854457906.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<19558077.1075854457928.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<11717929.1075854465039.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<12286618.1075854465061.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:49:00,2000-11-06 18:45:00,100.00
+<12846475.1075854481614.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,100.00
+<33313565.1075854431791.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,100.00
+<13388096.1075854457949.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,100.00
+<19130736.1075854465018.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-13 11:50:00,2000-11-06 18:45:00,100.00
+<14860153.1075854481376.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,100.00
+<17904576.1075854431552.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,100.00
+<23026860.1075854458168.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,100.00
+<20075456.1075854464778.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-14 11:13:00,2000-11-06 18:45:00,100.00
+<11160386.1075854481331.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,100.00
+<12061907.1075854431506.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,100.00
+<31666719.1075854458214.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,100.00
+<20922250.1075854464733.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:31:00,2000-11-06 18:45:00,100.00
+<25639148.1075854481310.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,100.00
+<21688216.1075854431485.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,100.00
+<15700791.1075854458236.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,100.00
+<372585.1075854464712.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:32:00,2000-11-06 18:45:00,100.00
+<11463178.1075854481289.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,100.00
+<31918628.1075854431464.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,100.00
+<11148564.1075854458257.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,100.00
+<15300859.1075854464691.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-15 15:47:00,2000-11-06 18:45:00,100.00
+<18509630.1075854481192.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,100.00
+<19750788.1075854431367.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,100.00
+<3461610.1075854458353.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,100.00
+<20754271.1075854464593.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 10:26:00,2000-11-06 18:45:00,100.00
+<19937552.1075854481081.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,100.00
+<19427851.1075854431257.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,100.00
+<12244874.1075854458443.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,100.00
+<21166367.1075854464484.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-20 16:42:00,2000-11-06 18:45:00,100.00
+<23528595.1075854480968.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,100.00
+<1113252.1075854431146.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,100.00
+<27864142.1075854458555.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,100.00
+<7506178.1075854464372.JavaMail.evans@thyme>,<14637738.1075854482286.JavaMail.evans@thyme>,Approval for reviewer,david.delainey@enron.com,2000-11-21 08:48:00,2000-11-06 18:45:00,100.00
 <21660650.1075859674499.JavaMail.evans@thyme>,<13115288.1075859659906.JavaMail.evans@thyme>,"EnronOnline Executive Summary for November 03, 2000",leonardo.pacheco@enron.com,2000-11-06 19:23:00,2000-11-06 19:23:00,100.00
 <17470661.1075840221469.JavaMail.evans@thyme>,<13115288.1075859659906.JavaMail.evans@thyme>,"EnronOnline Executive Summary for November 03, 2000",leonardo.pacheco@enron.com,2000-11-06 19:23:00,2000-11-06 19:23:00,100.00
 <2541530.1075840247265.JavaMail.evans@thyme>,<13115288.1075859659906.JavaMail.evans@thyme>,"EnronOnline Executive Summary for November 03, 2000",leonardo.pacheco@enron.com,2000-11-06 19:23:00,2000-11-06 19:23:00,100.00
@@ -5845,6 +5863,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <9146717.1075840248250.JavaMail.evans@thyme>,<29294878.1075840222459.JavaMail.evans@thyme>,Panel on Valuation,jeffrey.garten@yale.edu,2000-11-10 10:26:00,2000-11-10 10:26:00,100.00
 <1007122.1075840272141.JavaMail.evans@thyme>,<29294878.1075840222459.JavaMail.evans@thyme>,Panel on Valuation,jeffrey.garten@yale.edu,2000-11-10 10:26:00,2000-11-10 10:26:00,100.00
 <27808831.1075859675609.JavaMail.evans@thyme>,<18414978.1075859661709.JavaMail.evans@thyme>,Mariner Management Meeting Minutes,deborah.edison@enron.com,2000-11-10 10:47:00,2000-11-10 10:47:00,100.00
+<8119233.1075859789971.JavaMail.evans@thyme>,<18414978.1075859661709.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,deborah.edison@enron.com,2001-03-09 10:21:00,2000-11-10 10:47:00,100.00
+<16657714.1075859846898.JavaMail.evans@thyme>,<18414978.1075859661709.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,deborah.edison@enron.com,2001-03-09 10:21:00,2000-11-10 10:47:00,100.00
+<8286718.1075845028982.JavaMail.evans@thyme>,<18414978.1075859661709.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,deborah.edison@enron.com,2001-05-22 14:45:00,2000-11-10 10:47:00,100.00
+<29987889.1075845038230.JavaMail.evans@thyme>,<18414978.1075859661709.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,deborah.edison@enron.com,2001-05-22 14:45:00,2000-11-10 10:47:00,100.00
 <870314.1075859675746.JavaMail.evans@thyme>,<6030551.1075859661837.JavaMail.evans@thyme>,Issue regarding Financial Legal,stewart.rosman@enron.com,2000-11-10 11:14:00,2000-11-10 11:14:00,100.00
 <18707947.1075859675664.JavaMail.evans@thyme>,<12142379.1075859661767.JavaMail.evans@thyme>,Amparo Proceeding,peggy.banczak@enron.com,2000-11-10 11:24:00,2000-11-10 11:24:00,100.00
 <3353162.1075859675641.JavaMail.evans@thyme>,<28012993.1075859661744.JavaMail.evans@thyme>,,smarra@isda.org,2000-11-10 12:16:00,2000-11-10 12:16:00,100.00
@@ -6135,7 +6157,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <8204467.1075840273730.JavaMail.evans@thyme>,<31838215.1075840224073.JavaMail.evans@thyme>,"20th Annual CERAWeek - ""Shooting the Rapids: Strategies and Risks for the Energy Future""",danielyergin@cera.com,2000-11-16 15:42:00,2000-11-16 15:42:00,100.00
 <24249695.1075857730110.JavaMail.evans@thyme>,<33507336.1075845542181.JavaMail.evans@thyme>,Arcor DASH,michael.guerriero@enron.com,2000-11-16 15:49:00,2000-11-16 15:49:00,100.00
 <9620743.1075845564795.JavaMail.evans@thyme>,<33507336.1075845542181.JavaMail.evans@thyme>,Arcor DASH,michael.guerriero@enron.com,2000-11-16 15:49:00,2000-11-16 15:49:00,100.00
-<22292034.1075857704358.JavaMail.evans@thyme>,<33507336.1075845542181.JavaMail.evans@thyme>,Arcor DASH,michael.guerriero@enron.com,2000-11-17 00:49:00,2000-11-16 15:49:00,99.01
+<22292034.1075857704358.JavaMail.evans@thyme>,<33507336.1075845542181.JavaMail.evans@thyme>,Arcor DASH,michael.guerriero@enron.com,2000-11-17 00:49:00,2000-11-16 15:49:00,100.00
 <10892349.1075840249936.JavaMail.evans@thyme>,<12357377.1075840224096.JavaMail.evans@thyme>,WPO Mind/Body Health Seminar 2001,knowak@wpo.org,2000-11-16 16:03:00,2000-11-16 16:03:00,100.00
 <17330288.1075840273753.JavaMail.evans@thyme>,<12357377.1075840224096.JavaMail.evans@thyme>,WPO Mind/Body Health Seminar 2001,knowak@wpo.org,2000-11-16 16:03:00,2000-11-16 16:03:00,100.00
 <11512216.1075859677429.JavaMail.evans@thyme>,<24961074.1075859663586.JavaMail.evans@thyme>,"EnronOnline Executive Summary for November 15, 2000",leonardo.pacheco@enron.com,2000-11-16 16:23:00,2000-11-16 16:23:00,100.00
@@ -6340,9 +6362,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <15891676.1075840225080.JavaMail.evans@thyme>,<15483183.1075859664660.JavaMail.evans@thyme>,"EnronOnline Executive Summary for November 21, 2000",leonardo.pacheco@enron.com,2000-11-22 14:51:00,2000-11-22 14:51:00,100.00
 <14588292.1075840250863.JavaMail.evans@thyme>,<15483183.1075859664660.JavaMail.evans@thyme>,"EnronOnline Executive Summary for November 21, 2000",leonardo.pacheco@enron.com,2000-11-22 14:51:00,2000-11-22 14:51:00,100.00
 <22525889.1075840274571.JavaMail.evans@thyme>,<15483183.1075859664660.JavaMail.evans@thyme>,"EnronOnline Executive Summary for November 21, 2000",leonardo.pacheco@enron.com,2000-11-22 14:51:00,2000-11-22 14:51:00,100.00
-<21016490.1075854430991.JavaMail.evans@thyme>,<22207768.1075854480816.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-11-22 14:53:00,2000-11-22 14:53:00,100.00
-<21745299.1075854458688.JavaMail.evans@thyme>,<22207768.1075854480816.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-11-22 14:53:00,2000-11-22 14:53:00,100.00
-<9527752.1075854464220.JavaMail.evans@thyme>,<22207768.1075854480816.JavaMail.evans@thyme>,,david.delainey@enron.com,2000-11-22 14:53:00,2000-11-22 14:53:00,100.00
 <12868407.1075854430969.JavaMail.evans@thyme>,<27500503.1075854480795.JavaMail.evans@thyme>,Re: meeting,david.delainey@enron.com,2000-11-22 14:54:00,2000-11-22 14:54:00,100.00
 <8589319.1075854464199.JavaMail.evans@thyme>,<27500503.1075854480795.JavaMail.evans@thyme>,Re: meeting,david.delainey@enron.com,2000-11-22 14:54:00,2000-11-22 14:54:00,100.00
 <12919830.1075854430948.JavaMail.evans@thyme>,<4637406.1075854480774.JavaMail.evans@thyme>,Re: 2001 Plan,david.delainey@enron.com,2000-11-22 15:05:00,2000-11-22 15:05:00,100.00
@@ -6628,15 +6647,16 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <23834518.1075859678996.JavaMail.evans@thyme>,<15699635.1075859666243.JavaMail.evans@thyme>,New CFTC rules,rbaird@velaw.com,2000-11-29 10:45:00,2000-11-29 10:45:00,100.00
 <13948127.1075859679021.JavaMail.evans@thyme>,<15699635.1075859666243.JavaMail.evans@thyme>,New CFTC rules,rbaird@velaw.com,2000-11-29 10:45:00,2000-11-29 10:45:00,99.77
 <18672320.1075859679187.JavaMail.evans@thyme>,<9807013.1075859666435.JavaMail.evans@thyme>,FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:01:00,2000-11-29 11:01:00,100.00
+<7098634.1075859666479.JavaMail.evans@thyme>,<9807013.1075859666435.JavaMail.evans@thyme>,RE: FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:13:00,2000-11-29 11:01:00,100.00
+<24647189.1075859679233.JavaMail.evans@thyme>,<9807013.1075859666435.JavaMail.evans@thyme>,RE: FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:13:00,2000-11-29 11:01:00,100.00
+<14529048.1075859666580.JavaMail.evans@thyme>,<9807013.1075859666435.JavaMail.evans@thyme>,RE: FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:31:00,2000-11-29 11:01:00,100.00
+<16043566.1075859679326.JavaMail.evans@thyme>,<9807013.1075859666435.JavaMail.evans@thyme>,RE: FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:31:00,2000-11-29 11:01:00,100.00
 <17801964.1075845542834.JavaMail.evans@thyme>,<8632110.1075857747081.JavaMail.evans@thyme>,Re:,john.lavorato@enron.com,2000-11-29 11:10:00,2000-11-29 11:10:00,100.00
 <1129322.1075845561120.JavaMail.evans@thyme>,<8632110.1075857747081.JavaMail.evans@thyme>,Re:,john.lavorato@enron.com,2000-11-29 11:10:00,2000-11-29 11:10:00,100.00
 <24931684.1075857686193.JavaMail.evans@thyme>,<8632110.1075857747081.JavaMail.evans@thyme>,Re:,john.lavorato@enron.com,2000-11-29 23:10:00,2000-11-29 11:10:00,100.00
-<24647189.1075859679233.JavaMail.evans@thyme>,<7098634.1075859666479.JavaMail.evans@thyme>,RE: FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:13:00,2000-11-29 11:13:00,100.00
-<14529048.1075859666580.JavaMail.evans@thyme>,<7098634.1075859666479.JavaMail.evans@thyme>,RE: FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:31:00,2000-11-29 11:13:00,100.00
-<16043566.1075859679326.JavaMail.evans@thyme>,<7098634.1075859666479.JavaMail.evans@thyme>,RE: FW: ANNOUNCEMENT: Notice of Press Conference today,richard.sanders@enron.com,2000-11-29 11:31:00,2000-11-29 11:13:00,100.00
 <15859220.1075859679259.JavaMail.evans@thyme>,<20739084.1075859666506.JavaMail.evans@thyme>,Lawsuit Filed In San Diego Vs Enron For Power Mkt Abuses,richard.sanders@enron.com,2000-11-29 11:25:00,2000-11-29 11:25:00,100.00
-<31914209.1075859666529.JavaMail.evans@thyme>,<20739084.1075859666506.JavaMail.evans@thyme>,Lawsuit Filed In San Diego Vs Enron For Power Mkt Abuses,richard.sanders@enron.com,2000-11-29 11:28:00,2000-11-29 11:25:00,99.95
-<23062015.1075859679281.JavaMail.evans@thyme>,<20739084.1075859666506.JavaMail.evans@thyme>,Lawsuit Filed In San Diego Vs Enron For Power Mkt Abuses,richard.sanders@enron.com,2000-11-29 11:28:00,2000-11-29 11:25:00,99.95
+<31914209.1075859666529.JavaMail.evans@thyme>,<20739084.1075859666506.JavaMail.evans@thyme>,Lawsuit Filed In San Diego Vs Enron For Power Mkt Abuses,richard.sanders@enron.com,2000-11-29 11:28:00,2000-11-29 11:25:00,100.00
+<23062015.1075859679281.JavaMail.evans@thyme>,<20739084.1075859666506.JavaMail.evans@thyme>,Lawsuit Filed In San Diego Vs Enron For Power Mkt Abuses,richard.sanders@enron.com,2000-11-29 11:28:00,2000-11-29 11:25:00,100.00
 <26308081.1075845542856.JavaMail.evans@thyme>,<24532962.1075857747060.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-11-29 11:34:00,2000-11-29 11:34:00,100.00
 <29305542.1075857730443.JavaMail.evans@thyme>,<24532962.1075857747060.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-11-29 11:34:00,2000-11-29 11:34:00,100.00
 <22270499.1075845561143.JavaMail.evans@thyme>,<24532962.1075857747060.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-11-29 11:34:00,2000-11-29 11:34:00,100.00
@@ -6876,14 +6896,14 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <23737550.1075845543109.JavaMail.evans@thyme>,<12492770.1075857746820.JavaMail.evans@thyme>,Re: 2001 ENA/EGM/EIM CUSTOMER SKI PROGRAM,john.lavorato@enron.com,2000-12-02 10:18:00,2000-12-02 10:18:00,100.00
 <10514502.1075857730622.JavaMail.evans@thyme>,<12492770.1075857746820.JavaMail.evans@thyme>,Re: 2001 ENA/EGM/EIM CUSTOMER SKI PROGRAM,john.lavorato@enron.com,2000-12-02 10:18:00,2000-12-02 10:18:00,100.00
 <24533103.1075845561392.JavaMail.evans@thyme>,<12492770.1075857746820.JavaMail.evans@thyme>,Re: 2001 ENA/EGM/EIM CUSTOMER SKI PROGRAM,john.lavorato@enron.com,2000-12-02 10:18:00,2000-12-02 10:18:00,100.00
-<4091231.1075857686534.JavaMail.evans@thyme>,<12492770.1075857746820.JavaMail.evans@thyme>,Re: 2001 ENA/EGM/EIM CUSTOMER SKI PROGRAM,john.lavorato@enron.com,2000-12-02 22:18:00,2000-12-02 10:18:00,99.81
+<4091231.1075857686534.JavaMail.evans@thyme>,<12492770.1075857746820.JavaMail.evans@thyme>,Re: 2001 ENA/EGM/EIM CUSTOMER SKI PROGRAM,john.lavorato@enron.com,2000-12-02 22:18:00,2000-12-02 10:18:00,100.00
 <27679961.1075845543155.JavaMail.evans@thyme>,<32983826.1075857746774.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 10:20:00,2000-12-02 10:20:00,100.00
 <5351733.1075845561439.JavaMail.evans@thyme>,<32983826.1075857746774.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 10:20:00,2000-12-02 10:20:00,100.00
 <15735654.1075857686646.JavaMail.evans@thyme>,<32983826.1075857746774.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 22:20:00,2000-12-02 10:20:00,100.00
 <28367290.1075845543132.JavaMail.evans@thyme>,<6405373.1075857746796.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 10:20:00,2000-12-02 10:20:00,100.00
 <19602061.1075857730646.JavaMail.evans@thyme>,<6405373.1075857746796.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 10:20:00,2000-12-02 10:20:00,100.00
 <11014764.1075845561416.JavaMail.evans@thyme>,<6405373.1075857746796.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 10:20:00,2000-12-02 10:20:00,100.00
-<8302199.1075857686624.JavaMail.evans@thyme>,<6405373.1075857746796.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 22:20:00,2000-12-02 10:20:00,99.05
+<8302199.1075857686624.JavaMail.evans@thyme>,<6405373.1075857746796.JavaMail.evans@thyme>,Re: AGA Membership,john.lavorato@enron.com,2000-12-02 22:20:00,2000-12-02 10:20:00,100.00
 <18463434.1075845543177.JavaMail.evans@thyme>,<7380863.1075857746753.JavaMail.evans@thyme>,"RE: FW: Houston, we have a problem",john.lavorato@enron.com,2000-12-02 10:26:00,2000-12-02 10:26:00,100.00
 <173117.1075857729116.JavaMail.evans@thyme>,<7380863.1075857746753.JavaMail.evans@thyme>,"RE: FW: Houston, we have a problem",john.lavorato@enron.com,2000-12-02 10:26:00,2000-12-02 10:26:00,100.00
 <20710892.1075845561461.JavaMail.evans@thyme>,<7380863.1075857746753.JavaMail.evans@thyme>,"RE: FW: Houston, we have a problem",john.lavorato@enron.com,2000-12-02 10:26:00,2000-12-02 10:26:00,100.00
@@ -7212,9 +7232,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <1923341.1075840091790.JavaMail.evans@thyme>,<31087973.1075840228585.JavaMail.evans@thyme>,THANK YOU! Brown Bag - Dr. Kelly Williams,marie.newhouse@enron.com,2000-12-07 18:11:00,2000-12-07 18:11:00,100.00
 <14194572.1075840097982.JavaMail.evans@thyme>,<31087973.1075840228585.JavaMail.evans@thyme>,THANK YOU! Brown Bag - Dr. Kelly Williams,marie.newhouse@enron.com,2000-12-07 18:11:00,2000-12-07 18:11:00,100.00
 <11391896.1075859682266.JavaMail.evans@thyme>,<15473919.1075859669912.JavaMail.evans@thyme>,Legal Risk Memo,teresa.bushman@enron.com,2000-12-07 20:00:00,2000-12-07 20:00:00,100.00
-<25464269.1075845543542.JavaMail.evans@thyme>,<27265183.1075857746432.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-07 20:04:00,2000-12-07 20:04:00,100.00
-<5586394.1075857730948.JavaMail.evans@thyme>,<27265183.1075857746432.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-07 20:04:00,2000-12-07 20:04:00,100.00
-<22548972.1075845561802.JavaMail.evans@thyme>,<27265183.1075857746432.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-07 20:04:00,2000-12-07 20:04:00,100.00
 <24699199.1075840091836.JavaMail.evans@thyme>,<2391370.1075840078800.JavaMail.evans@thyme>,Re: [smu-betas] Merry Christmas from Graceland of Dallas,fredinvt@juno.com,2000-12-07 21:31:00,2000-12-07 21:31:00,100.00
 <26967138.1075840097937.JavaMail.evans@thyme>,<2391370.1075840078800.JavaMail.evans@thyme>,Re: [smu-betas] Merry Christmas from Graceland of Dallas,fredinvt@juno.com,2000-12-07 21:31:00,2000-12-07 21:31:00,100.00
 <17567655.1075840091858.JavaMail.evans@thyme>,<27114948.1075840078823.JavaMail.evans@thyme>,[smu-betas] one more picture,fredinvt@juno.com,2000-12-07 22:01:00,2000-12-07 22:01:00,100.00
@@ -7625,7 +7642,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <23987675.1075845544147.JavaMail.evans@thyme>,<30429267.1075857745798.JavaMail.evans@thyme>,Your Recent Request on the EOL Average Deal Count by Trader and Product,john.lavorato@enron.com,2000-12-13 12:26:00,2000-12-13 12:26:00,100.00
 <12343645.1075857731296.JavaMail.evans@thyme>,<30429267.1075857745798.JavaMail.evans@thyme>,Your Recent Request on the EOL Average Deal Count by Trader and Product,john.lavorato@enron.com,2000-12-13 12:26:00,2000-12-13 12:26:00,100.00
 <27325845.1075845562380.JavaMail.evans@thyme>,<30429267.1075857745798.JavaMail.evans@thyme>,Your Recent Request on the EOL Average Deal Count by Trader and Product,john.lavorato@enron.com,2000-12-13 12:26:00,2000-12-13 12:26:00,100.00
-<21199437.1075857687681.JavaMail.evans@thyme>,<30429267.1075857745798.JavaMail.evans@thyme>,Your Recent Request on the EOL Average Deal Count by Trader and Product,john.lavorato@enron.com,2000-12-14 00:26:00,2000-12-13 12:26:00,97.24
+<21199437.1075857687681.JavaMail.evans@thyme>,<30429267.1075857745798.JavaMail.evans@thyme>,Your Recent Request on the EOL Average Deal Count by Trader and Product,john.lavorato@enron.com,2000-12-14 00:26:00,2000-12-13 12:26:00,100.00
 <17979899.1075857687702.JavaMail.evans@thyme>,<7316824.1075857745777.JavaMail.evans@thyme>,Re: FT Energy,john.lavorato@enron.com,2000-12-14 00:29:00,2000-12-13 12:29:00,100.00
 <923810.1075845544191.JavaMail.evans@thyme>,<18777101.1075857745756.JavaMail.evans@thyme>,Re: Resource Management,john.lavorato@enron.com,2000-12-13 12:30:00,2000-12-13 12:30:00,100.00
 <25341399.1075845562426.JavaMail.evans@thyme>,<18777101.1075857745756.JavaMail.evans@thyme>,Re: Resource Management,john.lavorato@enron.com,2000-12-13 12:30:00,2000-12-13 12:30:00,100.00
@@ -7719,17 +7736,18 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <12329707.1075840081460.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:02:00,2000-12-13 18:02:00,100.00
 <13562183.1075840094163.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:02:00,2000-12-13 18:02:00,100.00
 <19439176.1075840095781.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:02:00,2000-12-13 18:02:00,100.00
-<13014792.1075854461317.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<11259271.1075854461393.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<22826595.1075857721427.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<28270924.1075857731423.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<3597517.1075857731495.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<3849351.1075840230107.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<9632368.1075840255223.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<21250486.1075840278691.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<26768045.1075840081495.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<4355837.1075840094200.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
-<7228326.1075840095747.JavaMail.evans@thyme>,<1008239.1075854428163.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:04:00,100.00
+<1008239.1075854428163.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<13014792.1075854461317.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<11259271.1075854461393.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<22826595.1075857721427.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<28270924.1075857731423.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<3597517.1075857731495.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<3849351.1075840230107.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<9632368.1075840255223.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<21250486.1075840278691.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<26768045.1075840081495.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<4355837.1075840094200.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
+<7228326.1075840095747.JavaMail.evans@thyme>,<488397.1075854428196.JavaMail.evans@thyme>,Thank you for the Charitygift,rosalee.fleming@enron.com,2000-12-13 18:04:00,2000-12-13 18:02:00,100.00
 <28118409.1075840094081.JavaMail.evans@thyme>,<20593974.1075840081377.JavaMail.evans@thyme>,Congratulations,tomskilljr@aol.com,2000-12-13 18:07:00,2000-12-13 18:07:00,100.00
 <28943672.1075840095850.JavaMail.evans@thyme>,<20593974.1075840081377.JavaMail.evans@thyme>,Congratulations,tomskilljr@aol.com,2000-12-13 18:07:00,2000-12-13 18:07:00,100.00
 <31822782.1075854461338.JavaMail.evans@thyme>,<28759005.1075854428083.JavaMail.evans@thyme>,ESA,david.oxley@enron.com,2000-12-13 18:20:00,2000-12-13 18:20:00,100.00
@@ -7789,7 +7807,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <6598917.1075854528922.JavaMail.evans@thyme>,<3078055.1075854556105.JavaMail.evans@thyme>,Re: Answer required in connection with FERC filings for Cinergy,david.delainey@enron.com,2000-12-15 18:43:00,2000-12-15 18:43:00,100.00
 <14985798.1075854536492.JavaMail.evans@thyme>,<3078055.1075854556105.JavaMail.evans@thyme>,Re: Answer required in connection with FERC filings for Cinergy,david.delainey@enron.com,2000-12-15 18:43:00,2000-12-15 18:43:00,100.00
 <2256460.1075845562625.JavaMail.evans@thyme>,<22471065.1075845544473.JavaMail.evans@thyme>,The Chairman's Reward,john.lavorato@enron.com,2000-12-17 10:22:00,2000-12-17 10:22:00,100.00
-<19655106.1075857687960.JavaMail.evans@thyme>,<22471065.1075845544473.JavaMail.evans@thyme>,The Chairman's Reward,john.lavorato@enron.com,2000-12-17 22:22:00,2000-12-17 10:22:00,99.88
+<19655106.1075857687960.JavaMail.evans@thyme>,<22471065.1075845544473.JavaMail.evans@thyme>,The Chairman's Reward,john.lavorato@enron.com,2000-12-17 22:22:00,2000-12-17 10:22:00,100.00
 <7820592.1075845562648.JavaMail.evans@thyme>,<16064036.1075845544496.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-17 10:27:00,2000-12-17 10:27:00,100.00
 <33543077.1075857687984.JavaMail.evans@thyme>,<16064036.1075845544496.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-17 22:27:00,2000-12-17 10:27:00,100.00
 <7987276.1075845562670.JavaMail.evans@thyme>,<9294881.1075845544518.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-17 14:49:00,2000-12-17 14:49:00,100.00
@@ -8007,7 +8025,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <29674503.1075857777964.JavaMail.evans@thyme>,<23174165.1075857775209.JavaMail.evans@thyme>,,phillip.allen@enron.com,2000-12-28 12:37:00,2000-12-28 12:37:00,100.00
 <27151276.1075857703081.JavaMail.evans@thyme>,<23174165.1075857775209.JavaMail.evans@thyme>,,phillip.allen@enron.com,2000-12-29 00:37:00,2000-12-28 12:37:00,99.28
 <25460304.1075857794472.JavaMail.evans@thyme>,<21909616.1075857775234.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-28 12:46:00,2000-12-28 12:46:00,100.00
-<29759427.1075857683630.JavaMail.evans@thyme>,<21909616.1075857775234.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-29 00:46:00,2000-12-28 12:46:00,99.67
+<29759427.1075857683630.JavaMail.evans@thyme>,<21909616.1075857775234.JavaMail.evans@thyme>,,john.lavorato@enron.com,2000-12-29 00:46:00,2000-12-28 12:46:00,100.00
 <11659185.1075845547919.JavaMail.evans@thyme>,<16307595.1075845545334.JavaMail.evans@thyme>,,phillip.allen@enron.com,2000-12-28 13:19:00,2000-12-28 13:19:00,100.00
 <24786206.1075857703103.JavaMail.evans@thyme>,<16307595.1075845545334.JavaMail.evans@thyme>,,phillip.allen@enron.com,2000-12-29 01:19:00,2000-12-28 13:19:00,100.00
 <23141152.1075857780087.JavaMail.evans@thyme>,<18638415.1075857775285.JavaMail.evans@thyme>,Dr. Roach,kevin.presto@enron.com,2000-12-28 13:45:00,2000-12-28 13:45:00,100.00
@@ -8370,10 +8388,8 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <27883382.1075845503208.JavaMail.evans@thyme>,<23515610.1075845485885.JavaMail.evans@thyme>,An Update,lisa.connolly@enron.com,2001-01-22 17:19:00,2001-01-22 17:19:00,100.00
 <10045129.1075857778759.JavaMail.evans@thyme>,<7204057.1075857777166.JavaMail.evans@thyme>,Commerical Hire Proposal-Joe DesChamps,kim.melodick@enron.com,2001-01-22 17:43:00,2001-01-22 17:43:00,100.00
 <9036619.1075845548708.JavaMail.evans@thyme>,<28860645.1075845547223.JavaMail.evans@thyme>,Remember Your $10 Savings on DVDs and CDs,video@amazon.com,2001-01-22 19:41:00,2001-01-22 19:41:00,100.00
-<11626218.1075845564594.JavaMail.evans@thyme>,<19417384.1075845547177.JavaMail.evans@thyme>,,john.lavorato@enron.com,2001-01-22 21:55:00,2001-01-22 21:55:00,100.00
-<27759086.1075857684763.JavaMail.evans@thyme>,<19417384.1075845547177.JavaMail.evans@thyme>,,john.lavorato@enron.com,2001-01-23 09:55:00,2001-01-22 21:55:00,100.00
 <14391894.1075845564616.JavaMail.evans@thyme>,<31124466.1075845547199.JavaMail.evans@thyme>,EOL/ Hedge Funds,john.lavorato@enron.com,2001-01-22 22:01:00,2001-01-22 22:01:00,100.00
-<6145019.1075857684785.JavaMail.evans@thyme>,<31124466.1075845547199.JavaMail.evans@thyme>,EOL/ Hedge Funds,john.lavorato@enron.com,2001-01-23 10:01:00,2001-01-22 22:01:00,98.60
+<6145019.1075857684785.JavaMail.evans@thyme>,<31124466.1075845547199.JavaMail.evans@thyme>,EOL/ Hedge Funds,john.lavorato@enron.com,2001-01-23 10:01:00,2001-01-22 22:01:00,100.00
 <22772851.1075845485907.JavaMail.evans@thyme>,<4882831.1075845526547.JavaMail.evans@thyme>,Re:,sherri.sera@enron.com,2001-01-23 07:34:00,2001-01-23 07:34:00,100.00
 <11034258.1075845518059.JavaMail.evans@thyme>,<4882831.1075845526547.JavaMail.evans@thyme>,Re:,sherri.sera@enron.com,2001-01-23 07:34:00,2001-01-23 07:34:00,100.00
 <11099260.1075845548731.JavaMail.evans@thyme>,<31553008.1075845547246.JavaMail.evans@thyme>,Re: Employment Agreement - Samuel Wehn,david.oxley@enron.com,2001-01-23 08:50:00,2001-01-23 08:50:00,100.00
@@ -8396,10 +8412,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <18285901.1075845549006.JavaMail.evans@thyme>,<24762169.1075845547539.JavaMail.evans@thyme>,SAP SYSTEM OUTAGE NOTIFICATIONS,isc.hotline@enron.com,2001-01-23 18:58:00,2001-01-23 18:58:00,100.00
 <26692447.1075845549050.JavaMail.evans@thyme>,<22781345.1075845547584.JavaMail.evans@thyme>,Squash,john.suarez@enron.com,2001-01-23 19:34:00,2001-01-23 19:34:00,100.00
 <16174902.1075845564661.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-23 20:47:00,2001-01-23 20:47:00,100.00
-<28940304.1075845547628.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-23 20:48:00,2001-01-23 20:47:00,99.52
-<27131499.1075845564683.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-23 20:48:00,2001-01-23 20:47:00,99.52
+<28940304.1075845547628.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-23 20:48:00,2001-01-23 20:47:00,100.00
+<27131499.1075845564683.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-23 20:48:00,2001-01-23 20:47:00,100.00
 <32363398.1075857684807.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-24 08:47:00,2001-01-23 20:47:00,100.00
-<14302162.1075857684828.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-24 08:48:00,2001-01-23 20:47:00,99.52
+<14302162.1075857684828.JavaMail.evans@thyme>,<29996473.1075845547606.JavaMail.evans@thyme>,EES bid revised,john.lavorato@enron.com,2001-01-24 08:48:00,2001-01-23 20:47:00,100.00
 <6104753.1075845549028.JavaMail.evans@thyme>,<2155531.1075845547562.JavaMail.evans@thyme>,Re:,orlando.gonzalez@enron.com,2001-01-23 22:38:00,2001-01-23 22:38:00,100.00
 <16387334.1075857778389.JavaMail.evans@thyme>,<12102645.1075857777661.JavaMail.evans@thyme>,merit increase issues to consider for E.Power,kim.melodick@enron.com,2001-01-24 07:22:00,2001-01-24 07:22:00,100.00
 <30769448.1075845549077.JavaMail.evans@thyme>,<28209794.1075845547655.JavaMail.evans@thyme>,Agenda for Wednesday 1-24-01 10:30 AM California Call,james.steffes@enron.com,2001-01-24 08:42:00,2001-01-24 08:42:00,100.00
@@ -8554,6 +8570,10 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <2763035.1075854496725.JavaMail.evans@thyme>,<11583655.1075854553152.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-06 19:31:00,2001-02-06 19:31:00,100.00
 <5011630.1075854531153.JavaMail.evans@thyme>,<11583655.1075854553152.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-06 19:31:00,2001-02-06 19:31:00,100.00
 <27932667.1075854533556.JavaMail.evans@thyme>,<11583655.1075854553152.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-06 19:31:00,2001-02-06 19:31:00,100.00
+<21877287.1075854552970.JavaMail.evans@thyme>,<11583655.1075854553152.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-09 09:00:00,2001-02-06 19:31:00,100.00
+<31642280.1075854496540.JavaMail.evans@thyme>,<11583655.1075854553152.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-09 09:00:00,2001-02-06 19:31:00,100.00
+<25321032.1075854531342.JavaMail.evans@thyme>,<11583655.1075854553152.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-09 09:00:00,2001-02-06 19:31:00,100.00
+<20874776.1075854533378.JavaMail.evans@thyme>,<11583655.1075854553152.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-09 09:00:00,2001-02-06 19:31:00,100.00
 <2763259.1075854496701.JavaMail.evans@thyme>,<2250694.1075854553127.JavaMail.evans@thyme>,Re: PGE's '02 and beyond,david.delainey@enron.com,2001-02-06 19:33:00,2001-02-06 19:33:00,100.00
 <8848482.1075854531176.JavaMail.evans@thyme>,<2250694.1075854553127.JavaMail.evans@thyme>,Re: PGE's '02 and beyond,david.delainey@enron.com,2001-02-06 19:33:00,2001-02-06 19:33:00,100.00
 <9303149.1075854533532.JavaMail.evans@thyme>,<2250694.1075854553127.JavaMail.evans@thyme>,Re: PGE's '02 and beyond,david.delainey@enron.com,2001-02-06 19:33:00,2001-02-06 19:33:00,100.00
@@ -8588,9 +8608,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <27716409.1075845526298.JavaMail.evans@thyme>,<4049716.1075845526344.JavaMail.evans@thyme>,Re: UK CEOs,sherri.sera@enron.com,2001-02-09 09:18:00,2001-02-09 08:35:00,97.56
 <13560567.1075845486447.JavaMail.evans@thyme>,<4049716.1075845526344.JavaMail.evans@thyme>,Re: UK CEOs,sherri.sera@enron.com,2001-02-09 09:18:00,2001-02-09 08:35:00,97.56
 <11542599.1075845518307.JavaMail.evans@thyme>,<4049716.1075845526344.JavaMail.evans@thyme>,Re: UK CEOs,sherri.sera@enron.com,2001-02-09 09:18:00,2001-02-09 08:35:00,97.56
-<31642280.1075854496540.JavaMail.evans@thyme>,<21877287.1075854552970.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-09 09:00:00,2001-02-09 09:00:00,100.00
-<25321032.1075854531342.JavaMail.evans@thyme>,<21877287.1075854552970.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-09 09:00:00,2001-02-09 09:00:00,100.00
-<20874776.1075854533378.JavaMail.evans@thyme>,<21877287.1075854552970.JavaMail.evans@thyme>,URG: Gas Securitization Agreements,david.delainey@enron.com,2001-02-09 09:00:00,2001-02-09 09:00:00,100.00
 <4997015.1075854496516.JavaMail.evans@thyme>,<21992261.1075854552947.JavaMail.evans@thyme>,EES Europe - Outsourcing Reorganisation,david.delainey@enron.com,2001-02-09 09:03:00,2001-02-09 09:03:00,100.00
 <33290478.1075854531366.JavaMail.evans@thyme>,<21992261.1075854552947.JavaMail.evans@thyme>,EES Europe - Outsourcing Reorganisation,david.delainey@enron.com,2001-02-09 09:03:00,2001-02-09 09:03:00,100.00
 <32587392.1075854533354.JavaMail.evans@thyme>,<21992261.1075854552947.JavaMail.evans@thyme>,EES Europe - Outsourcing Reorganisation,david.delainey@enron.com,2001-02-09 09:03:00,2001-02-09 09:03:00,100.00
@@ -8694,13 +8711,13 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <31063366.1075854532636.JavaMail.evans@thyme>,<11170796.1075854552239.JavaMail.evans@thyme>,Re: Capital Charge Allocation,david.delainey@enron.com,2001-02-15 12:49:00,2001-02-15 12:49:00,100.00
 <8104429.1075845060592.JavaMail.evans@thyme>,<32121469.1075845019906.JavaMail.evans@thyme>,Meeting Today!,mark.haedicke@enron.com,2001-02-15 15:09:00,2001-02-15 15:09:00,100.00
 <13702454.1075845060615.JavaMail.evans@thyme>,<8280114.1075845019929.JavaMail.evans@thyme>,Re: Shipping Attorney,mark.haedicke@enron.com,2001-02-15 15:14:00,2001-02-15 15:14:00,100.00
-<9931035.1075854552218.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,99.70
+<9931035.1075854552218.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,100.00
 <27729296.1075854495760.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,100.00
-<8788322.1075854495782.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,99.70
-<19976954.1075854531756.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,99.70
+<8788322.1075854495782.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,100.00
+<19976954.1075854531756.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,100.00
 <7023381.1075854531778.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,100.00
 <25209781.1075854532562.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,100.00
-<8977913.1075854532614.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,99.70
+<8977913.1075854532614.JavaMail.evans@thyme>,<26080292.1075854552196.JavaMail.evans@thyme>,Canada 2001 Plan,david.delainey@enron.com,2001-02-15 18:58:00,2001-02-15 18:58:00,100.00
 <24641906.1075854495739.JavaMail.evans@thyme>,<1656613.1075854552175.JavaMail.evans@thyme>,Re: Potential energy services deal in Japan,david.delainey@enron.com,2001-02-15 19:02:00,2001-02-15 19:02:00,100.00
 <31035318.1075854531801.JavaMail.evans@thyme>,<1656613.1075854552175.JavaMail.evans@thyme>,Re: Potential energy services deal in Japan,david.delainey@enron.com,2001-02-15 19:02:00,2001-02-15 19:02:00,100.00
 <25436346.1075854532540.JavaMail.evans@thyme>,<1656613.1075854552175.JavaMail.evans@thyme>,Re: Potential energy services deal in Japan,david.delainey@enron.com,2001-02-15 19:02:00,2001-02-15 19:02:00,100.00
@@ -8750,6 +8767,9 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <2076934.1075854495495.JavaMail.evans@thyme>,<8935053.1075854551919.JavaMail.evans@thyme>,EES Europe Night Out - 6th March 2001,david.delainey@enron.com,2001-02-19 11:16:00,2001-02-19 11:16:00,100.00
 <9589642.1075854531911.JavaMail.evans@thyme>,<8935053.1075854551919.JavaMail.evans@thyme>,EES Europe Night Out - 6th March 2001,david.delainey@enron.com,2001-02-19 11:16:00,2001-02-19 11:16:00,100.00
 <4223467.1075854532302.JavaMail.evans@thyme>,<8935053.1075854551919.JavaMail.evans@thyme>,EES Europe Night Out - 6th March 2001,david.delainey@enron.com,2001-02-19 11:16:00,2001-02-19 11:16:00,100.00
+<19191600.1075857683203.JavaMail.evans@thyme>,<32950670.1075857693038.JavaMail.evans@thyme>,FW:,lavorato@enron.com,2001-05-02 21:40:06,2001-02-20 01:06:27,100.00
+<1988178.1075857682932.JavaMail.evans@thyme>,<32950670.1075857693038.JavaMail.evans@thyme>,FW:,lavorato@enron.com,2001-05-08 19:48:06,2001-02-20 01:06:27,100.00
+<23605810.1075857682608.JavaMail.evans@thyme>,<32950670.1075857693038.JavaMail.evans@thyme>,FW:,lavorato@enron.com,2001-05-23 15:59:14,2001-02-20 01:06:27,100.00
 <15043288.1075859820268.JavaMail.evans@thyme>,<11386584.1075845020219.JavaMail.evans@thyme>,FW: Arcor,john.lavorato@enron.com,2001-02-20 13:43:00,2001-02-20 13:43:00,100.00
 <13187400.1075845503753.JavaMail.evans@thyme>,<23080997.1075845486689.JavaMail.evans@thyme>,Conference Room # for 2/21 Mtg,lisa.connolly@enron.com,2001-02-20 14:47:00,2001-02-20 14:47:00,100.00
 <31469435.1075845060803.JavaMail.evans@thyme>,<19039201.1075845020264.JavaMail.evans@thyme>,Arcor Executed Dash,mark.haedicke@enron.com,2001-02-20 15:06:00,2001-02-20 15:06:00,100.00
@@ -8895,7 +8915,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <26268874.1075859848057.JavaMail.evans@thyme>,<24791543.1075859788578.JavaMail.evans@thyme>,Re: Singapore Office LNG Support Activities,alan.aronowitz@enron.com,2001-03-05 18:41:00,2001-03-05 18:41:00,100.00
 <27720354.1075859848032.JavaMail.evans@thyme>,<26095694.1075859788608.JavaMail.evans@thyme>,3AC16C1 - Sneak Peak of the iBuyit eProcurement,kayla.heitmeyer@enron.com,2001-03-05 18:47:00,2001-03-05 18:47:00,100.00
 <1251430.1075859848001.JavaMail.evans@thyme>,<357518.1075859788631.JavaMail.evans@thyme>,revised ESA Legal Risk Report,eddy.daniels@enron.com,2001-03-05 18:56:00,2001-03-05 18:56:00,100.00
-<27255688.1075859847905.JavaMail.evans@thyme>,<4967822.1075859788679.JavaMail.evans@thyme>,"""Western Power Markets"" and Other Events",lmrig@uswest.net,2001-03-05 20:21:00,2001-03-05 20:21:00,100.00
 <7766684.1075859847860.JavaMail.evans@thyme>,<12113772.1075859788787.JavaMail.evans@thyme>,Enron Wholesale Services 2001 Legal Conference,linda.simmons@enron.com,2001-03-06 08:21:00,2001-03-06 08:21:00,100.00
 <33079969.1075845487044.JavaMail.evans@thyme>,<16025864.1075845526017.JavaMail.evans@thyme>,"Re: Class Request: TUT-XMS-1073 Tutorial-XMS, Joannie Williamson",sherri.sera@enron.com,2001-03-06 08:35:00,2001-03-06 08:35:00,100.00
 <26323460.1075845518583.JavaMail.evans@thyme>,<16025864.1075845526017.JavaMail.evans@thyme>,"Re: Class Request: TUT-XMS-1073 Tutorial-XMS, Joannie Williamson",sherri.sera@enron.com,2001-03-06 08:35:00,2001-03-06 08:35:00,100.00
@@ -8944,9 +8963,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <21646564.1075859846873.JavaMail.evans@thyme>,<27643813.1075859789997.JavaMail.evans@thyme>,1/2 day meeting in Portland,jan.king@enron.com,2001-03-09 08:15:00,2001-03-09 08:15:00,100.00
 <3894069.1075845061917.JavaMail.evans@thyme>,<25987564.1075845021813.JavaMail.evans@thyme>,"Re: PG&E ""Crisis"" Team lunch",janette.elbertson@enron.com,2001-03-09 09:10:00,2001-03-09 09:10:00,100.00
 <21578141.1075859846920.JavaMail.evans@thyme>,<12973452.1075859789945.JavaMail.evans@thyme>,Summer clerks,jeff.kinneman@enron.com,2001-03-09 09:38:00,2001-03-09 09:38:00,100.00
-<16657714.1075859846898.JavaMail.evans@thyme>,<8119233.1075859789971.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,deborah.edison@enron.com,2001-03-09 10:21:00,2001-03-09 10:21:00,100.00
-<8286718.1075845028982.JavaMail.evans@thyme>,<8119233.1075859789971.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,deborah.edison@enron.com,2001-05-22 14:45:00,2001-03-09 10:21:00,95.13
-<29987889.1075845038230.JavaMail.evans@thyme>,<8119233.1075859789971.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,deborah.edison@enron.com,2001-05-22 14:45:00,2001-03-09 10:21:00,95.13
 <10396865.1075859846580.JavaMail.evans@thyme>,<18683481.1075859790327.JavaMail.evans@thyme>,"Corrected Mariner Energy, Inc. News Release",kcashiola@mariner-energy.com,2001-03-09 11:52:00,2001-03-09 11:52:00,100.00
 <17082033.1075859846829.JavaMail.evans@thyme>,<17091542.1075859790042.JavaMail.evans@thyme>,Asst. General Counsel,ckbenergy@aol.com,2001-03-09 11:54:00,2001-03-09 11:54:00,100.00
 <10168567.1075859846527.JavaMail.evans@thyme>,<10907201.1075859790363.JavaMail.evans@thyme>,2001 Enron Law Conference (Distribution List 2),sara.davidson@enron.com,2001-03-09 12:02:00,2001-03-09 12:02:00,100.00
@@ -9076,7 +9092,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <3888599.1075845504772.JavaMail.evans@thyme>,<5140560.1075845525567.JavaMail.evans@thyme>,Re: Ziff Energy Conference - Calgary November 2001 - Keynote Speaking	 Invitation,joannie.williamson@enron.com,2001-03-20 16:05:00,2001-03-20 16:05:00,100.00
 <23338365.1075845518999.JavaMail.evans@thyme>,<5140560.1075845525567.JavaMail.evans@thyme>,Re: Ziff Energy Conference - Calgary November 2001 - Keynote Speaking	 Invitation,joannie.williamson@enron.com,2001-03-20 16:05:00,2001-03-20 16:05:00,100.00
 <12740001.1075845062320.JavaMail.evans@thyme>,<21895814.1075845022648.JavaMail.evans@thyme>,"Re: Notice of Meeting of Directors of TBS on March 28, 2001",mark.haedicke@enron.com,2001-03-21 08:48:00,2001-03-21 08:48:00,100.00
-<7520683.1075859845330.JavaMail.evans@thyme>,<22751032.1075859792507.JavaMail.evans@thyme>,Ancillary Services Conference and Other Upcoming Events,lmrig@uswest.net,2001-03-21 09:01:00,2001-03-21 09:01:00,100.00
 <10372879.1075845062344.JavaMail.evans@thyme>,<11501354.1075845022674.JavaMail.evans@thyme>,Re: Blue Range Resource Corporation,mark.haedicke@enron.com,2001-03-21 09:05:00,2001-03-21 09:05:00,100.00
 <21718950.1075845062369.JavaMail.evans@thyme>,<29744467.1075845022698.JavaMail.evans@thyme>,FW: Next Brazilian Subcommittee Meeting,mark.haedicke@enron.com,2001-03-21 09:10:00,2001-03-21 09:10:00,100.00
 <25293866.1075845062435.JavaMail.evans@thyme>,<21332054.1075845022764.JavaMail.evans@thyme>,FW: Committee Meeting Reminder,mark.haedicke@enron.com,2001-03-21 09:17:00,2001-03-21 09:17:00,100.00
@@ -9254,6 +9269,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <9138019.1075845063195.JavaMail.evans@thyme>,<29112156.1075845023742.JavaMail.evans@thyme>,Net  Works,mark.haedicke@enron.com,2001-03-30 16:17:00,2001-03-30 16:17:00,100.00
 <16205542.1075845488850.JavaMail.evans@thyme>,<18289242.1075845525160.JavaMail.evans@thyme>,Re: Stanford/McKinsey survey invitation letter,joannie.williamson@enron.com,2001-03-30 16:41:00,2001-03-30 16:41:00,100.00
 <14874845.1075845519389.JavaMail.evans@thyme>,<18289242.1075845525160.JavaMail.evans@thyme>,Re: Stanford/McKinsey survey invitation letter,joannie.williamson@enron.com,2001-03-30 16:41:00,2001-03-30 16:41:00,100.00
+<29675436.1075857682907.JavaMail.evans@thyme>,<10677739.1075857689759.JavaMail.evans@thyme>,RE:,lavorato@enron.com,2001-05-14 13:32:00,2001-03-30 23:46:09,100.00
 <5229693.1075845488872.JavaMail.evans@thyme>,<10480484.1075845525136.JavaMail.evans@thyme>,Lunch,joannie.williamson@enron.com,2001-04-02 10:25:00,2001-04-02 10:25:00,100.00
 <27256090.1075845505195.JavaMail.evans@thyme>,<10480484.1075845525136.JavaMail.evans@thyme>,Lunch,joannie.williamson@enron.com,2001-04-02 10:25:00,2001-04-02 10:25:00,100.00
 <21007146.1075845519411.JavaMail.evans@thyme>,<10480484.1075845525136.JavaMail.evans@thyme>,Lunch,joannie.williamson@enron.com,2001-04-02 10:25:00,2001-04-02 10:25:00,100.00
@@ -9292,7 +9308,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <33388744.1075859843128.JavaMail.evans@thyme>,<22784755.1075859796057.JavaMail.evans@thyme>,Worldenergyonline Update,weo_mail@igate.cbinet.com,2001-04-03 20:19:00,2001-04-03 20:19:00,100.00
 <25450764.1075859842730.JavaMail.evans@thyme>,<3706897.1075859796386.JavaMail.evans@thyme>,Littler Texas E-Lert - NOTE: Designed for HTML email systems,littler@swbell.net,2001-04-04 00:18:00,2001-04-04 00:18:00,100.00
 <24975651.1075859843106.JavaMail.evans@thyme>,<20209458.1075859796081.JavaMail.evans@thyme>,Re: Proposed Changes to Business Practices Based on the California Energy Crisis,richard.shapiro@enron.com,2001-04-04 07:31:00,2001-04-04 07:31:00,100.00
-<6140535.1075859842878.JavaMail.evans@thyme>,<9285364.1075859796261.JavaMail.evans@thyme>,"""What To Expect In Western Power Markets This Summer"" Conference and Other Upcoming Events",lmrig@qwest.net,2001-04-04 09:02:00,2001-04-04 09:02:00,100.00
 <27454502.1075859843060.JavaMail.evans@thyme>,<28831158.1075859796128.JavaMail.evans@thyme>,RE: Net  Works,greg.piper@enron.com,2001-04-04 09:16:00,2001-04-04 09:16:00,100.00
 <6082837.1075859843036.JavaMail.evans@thyme>,<5727310.1075859796153.JavaMail.evans@thyme>,Milbank Lunch,stephanie.harris@enron.com,2001-04-04 09:32:00,2001-04-04 09:32:00,100.00
 <10695375.1075859843009.JavaMail.evans@thyme>,<24789814.1075859796179.JavaMail.evans@thyme>,FW: Milbank Lunch - Addendum,stephanie.harris@enron.com,2001-04-04 09:56:00,2001-04-04 09:56:00,100.00
@@ -9592,7 +9607,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <31685842.1075845514047.JavaMail.evans@thyme>,<27461382.1075840153358.JavaMail.evans@thyme>,3 - URGENT - TO PREVENT LOSS OF INFORMATION,outlook.team@enron.com,2001-05-14 13:02:00,2001-05-01 00:10:00,99.65
 <2155244.1075845033923.JavaMail.evans@thyme>,<27461382.1075840153358.JavaMail.evans@thyme>,3 - URGENT - TO PREVENT LOSS OF INFORMATION,outlook.team@enron.com,2001-06-11 17:05:00,2001-05-01 00:10:00,99.30
 <9149170.1075845034643.JavaMail.evans@thyme>,<27461382.1075840153358.JavaMail.evans@thyme>,3 - URGENT - TO PREVENT LOSS OF INFORMATION,outlook.team@enron.com,2001-06-11 17:05:00,2001-05-01 00:10:00,99.30
-<31725673.1075840163774.JavaMail.evans@thyme>,<22376268.1075840163824.JavaMail.evans@thyme>,Re: Macerich Conferences,jeff.skilling@enron.com,2001-05-02 02:35:00,2001-05-01 03:20:00,97.54
+<31725673.1075840163774.JavaMail.evans@thyme>,<22376268.1075840163824.JavaMail.evans@thyme>,Re: Macerich Conferences,jeff.skilling@enron.com,2001-05-02 02:35:00,2001-05-01 03:20:00,90.69
 <16843829.1075840290488.JavaMail.evans@thyme>,<8169456.1075840298423.JavaMail.evans@thyme>,Governor's Business Council Energy Panel,rosalee.fleming@enron.com,2001-05-01 06:12:00,2001-05-01 06:12:00,100.00
 <30633847.1075840291579.JavaMail.evans@thyme>,<8169456.1075840298423.JavaMail.evans@thyme>,Governor's Business Council Energy Panel,rosalee.fleming@enron.com,2001-05-01 06:12:00,2001-05-01 06:12:00,100.00
 <13768021.1075840292806.JavaMail.evans@thyme>,<8169456.1075840298423.JavaMail.evans@thyme>,Governor's Business Council Energy Panel,rosalee.fleming@enron.com,2001-05-01 06:12:00,2001-05-01 06:12:00,100.00
@@ -9678,7 +9693,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <16581044.1075859837672.JavaMail.evans@thyme>,<25847338.1075859803634.JavaMail.evans@thyme>,Translation of Gas Natural letter,randy.young@enron.com,2001-05-07 15:39:00,2001-05-07 15:39:00,100.00
 <6739644.1075859836873.JavaMail.evans@thyme>,<27767519.1075859803783.JavaMail.evans@thyme>,State Bar of Michigan e-Journal - 5/8/01,bounce-ejournal-255481@lists.michbar.org,2001-05-07 16:20:00,2001-05-07 16:20:00,100.00
 <8054655.1075859837694.JavaMail.evans@thyme>,<10720508.1075859803611.JavaMail.evans@thyme>,Further Federal Reserve Action on Sections 23A and 23B,scarey@isda.org,2001-05-07 16:22:00,2001-05-07 16:22:00,100.00
-<26996901.1075859837576.JavaMail.evans@thyme>,<191315.1075859803682.JavaMail.evans@thyme>,Register Now - Last Week for Early Bird Special - Transmission Grid Expansion and System Reliability Conferences,lmrig@qwest.net,2001-05-07 21:52:00,2001-05-07 21:52:00,100.00
 <13896318.1075859837650.JavaMail.evans@thyme>,<20533558.1075859803658.JavaMail.evans@thyme>,ClickAtHome Portal is HERE!,enron.announcements@enron.com,2001-05-07 22:20:00,2001-05-07 22:20:00,100.00
 <22400875.1075845505980.JavaMail.evans@thyme>,<829783.1075845490363.JavaMail.evans@thyme>,How to Maximize the Value of Your Company's Intellectual Property,rguttroff@amanet.org,2001-05-07 23:42:00,2001-05-07 23:42:00,100.00
 <27069171.1075845515592.JavaMail.evans@thyme>,<829783.1075845490363.JavaMail.evans@thyme>,How to Maximize the Value of Your Company's Intellectual Property,rguttroff@amanet.org,2001-05-07 23:42:00,2001-05-07 23:42:00,100.00
@@ -10011,7 +10025,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <8268705.1075845040098.JavaMail.evans@thyme>,<6877380.1075845027024.JavaMail.evans@thyme>,NIPSCO Dispute/Conflict of Interest Waiver,gail.brownfeld@enron.com,2001-05-15 15:38:00,2001-05-15 15:38:00,100.00
 <23230491.1075845040135.JavaMail.evans@thyme>,<1637502.1075845026996.JavaMail.evans@thyme>,"RE: ISDA PRESS REPORT - MAY 15, 2001",scarey@isda.org,2001-05-15 15:43:00,2001-05-15 15:43:00,100.00
 <7824602.1075845040069.JavaMail.evans@thyme>,<26674773.1075845027056.JavaMail.evans@thyme>,"Letter of Credit Seminar - May 23, 2001",carolyn.george@enron.com,2001-05-15 15:59:00,2001-05-15 15:59:00,100.00
-<31460879.1075845039838.JavaMail.evans@thyme>,<3632895.1075845027240.JavaMail.evans@thyme>,"Electricity Risk Management 101 Workshop and Portfolio Valuation and Optimization Conference, June 19-22, 2001, Washington, D.C.",lmrig@qwest.net,2001-05-15 17:00:00,2001-05-15 17:00:00,100.00
 <12264910.1075845039903.JavaMail.evans@thyme>,<19902883.1075845027108.JavaMail.evans@thyme>,MEA Operating Section Newsletter,sandis@midwestenergy.org,2001-05-15 17:27:00,2001-05-15 17:27:00,100.00
 <11470103.1075845040035.JavaMail.evans@thyme>,<2155359.1075845027079.JavaMail.evans@thyme>,Enron Global Assets Legal -- May Monthly Report,wendi.hoelscher@enron.com,2001-05-15 17:28:00,2001-05-15 17:28:00,100.00
 <13276306.1075845039813.JavaMail.evans@thyme>,<22567090.1075845027304.JavaMail.evans@thyme>,Re: Sysco - continuing internal difficulties,david.delainey@enron.com,2001-05-15 18:27:00,2001-05-15 18:27:00,100.00
@@ -10159,7 +10172,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <805053.1075845038465.JavaMail.evans@thyme>,<1877283.1075845028699.JavaMail.evans@thyme>,FW: ABBC - Credit Derivatives Presentation - South America,pmartinez@isda.org,2001-05-21 18:26:00,2001-05-21 18:26:00,100.00
 <2269812.1075859829628.JavaMail.evans@thyme>,<1858373.1075859812285.JavaMail.evans@thyme>,Mid-Year 2001 Performance Feedback,perfmgmt@enron.com,2001-05-21 19:15:00,2001-05-21 19:15:00,100.00
 <16052908.1075845038390.JavaMail.evans@thyme>,<9105862.1075845028768.JavaMail.evans@thyme>,TIPTOP SITES,godsearchtripod@yahoo.com,2001-05-22 02:22:00,2001-05-22 02:22:00,100.00
-<22979274.1075845038306.JavaMail.evans@thyme>,<24843333.1075845028821.JavaMail.evans@thyme>,Electricity Risk Management and Distributed Generation Conferences/Workshops,lmrig@qwest.net,2001-05-22 07:38:00,2001-05-22 07:38:00,100.00
 <25037165.1075859874281.JavaMail.evans@thyme>,<24106589.1075845028880.JavaMail.evans@thyme>,New YPF GSA  vs. 10/98 GSA,eddy.daniels@enron.com,2001-05-22 09:19:00,2001-05-22 09:19:00,100.00
 <14321944.1075845038283.JavaMail.evans@thyme>,<23236896.1075845028904.JavaMail.evans@thyme>,Meeting on Wed. May 23rd to discuss setoff issues,elizabeth.sager@enron.com,2001-05-22 12:07:00,2001-05-22 12:07:00,100.00
 <2714783.1075845065261.JavaMail.evans@thyme>,<2489285.1075845028926.JavaMail.evans@thyme>,Re: Enron Xcelerator,mark.haedicke@enron.com,2001-05-22 13:17:00,2001-05-22 13:17:00,100.00
@@ -10222,8 +10234,8 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <30948153.1075845037512.JavaMail.evans@thyme>,<6078476.1075845030046.JavaMail.evans@thyme>,east coast power,shirley.birch@enron.com,2001-05-29 11:58:00,2001-05-29 11:58:00,100.00
 <32472197.1075845037489.JavaMail.evans@thyme>,<21266201.1075845030072.JavaMail.evans@thyme>,Dabhol -- A Brief Legal Update,bruce.lundstrom@enron.com,2001-05-29 13:05:00,2001-05-29 13:05:00,100.00
 <1931161.1075859826561.JavaMail.evans@thyme>,<6233008.1075859815631.JavaMail.evans@thyme>,"FW: PRC Committee Members - June 4, 2001 Meeting",kathlene.mosley@enron.com,2001-05-29 13:41:00,2001-05-29 13:41:00,100.00
-<11161656.1075859815677.JavaMail.evans@thyme>,<6233008.1075859815631.JavaMail.evans@thyme>,"FW: PRC Committee Members - June 4, 2001 Meeting",kathlene.mosley@enron.com,2001-05-29 14:32:00,2001-05-29 13:41:00,99.20
-<25905910.1075859826516.JavaMail.evans@thyme>,<6233008.1075859815631.JavaMail.evans@thyme>,"FW: PRC Committee Members - June 4, 2001 Meeting",kathlene.mosley@enron.com,2001-05-29 14:32:00,2001-05-29 13:41:00,99.20
+<11161656.1075859815677.JavaMail.evans@thyme>,<6233008.1075859815631.JavaMail.evans@thyme>,"FW: PRC Committee Members - June 4, 2001 Meeting",kathlene.mosley@enron.com,2001-05-29 14:32:00,2001-05-29 13:41:00,95.68
+<25905910.1075859826516.JavaMail.evans@thyme>,<6233008.1075859815631.JavaMail.evans@thyme>,"FW: PRC Committee Members - June 4, 2001 Meeting",kathlene.mosley@enron.com,2001-05-29 14:32:00,2001-05-29 13:41:00,95.68
 <2434694.1075857682520.JavaMail.evans@thyme>,<8503072.1075857667129.JavaMail.evans@thyme>,,lavorato@enron.com,2001-05-29 13:42:47,2001-05-29 13:42:47,100.00
 <12020473.1075845037443.JavaMail.evans@thyme>,<33126587.1075845030122.JavaMail.evans@thyme>,"Ste. Aurelie Timberlands Co., Ltd.",charles.cheek@enron.com,2001-05-29 14:52:00,2001-05-29 14:52:00,100.00
 <14614254.1075859826450.JavaMail.evans@thyme>,<14969643.1075859815749.JavaMail.evans@thyme>,Amy Oberg brown bag- CANCELLED,public.relations@enron.com,2001-05-29 15:00:00,2001-05-29 15:00:00,100.00
@@ -10388,6 +10400,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <13337030.1075861711833.JavaMail.evans@thyme>,<21559489.1075861701112.JavaMail.evans@thyme>,Order Shipment Confirmation,epsonstoreorders@ea.epson.com,2001-11-20 10:21:31,2001-07-10 12:26:03,91.70
 <25957980.1075852665803.JavaMail.evans@thyme>,<25922122.1075852682708.JavaMail.evans@thyme>,Hawkes Peers & Co.,georgette@hawkespeers.com,2001-10-17 16:47:06,2001-07-18 19:09:24,100.00
 <30567687.1075852686631.JavaMail.evans@thyme>,<20911721.1075852686924.JavaMail.evans@thyme>,Please Plan to Attend,jeff.skilling@enron.com,2001-08-07 14:20:12,2001-08-01 19:25:58,99.55
+<7380420.1075852679343.JavaMail.evans@thyme>,<25552506.1075852679366.JavaMail.evans@thyme>,FW: [smu-betas] FW: The Dallas Morning News College Football.htm,chuck.paul@a-closer-look.com,2001-08-20 14:42:56,2001-08-20 14:14:03,93.78
 <17712798.1075852646824.JavaMail.evans@thyme>,<22717101.1075852679272.JavaMail.evans@thyme>,Your online YPO forum survey -- complete in 3 easy steps!,ypoforumsurvey@ypoforumdiagnosticsurvey.com,2001-08-20 15:29:51,2001-08-20 15:29:43,100.00
 <20948995.1075852803386.JavaMail.evans@thyme>,<30365708.1075852646486.JavaMail.evans@thyme>,ENE Friday Peer Report,lisa.gillette@enron.com,2001-10-26 20:49:41,2001-08-24 20:56:19,100.00
 <28698271.1075852645669.JavaMail.evans@thyme>,<13858516.1075852645748.JavaMail.evans@thyme>,ERV Notification:  (Violation/Notification Memo - 08/29/2001),kenneth.thibodeaux@enron.com,2001-08-30 19:23:16,2001-08-30 16:54:56,92.13
@@ -10424,6 +10437,11 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <11397648.1075854934069.JavaMail.evans@thyme>,<31576896.1075854934212.JavaMail.evans@thyme>,Patient but Not Passive,janette.elbertson@enron.com,2001-10-02 23:57:07,2001-10-02 23:56:06,99.81
 <5774826.1075852810090.JavaMail.evans@thyme>,<20758676.1075854932942.JavaMail.evans@thyme>,Enron Net Works 2002 Budget Process,sally.beck@enron.com,2001-10-05 20:03:26,2001-10-05 20:03:26,100.00
 <32721213.1075852809918.JavaMail.evans@thyme>,<30523247.1075854932603.JavaMail.evans@thyme>,"Confirmation of Management Committee Offsite - Wednesday, October 24, 11:30a - 5:00p",joannie.williamson@enron.com,2001-10-08 14:56:44,2001-10-08 14:56:44,100.00
+<18712083.1075854943640.JavaMail.evans@thyme>,<13436127.1075854932269.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-10-12 15:06:43,2001-10-08 20:19:17,100.00
+<11302433.1075854939516.JavaMail.evans@thyme>,<13436127.1075854932269.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-10-26 19:44:44,2001-10-08 20:19:17,100.00
+<9035867.1075861941058.JavaMail.evans@thyme>,<13436127.1075854932269.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-11-07 17:05:24,2001-10-08 20:19:17,100.00
+<6792278.1075861943155.JavaMail.evans@thyme>,<13436127.1075854932269.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-11-14 14:45:52,2001-10-08 20:19:17,100.00
+<21959722.1075861933424.JavaMail.evans@thyme>,<13436127.1075854932269.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-11-19 17:04:05,2001-10-08 20:19:17,100.00
 <23155966.1075852809700.JavaMail.evans@thyme>,<2613647.1075854936883.JavaMail.evans@thyme>,2002 Corporate Allocations to EIM,jeffrey.mcmahon@enron.com,2001-10-08 20:27:47,2001-10-08 20:27:47,100.00
 <17179926.1075852809600.JavaMail.evans@thyme>,<7330006.1075854944325.JavaMail.evans@thyme>,Message from Mike McConnell and Jeff Shankman,mike.mcconnell@enron.com,2001-10-08 23:45:51,2001-10-08 23:45:51,100.00
 <32186688.1075852809480.JavaMail.evans@thyme>,<26453474.1075854944295.JavaMail.evans@thyme>,RE: 2002 Corporate Allocations to EIM,london.brown@enron.com,2001-10-09 07:59:26,2001-10-09 07:59:26,100.00
@@ -10432,10 +10450,6 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <8458892.1075852667397.JavaMail.evans@thyme>,<5600123.1075852667466.JavaMail.evans@thyme>,Fall with a Twist,_corolla@response.etracks.com,2001-10-09 21:09:15,2001-10-09 20:22:05,99.72
 <28596861.1075852808989.JavaMail.evans@thyme>,<20402654.1075854944072.JavaMail.evans@thyme>,"Management Committee Meeting - Monday, October 15 @ 3:00",joannie.williamson@enron.com,2001-10-10 15:10:14,2001-10-10 15:10:14,100.00
 <5022681.1075852666729.JavaMail.evans@thyme>,<28686026.1075852808445.JavaMail.evans@thyme>,L. Kudlow's latest commentary (10/12/2001),svarga@kudlow.com,2001-10-12 14:46:23,2001-10-12 14:46:23,100.00
-<11302433.1075854939516.JavaMail.evans@thyme>,<18712083.1075854943640.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-10-26 19:44:44,2001-10-12 15:06:43,97.77
-<9035867.1075861941058.JavaMail.evans@thyme>,<18712083.1075854943640.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-11-07 17:05:24,2001-10-12 15:06:43,94.45
-<6792278.1075861943155.JavaMail.evans@thyme>,<18712083.1075854943640.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-11-14 14:45:52,2001-10-12 15:06:43,96.44
-<21959722.1075861933424.JavaMail.evans@thyme>,<18712083.1075854943640.JavaMail.evans@thyme>,FW: Mariner Management Meeting Minutes,j..edison@enron.com,2001-11-19 17:04:05,2001-10-12 15:06:43,97.11
 <16690919.1075852666640.JavaMail.evans@thyme>,<7063018.1075852808317.JavaMail.evans@thyme>,New Kudlow Commentary,svarga@kudlow.com,2001-10-12 20:35:02,2001-10-12 20:35:02,100.00
 <29990095.1075863332892.JavaMail.evans@thyme>,<7063018.1075852808317.JavaMail.evans@thyme>,New Kudlow Commentary,svarga@kudlow.com,2001-10-26 17:15:02,2001-10-12 20:35:02,99.41
 <6515011.1075862883427.JavaMail.evans@thyme>,<7063018.1075852808317.JavaMail.evans@thyme>,New Kudlow Commentary,svarga@kudlow.com,2001-10-30 13:50:02,2001-10-12 20:35:02,99.41
@@ -10520,8 +10534,8 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <22414594.1075863332918.JavaMail.evans@thyme>,<32894146.1075863341790.JavaMail.evans@thyme>,ERV Notification:  (Violation/Notification Memo - 10/25/2001),kenneth.thibodeaux@enron.com,2001-10-26 17:20:33,2001-10-26 14:13:09,92.08
 <24382374.1075852662965.JavaMail.evans@thyme>,<32894146.1075863341790.JavaMail.evans@thyme>,ERV Notification:  (Violation/Notification Memo - 10/25/2001),kenneth.thibodeaux@enron.com,2001-10-26 17:20:33,2001-10-26 14:13:09,92.08
 <27845090.1075852662988.JavaMail.evans@thyme>,<24004010.1075863341627.JavaMail.evans@thyme>,KUDLOW GUEST COMMENTARY - William P. Kucewicz (10/26/2001),svarga@kudlow.com,2001-10-26 16:06:29,2001-10-26 16:06:29,100.00
-<12786716.1075863341433.JavaMail.evans@thyme>,<23756535.1075863341456.JavaMail.evans@thyme>,FW: Executed Amendments Update,david.oxley@enron.com,2001-10-26 21:14:15,2001-10-26 19:41:30,98.98
-<30084856.1075863340647.JavaMail.evans@thyme>,<23756535.1075863341456.JavaMail.evans@thyme>,FW: Executed Amendments Update,david.oxley@enron.com,2001-10-29 21:46:40,2001-10-26 19:41:30,97.91
+<12786716.1075863341433.JavaMail.evans@thyme>,<23756535.1075863341456.JavaMail.evans@thyme>,FW: Executed Amendments Update,david.oxley@enron.com,2001-10-26 21:14:15,2001-10-26 19:41:30,100.00
+<30084856.1075863340647.JavaMail.evans@thyme>,<23756535.1075863341456.JavaMail.evans@thyme>,FW: Executed Amendments Update,david.oxley@enron.com,2001-10-29 21:46:40,2001-10-26 19:41:30,100.00
 <32654999.1075852803249.JavaMail.evans@thyme>,<18170572.1075852662901.JavaMail.evans@thyme>,RALLY AGAINT TERRORISM,fatimapr@softcom.ca,2001-10-26 22:28:23,2001-10-26 21:56:47,100.00
 <24857260.1075863341305.JavaMail.evans@thyme>,<17486006.1075854939375.JavaMail.evans@thyme>,"Management Committee Meeting - Monday, October 29",joannie.williamson@enron.com,2001-10-26 21:57:24,2001-10-26 21:57:24,100.00
 <16289948.1075852803277.JavaMail.evans@thyme>,<17486006.1075854939375.JavaMail.evans@thyme>,"Management Committee Meeting - Monday, October 29",joannie.williamson@enron.com,2001-10-26 21:57:24,2001-10-26 21:57:24,100.00
@@ -10560,6 +10574,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <19920181.1075861578238.JavaMail.evans@thyme>,<24648441.1075861701900.JavaMail.evans@thyme>,Collapse - the most addictive game ever?,news@real-net.net,2001-11-17 07:12:16,2001-11-15 05:13:04,100.00
 <20868994.1075861714716.JavaMail.evans@thyme>,<13911706.1075861702202.JavaMail.evans@thyme>,Power Indices,feedback@intcx.com,2001-11-26 19:35:19,2001-11-15 17:55:03,93.52
 <29647502.1075861714556.JavaMail.evans@thyme>,<21606471.1075861702086.JavaMail.evans@thyme>,Gas Indices,feedback@intcx.com,2001-11-26 19:35:30,2001-11-15 18:00:06,94.21
+<596620.1075861715292.JavaMail.evans@thyme>,<26433109.1075861715270.JavaMail.evans@thyme>,FW: Jeff Borg - Director Wholesale Orig - Enron Canada Corp,john.lavorato@enron.com,2001-11-16 12:45:09,2001-11-15 22:09:23,100.00
 <32165634.1075862889953.JavaMail.evans@thyme>,<18023043.1075861709754.JavaMail.evans@thyme>,11/15/01 PRELIMINARY Violation Memos,kenneth.thibodeaux@enron.com,2001-11-16 15:00:46,2001-11-16 15:00:46,100.00
 <4188508.1075863727782.JavaMail.evans@thyme>,<26417863.1075863728046.JavaMail.evans@thyme>,Another Version of Negative CTC Risk?,tim.belden@enron.com,2001-11-16 15:56:53,2001-11-16 15:56:53,100.00
 <6740831.1075862890119.JavaMail.evans@thyme>,<32010438.1075861709213.JavaMail.evans@thyme>,FW: Government Affairs Organization Announcement,richard.shapiro@enron.com,2001-11-16 20:49:46,2001-11-16 20:49:46,100.00
@@ -10586,6 +10601,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <12196966.1075861947813.JavaMail.evans@thyme>,<6186742.1075861947768.JavaMail.evans@thyme>,<<Concur Expense Document>> - MEH 11.07.01,enron_update@concureworkplace.com,2001-11-27 21:27:14,2001-11-27 21:27:14,91.60
 <29691126.1075860842239.JavaMail.evans@thyme>,<2281222.1075860837104.JavaMail.evans@thyme>,<<Concur Expense Document>> - Mark Koenig,enron_update@concureworkplace.com,2002-01-03 17:15:15,2001-11-29 21:58:51,96.90
 <17529614.1075859108643.JavaMail.evans@thyme>,<31623199.1075859108600.JavaMail.evans@thyme>,,w..delainey@enron.com,2001-12-06 01:19:15,2001-12-06 01:09:50,96.94
+<20314244.1075859108708.JavaMail.evans@thyme>,<22926510.1075859108685.JavaMail.evans@thyme>,Re: Call Kay Chapman at 30643 if you get this,w..delainey@enron.com,2001-12-06 19:49:23,2001-12-06 16:04:49,94.68
 <13922427.1075859392644.JavaMail.evans@thyme>,<70776.1075859391584.JavaMail.evans@thyme>,NEXT US REGULATORY CALL....,smarra@isda.org,2001-12-13 21:19:21,2001-12-07 01:10:37,97.22
 <17144653.1075859391963.JavaMail.evans@thyme>,<7292076.1075859391940.JavaMail.evans@thyme>,Viral Genetics:VRAL Achieves unprecedented AIDS breakthrough!,altcap@rogers.com,2001-12-07 17:29:56,2001-12-07 17:20:37,99.98
 <14705575.1075860843576.JavaMail.evans@thyme>,<9773647.1075860841107.JavaMail.evans@thyme>,CNN Breaking News,breakingnews@mail.cnn.com,2002-01-09 17:47:04,2001-12-13 16:16:03,90.71
@@ -10593,6 +10609,7 @@ duplicate_message_id,original_message_id,subject,from_address,duplicate_date,ori
 <25711318.1075859393050.JavaMail.evans@thyme>,<15246697.1075859392772.JavaMail.evans@thyme>,Updated: Post Petition Commercial Lead Meeting,jim.fallon@enron.com,2001-12-17 19:07:56,2001-12-14 20:08:27,99.23
 <17578755.1075859393435.JavaMail.evans@thyme>,<8181766.1075859386608.JavaMail.evans@thyme>,Save 10% on Datamonitors Dashboard!,database.uk@terrmail3.terrapinn.com,2001-12-21 08:37:17,2001-12-15 20:36:26,98.85
 <33299763.1075859393100.JavaMail.evans@thyme>,<12872330.1075859109621.JavaMail.evans@thyme>,Contact information for John Sheriff,rosalee.fleming@enron.com,2001-12-17 20:50:39,2001-12-17 20:50:39,100.00
+<8434477.1075860842416.JavaMail.evans@thyme>,<1169537.1075860841614.JavaMail.evans@thyme>,FW: Galveston,mrslinda@lplpi.com,2002-01-04 02:58:13,2001-12-26 21:41:46,100.00
 <24376462.1075859393702.JavaMail.evans@thyme>,<32721179.1075859108007.JavaMail.evans@thyme>,DPR reporting,shona.wilson@enron.com,2001-12-28 15:14:26,2001-12-28 15:14:26,100.00
 <29139362.1075859393727.JavaMail.evans@thyme>,<9606895.1075859107972.JavaMail.evans@thyme>,"Metro Bus Passes and Woodlands Express Passes Available Effective Friday, December 28, 2001",announcements.enron@enron.com,2001-12-28 17:04:54,2001-12-28 17:04:54,100.00
 <27739122.1075860841839.JavaMail.evans@thyme>,<9606895.1075859107972.JavaMail.evans@thyme>,"Metro Bus Passes and Woodlands Express Passes Available Effective Friday, December 28, 2001",announcements.enron@enron.com,2001-12-28 17:04:54,2001-12-28 17:04:54,100.00

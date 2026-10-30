@@ -160,10 +160,40 @@ def test_optional_enron_headers():
     assert email.content_type == "text/plain"
 
 
-def test_bcc_copied_from_cc_is_treated_as_export_artifact():
+def test_bcc_is_captured_as_written_even_when_it_equals_cc():
     email = parse(make_email(Cc="x@enron.com, y@enron.com", Bcc="x@enron.com, y@enron.com"))
     assert email.cc_addresses == ["x@enron.com", "y@enron.com"]
-    assert email.bcc_addresses == []
+    assert email.bcc_addresses == ["x@enron.com", "y@enron.com"]
+
+
+# --- regressions from code review --------------------------------------------
+
+def test_encoded_line_break_in_subject_is_neutralized():
+    email = parse(make_email(Subject="=?utf-8?q?Budget=0ABcc:_spy@x.com?="))
+    assert "\n" not in email.subject and "\r" not in email.subject
+    assert email.subject == "Budget Bcc: spy@x.com"
+
+
+def test_am_pm_date_with_rfc_like_prefix_is_not_misread():
+    assert parse(make_email(Date="13 Nov 2001 4:39 PM CDT")).date == datetime(
+        2001, 11, 13, 21, 39, tzinfo=timezone.utc
+    )
+
+
+@pytest.mark.parametrize("header", ["May 2001", "Nov 13", "4:39 PM CDT"])
+def test_incomplete_date_is_rejected_not_guessed(header):
+    with pytest.raises(ParseError, match="incomplete Date"):
+        parse(make_email(Date=header))
+
+
+@pytest.mark.parametrize("header, field", [("From", "From address"), ("To", "To addresses")])
+def test_non_address_token_is_not_a_valid_mandatory_address(header, field):
+    with pytest.raises(ParseError, match=field):
+        parse(make_email(**{header: "garbage"}))
+
+
+def test_invalid_entries_are_dropped_from_mixed_lists():
+    assert parse(make_email(To="nonsense, good@enron.com")).to_addresses == ["good@enron.com"]
 
 
 def test_body_split_and_headings_are_wired_in():

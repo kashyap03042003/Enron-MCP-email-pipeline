@@ -1,15 +1,10 @@
 """Task 3: find and flag near-duplicate emails.
 
-Two emails are duplicates when they have the same sender, the same subject
-once Re:/Fw: prefixes are stripped, and content that is at least 90% similar
-(rapidfuzz `fuzz.ratio`, a normalized edit-distance score from 0 to 100).
-
-"Content" is checked twice: the full text (own body + quoted + forwarded)
-must match, and so must the author's own body unless both bodies are empty.
-The full-text check stops pure forwards (empty body) from matching each other
-on nothing; the body check stops two different replies from matching just
-because they quote the same long thread. The reported score is the
-full-text similarity.
+The rule follows the assignment exactly: two emails are duplicates when they
+have the same from_address, the same subject after normalizing Re:/Fwd:
+prefixes, and a `body` that is at least 90% similar (rapidfuzz `fuzz.ratio`,
+a normalized edit-distance score from 0 to 100). `body` is the author's own
+text, without forwarded or quoted content, as the field definition requires.
 
 Emails are first grouped by (sender, normalized subject), which is part of
 the definition and keeps comparisons within small groups. Inside each group,
@@ -41,8 +36,7 @@ class Candidate:
     from_address: str
     subject: str
     source_file: str
-    body: str  # whitespace-normalized own text
-    text: str  # whitespace-normalized full content (body + quoted + forwarded)
+    body: str  # whitespace-normalized own text (forwarded/quoted content excluded)
 
 
 @dataclass
@@ -72,13 +66,10 @@ def normalize_text(*parts: str | None) -> str:
 
 
 def similarity(a: Candidate, b: Candidate, threshold: float) -> float:
-    """Full-text similarity if the pair counts as duplicates, else 0."""
+    """Body similarity (0-100) if it reaches the threshold, else 0."""
     # score_cutoff makes rapidfuzz return 0 below the threshold, and lets it
     # skip texts whose lengths are too different to ever reach it.
-    score = fuzz.ratio(a.text, b.text, score_cutoff=threshold)
-    if score and (a.body or b.body) and not fuzz.ratio(a.body, b.body, score_cutoff=threshold):
-        return 0.0
-    return score
+    return fuzz.ratio(a.body, b.body, score_cutoff=threshold)
 
 
 def find_duplicate_groups(candidates: Iterable[Candidate], threshold: float) -> list[DuplicateGroup]:

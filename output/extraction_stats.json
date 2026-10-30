@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T02:56:54+00:00",
+  "generated_at": "2026-10-30T05:20:54+00:00",
   "mailboxes": [
     "lay-k",
     "skilling-j",
@@ -8,74 +8,75 @@
     "haedicke-m"
   ],
   "total_files": 23573,
-  "parsed": 22081,
-  "failed": 1492,
+  "parsed": 22068,
+  "failed": 1505,
   "failure_reasons": {
-    "missing or unparseable To addresses": 1492
+    "missing or unparseable To addresses": 1504,
+    "missing or unparseable From address": 1
   },
   "field_completeness": {
     "message_id": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "date": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "from_address": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "to_addresses": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "subject": {
-      "present": 20610,
-      "rate": 93.34
+      "present": 20597,
+      "rate": 93.33
     },
     "body": {
-      "present": 21168,
-      "rate": 95.87
+      "present": 21155,
+      "rate": 95.86
     },
     "source_file": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "cc_addresses": {
       "present": 5645,
-      "rate": 25.56
+      "rate": 25.58
     },
     "bcc_addresses": {
-      "present": 0,
-      "rate": 0.0
+      "present": 5645,
+      "rate": 25.58
     },
     "x_from": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "x_to": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "x_cc": {
       "present": 5678,
-      "rate": 25.71
+      "rate": 25.73
     },
     "x_bcc": {
       "present": 13,
       "rate": 0.06
     },
     "x_folder": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "x_origin": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "content_type": {
-      "present": 22081,
+      "present": 22068,
       "rate": 100.0
     },
     "has_attachment": {
@@ -84,7 +85,7 @@
     },
     "forwarded_content": {
       "present": 6025,
-      "rate": 27.29
+      "rate": 27.3
     },
     "quoted_content": {
       "present": 366,
@@ -92,7 +93,7 @@
     },
     "headings": {
       "present": 1332,
-      "rate": 6.03
+      "rate": 6.04
     }
   }
 }
