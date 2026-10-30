@@ -1,0 +1,3 @@
+timestamp,recipient,subject,status,error,intended_recipient,duplicate_message_id
+2026-10-30T04:44:17+00:00,krishna.kashyap50@gmail.com,[Duplicate Notice] Re: ENA 2000 Offsite,failed,McpSendError: Error executing tool send_email: SMTP error: SMTPServerDisconnected: Connection unexpectedly closed,david.delainey@enron.com,<9684679.1075854459702.JavaMail.evans@thyme>
+2026-10-30T04:55:00+00:00,krishna.kashyap50@gmail.com,[Duplicate Notice] Re: ENA 2000 Offsite,sent,,david.delainey@enron.com,<9684679.1075854459702.JavaMail.evans@thyme>
