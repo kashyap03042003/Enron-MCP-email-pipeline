@@ -1,14 +1,15 @@
 """Enron email pipeline — command-line entry point.
 
-    python main.py run     [--reset]                       # full pipeline: ingest -> dedupe -> notify
+    python main.py run     [--reset] [--send-live [--limit N]]  # full pipeline: ingest -> dedupe -> notify
 
     python main.py parse   [--mailboxes ...] [--max-files N]  # extraction stats only, no DB
     python main.py ingest  [--mailboxes ...] [--reset]        # parse + load into SQLite
     python main.py dedupe  [--threshold 90]                   # flag near-duplicates
-    python main.py notify                                     # write .eml drafts (dry run)
+    python main.py notify  [--send-live [--limit N]]          # .eml drafts; optionally send via MCP
 """
 
 import argparse
+import os
 import sys
 import time
 from itertools import islice
@@ -19,10 +20,11 @@ from datetime import datetime, timezone
 from enron_pipeline import db, dedupe, notify
 from enron_pipeline.config import (
     DB_PATH, DEDUPE_STATS, DEFAULT_MAILBOXES, DUPLICATES_REPORT, ERROR_LOG, EXTRACTION_STATS,
-    MAILDIR, PROJECT_ROOT, REPLIES_DIR, SCHEMA_PATH, SIMILARITY_THRESHOLD,
+    MAILDIR, MCP_CONFIG, PROJECT_ROOT, REPLIES_DIR, SCHEMA_PATH, SEND_LOG, SIMILARITY_THRESHOLD,
 )
 from enron_pipeline.discovery import discover_emails
 from enron_pipeline.extract import ExtractionResult, extract
+from enron_pipeline.mcp_client import McpEmailSender, load_server_config
 from enron_pipeline.stats import build_stats, format_stats, write_error_log, write_stats
 
 
@@ -101,13 +103,35 @@ def cmd_notify(args: argparse.Namespace) -> None:
     try:
         db.init_schema(conn, SCHEMA_PATH)
         notifications = notify.load_notifications(conn)
+        written = notify.write_drafts(notifications, REPLIES_DIR, datetime.now(timezone.utc))
+        print(f"Notices (one per duplicate group): {len(notifications):,}")
+        print(f"Drafts written:                    {written:,}  -> {_display(REPLIES_DIR)}/")
+        if not args.send_live:
+            print("Dry run: nothing was sent. Add --send-live to send through the MCP server.")
+            return
+        _send_live(args, conn, notifications)
     finally:
         conn.close()
 
-    written = notify.write_drafts(notifications, REPLIES_DIR, datetime.now(timezone.utc))
-    print(f"Notices (one per duplicate group): {len(notifications):,}")
-    print(f"Drafts written:                    {written:,}  -> {_display(REPLIES_DIR)}/")
-    print("Dry run: nothing was sent.")
+
+def _send_live(args, conn, notifications) -> None:
+    if not args.mcp_config.exists():
+        sys.exit(f"error: {_display(args.mcp_config)} not found. Copy mcp_config.json.example "
+                 "to mcp_config.json and fill in your Gmail credentials (see README).")
+    server, server_env = load_server_config(args.mcp_config)
+    # Notices go to a test inbox, never to the real (Enron) senders. Default:
+    # the Gmail account the server sends from.
+    recipient = args.test_recipient or os.environ.get("NOTIFY_TEST_RECIPIENT") or server_env.get("GMAIL_ADDRESS")
+    if not recipient:
+        sys.exit("error: no test inbox. Pass --test-recipient or set GMAIL_ADDRESS in the MCP config.")
+
+    print(f"\nLive mode: sending up to {args.limit} notice(s) to {recipient} via MCP send_email")
+    with McpEmailSender(server) as sender:
+        summary = notify.send_live(conn, notifications, sender, recipient, SEND_LOG, args.limit)
+    print(f"Sent:    {summary.sent}")
+    print(f"Failed:  {summary.failed}")
+    print(f"Skipped: {summary.skipped}  (notified in an earlier run)")
+    print(f"Log:     {_display(SEND_LOG)}")
 
 
 def cmd_run(args: argparse.Namespace) -> None:
@@ -135,7 +159,17 @@ def build_parser() -> argparse.ArgumentParser:
     threshold.add_argument("--threshold", type=float, default=SIMILARITY_THRESHOLD,
                            help="minimum content similarity, 0-100 (default: %(default)s)")
 
-    p = sub.add_parser("run", parents=[extraction, database, reset, threshold],
+    live = argparse.ArgumentParser(add_help=False)
+    live.add_argument("--send-live", action="store_true",
+                      help="actually send notices through the MCP server (default: dry run)")
+    live.add_argument("--limit", type=_positive_int, default=5,
+                      help="maximum notices to send in this run (default: %(default)s)")
+    live.add_argument("--test-recipient",
+                      help="inbox that receives live notices (default: GMAIL_ADDRESS from the MCP config)")
+    live.add_argument("--mcp-config", type=_path, default=MCP_CONFIG,
+                      help="mcpServers config file (default: mcp_config.json)")
+
+    p = sub.add_parser("run", parents=[extraction, database, reset, threshold, live],
                        help="run the full pipeline end to end")
     p.set_defaults(func=cmd_run)
 
@@ -148,13 +182,20 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("dedupe", parents=[database, threshold], help="flag near-duplicate emails in the database")
     p.set_defaults(func=cmd_dedupe)
 
-    p = sub.add_parser("notify", parents=[database], help="write duplicate notices as .eml drafts")
+    p = sub.add_parser("notify", parents=[database, live], help="write duplicate notices as .eml drafts")
     p.set_defaults(func=cmd_notify)
     return parser
 
 
 def _path(value: str) -> Path:
     return Path(value).resolve()
+
+
+def _positive_int(value: str) -> int:
+    number = int(value)
+    if number < 1:
+        raise argparse.ArgumentTypeError("must be at least 1")
+    return number
 
 
 def _display(path: Path) -> str:

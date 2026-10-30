@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "gmail": {
+      "command": ".venv/bin/python",
+      "args": ["mcp_server/gmail_server.py"],
+      "env": {
+        "GMAIL_ADDRESS": "your.name@gmail.com",
+        "GMAIL_APP_PASSWORD": "xxxx xxxx xxxx xxxx"
+      }
+    }
+  }
+}

@@ -28,3 +28,4 @@ DEDUPE_STATS = OUTPUT_DIR / "dedupe_stats.json"
 # Notifications (Task 4)
 REPLIES_DIR = OUTPUT_DIR / "replies"
 SEND_LOG = OUTPUT_DIR / "send_log.csv"
+MCP_CONFIG = PROJECT_ROOT / "mcp_config.json"
