@@ -24,3 +24,7 @@ DEFAULT_MAILBOXES = (
 SIMILARITY_THRESHOLD = 90.0
 DUPLICATES_REPORT = PROJECT_ROOT / "duplicates_report.csv"
 DEDUPE_STATS = OUTPUT_DIR / "dedupe_stats.json"
+
+# Notifications (Task 4)
+REPLIES_DIR = OUTPUT_DIR / "replies"
+SEND_LOG = OUTPUT_DIR / "send_log.csv"

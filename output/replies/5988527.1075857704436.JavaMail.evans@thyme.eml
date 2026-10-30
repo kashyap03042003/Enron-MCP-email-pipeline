@@ -1,0 +1,27 @@
+To: remi.collonges@enron.com
+Subject: [Duplicate Notice] Re: information you requested last week
+Date: Fri, 30 Oct 2026 02:21:07 +0000
+References: <5988527.1075857704436.JavaMail.evans@thyme>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+This is an automated notification from the Email Deduplication System.
+
+Your email has been identified as a potential duplicate:
+
+  Your Email (Flagged):
+    Message-ID:  <5988527.1075857704436.JavaMail.evans@thyme>
+    Date Sent:   2001-01-20 04:48:00 UTC
+    Subject:     information you requested last week
+
+  Original Email on Record:
+    Message-ID:  <7971396.1075845546805.JavaMail.evans@thyme>
+    Date Sent:   2001-01-19 19:48:00 UTC
+
+  Similarity Score: 100.00%
+
+If this was NOT a duplicate and you intended to send this email,
+please reply with CONFIRM to restore it to active status.
+
+No action is required if this is indeed a duplicate.

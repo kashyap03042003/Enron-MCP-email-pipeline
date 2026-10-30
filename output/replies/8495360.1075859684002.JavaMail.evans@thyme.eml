@@ -1,0 +1,27 @@
+To: enron.announcements@enron.com
+Subject: [Duplicate Notice] Re: E-Mail and Voicemail Retention Policy
+Date: Fri, 30 Oct 2026 02:21:07 +0000
+References: <8495360.1075859684002.JavaMail.evans@thyme>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+This is an automated notification from the Email Deduplication System.
+
+Your email has been identified as a potential duplicate:
+
+  Your Email (Flagged):
+    Message-ID:  <8495360.1075859684002.JavaMail.evans@thyme>
+    Date Sent:   2000-11-07 21:44:00 UTC
+    Subject:     E-Mail and Voicemail Retention Policy
+
+  Original Email on Record:
+    Message-ID:  <31498902.1075845013765.JavaMail.evans@thyme>
+    Date Sent:   2000-11-07 21:44:00 UTC
+
+  Similarity Score: 100.00%
+
+If this was NOT a duplicate and you intended to send this email,
+please reply with CONFIRM to restore it to active status.
+
+No action is required if this is indeed a duplicate.

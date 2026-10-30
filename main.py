@@ -1,8 +1,11 @@
 """Enron email pipeline — command-line entry point.
 
-    python main.py parse   [--mailboxes ...] [--limit N]   # extraction stats only, no DB
-    python main.py ingest  [--mailboxes ...] [--reset]     # parse + load into SQLite
-    python main.py dedupe  [--threshold 90]                # flag near-duplicates
+    python main.py run     [--reset]                       # full pipeline: ingest -> dedupe -> notify
+
+    python main.py parse   [--mailboxes ...] [--max-files N]  # extraction stats only, no DB
+    python main.py ingest  [--mailboxes ...] [--reset]        # parse + load into SQLite
+    python main.py dedupe  [--threshold 90]                   # flag near-duplicates
+    python main.py notify                                     # write .eml drafts (dry run)
 """
 
 import argparse
@@ -11,10 +14,12 @@ import time
 from itertools import islice
 from pathlib import Path
 
-from enron_pipeline import db, dedupe
+from datetime import datetime, timezone
+
+from enron_pipeline import db, dedupe, notify
 from enron_pipeline.config import (
     DB_PATH, DEDUPE_STATS, DEFAULT_MAILBOXES, DUPLICATES_REPORT, ERROR_LOG, EXTRACTION_STATS,
-    MAILDIR, PROJECT_ROOT, SCHEMA_PATH, SIMILARITY_THRESHOLD,
+    MAILDIR, PROJECT_ROOT, REPLIES_DIR, SCHEMA_PATH, SIMILARITY_THRESHOLD,
 )
 from enron_pipeline.discovery import discover_emails
 from enron_pipeline.extract import ExtractionResult, extract
@@ -23,8 +28,8 @@ from enron_pipeline.stats import build_stats, format_stats, write_error_log, wri
 
 def run_extraction(args: argparse.Namespace) -> ExtractionResult:
     paths = discover_emails(MAILDIR, args.mailboxes)
-    if args.limit:
-        paths = islice(paths, args.limit)
+    if args.max_files:
+        paths = islice(paths, args.max_files)
 
     started = time.perf_counter()
     result = extract(paths, PROJECT_ROOT)
@@ -91,28 +96,60 @@ def cmd_dedupe(args: argparse.Namespace) -> None:
     print(f"Stats JSON: {_display(DEDUPE_STATS)}")
 
 
+def cmd_notify(args: argparse.Namespace) -> None:
+    conn = db.connect(args.db)
+    try:
+        db.init_schema(conn, SCHEMA_PATH)
+        notifications = notify.load_notifications(conn)
+    finally:
+        conn.close()
+
+    written = notify.write_drafts(notifications, REPLIES_DIR, datetime.now(timezone.utc))
+    print(f"Notices (one per duplicate group): {len(notifications):,}")
+    print(f"Drafts written:                    {written:,}  -> {_display(REPLIES_DIR)}/")
+    print("Dry run: nothing was sent.")
+
+
+def cmd_run(args: argparse.Namespace) -> None:
+    for title, step in (("Extract + load", cmd_ingest), ("Duplicate detection", cmd_dedupe),
+                        ("Notifications", cmd_notify)):
+        print(f"\n=== {title} " + "=" * (60 - len(title)))
+        step(args)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Enron email extraction pipeline")
     sub = parser.add_subparsers(dest="command", required=True)
 
     extraction = argparse.ArgumentParser(add_help=False)
     extraction.add_argument("--mailboxes", nargs="+", default=list(DEFAULT_MAILBOXES))
-    extraction.add_argument("--limit", type=int, help="only parse the first N files (for quick runs)")
+    extraction.add_argument("--max-files", type=int, help="only parse the first N files (for quick runs)")
 
     database = argparse.ArgumentParser(add_help=False)
     database.add_argument("--db", type=_path, default=DB_PATH, help="SQLite database file")
 
+    reset =argparse.ArgumentParser(add_help=False)
+    reset.add_argument("--reset", action="store_true", help="delete the database first and rebuild it")
+
+    threshold = argparse.ArgumentParser(add_help=False)
+    threshold.add_argument("--threshold", type=float, default=SIMILARITY_THRESHOLD,
+                           help="minimum content similarity, 0-100 (default: %(default)s)")
+
+    p = sub.add_parser("run", parents=[extraction, database, reset, threshold],
+                       help="run the full pipeline end to end")
+    p.set_defaults(func=cmd_run)
+
     p = sub.add_parser("parse", parents=[extraction], help="parse emails and print extraction statistics")
     p.set_defaults(func=cmd_parse)
 
-    p = sub.add_parser("ingest", parents=[extraction, database], help="parse emails and load them into SQLite")
-    p.add_argument("--reset", action="store_true", help="delete the database first and rebuild it")
+    p = sub.add_parser("ingest", parents=[extraction, database, reset], help="parse emails and load them into SQLite")
     p.set_defaults(func=cmd_ingest)
 
-    p = sub.add_parser("dedupe", parents=[database], help="flag near-duplicate emails in the database")
-    p.add_argument("--threshold", type=float, default=SIMILARITY_THRESHOLD,
-                   help="minimum content similarity, 0-100 (default: %(default)s)")
+    p = sub.add_parser("dedupe", parents=[database, threshold], help="flag near-duplicate emails in the database")
     p.set_defaults(func=cmd_dedupe)
+
+    p = sub.add_parser("notify", parents=[database], help="write duplicate notices as .eml drafts")
+    p.set_defaults(func=cmd_notify)
     return parser
 
 

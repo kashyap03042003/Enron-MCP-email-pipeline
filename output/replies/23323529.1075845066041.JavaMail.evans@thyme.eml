@@ -1,0 +1,27 @@
+To: janette.elbertson@enron.com
+Subject: [Duplicate Notice] Re: Test
+Date: Fri, 30 Oct 2026 02:21:07 +0000
+References: <23323529.1075845066041.JavaMail.evans@thyme>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+This is an automated notification from the Email Deduplication System.
+
+Your email has been identified as a potential duplicate:
+
+  Your Email (Flagged):
+    Message-ID:  <23323529.1075845066041.JavaMail.evans@thyme>
+    Date Sent:   2001-06-11 14:14:00 UTC
+    Subject:     Test
+
+  Original Email on Record:
+    Message-ID:  <21982138.1075845033756.JavaMail.evans@thyme>
+    Date Sent:   2001-06-11 14:14:00 UTC
+
+  Similarity Score: 100.00%
+
+If this was NOT a duplicate and you intended to send this email,
+please reply with CONFIRM to restore it to active status.
+
+No action is required if this is indeed a duplicate.
