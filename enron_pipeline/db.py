@@ -13,9 +13,9 @@ _EMAIL_COLUMNS = (
     "x_from", "x_to", "x_cc", "x_bcc", "x_folder", "x_origin", "content_type",
     "has_attachment", "forwarded_content", "quoted_content", "headings",
 )
+_PLACEHOLDERS = ", ".join(["?"] * len(_EMAIL_COLUMNS))
 _INSERT_EMAIL = (
-    f"INSERT INTO emails ({', '.join(_EMAIL_COLUMNS)}) "
-    f"VALUES ({', '.join('?' * len(_EMAIL_COLUMNS))}) "
+    f"INSERT INTO emails ({', '.join(_EMAIL_COLUMNS)}) VALUES ({_PLACEHOLDERS}) "
     "ON CONFLICT DO NOTHING"  # message_id or source_file already loaded
 )
 
@@ -45,10 +45,12 @@ def to_db_datetime(dt: datetime) -> str:
 def load_emails(conn: sqlite3.Connection, emails: Iterable[ParsedEmail]) -> LoadResult:
     """Insert emails and their recipients in a single transaction."""
     result = LoadResult()
-    address_ids = _AddressCache(conn)
+    # address -> addresses.id, so each address is looked up or inserted once
+    address_ids = {row["email"]: row["id"] for row in conn.execute("SELECT id, email FROM addresses")}
     with conn:
         for email in emails:
-            cursor = conn.execute(_INSERT_EMAIL, _email_row(email, address_ids(email.from_address)))
+            sender_id = _address_id(conn, address_ids, email.from_address)
+            cursor = conn.execute(_INSERT_EMAIL, _email_row(email, sender_id))
             if cursor.rowcount == 0:
                 result.skipped += 1
                 continue
@@ -57,7 +59,7 @@ def load_emails(conn: sqlite3.Connection, emails: Iterable[ParsedEmail]) -> Load
             conn.executemany(
                 "INSERT INTO email_recipients (email_id, address_id, kind, position) VALUES (?, ?, ?, ?)",
                 [
-                    (email_id, address_ids(address), kind, position)
+                    (email_id, _address_id(conn, address_ids, address), kind, position)
                     for kind, addresses in (
                         ("to", email.to_addresses),
                         ("cc", email.cc_addresses),
@@ -79,15 +81,7 @@ def _email_row(email: ParsedEmail, sender_id: int) -> tuple:
     )
 
 
-class _AddressCache:
-    """Maps an address to its addresses.id, inserting it on first sight."""
-
-    def __init__(self, conn: sqlite3.Connection):
-        self._conn = conn
-        self._ids = {row["email"]: row["id"] for row in conn.execute("SELECT id, email FROM addresses")}
-
-    def __call__(self, email: str) -> int:
-        if email not in self._ids:
-            cursor = self._conn.execute("INSERT INTO addresses (email) VALUES (?)", (email,))
-            self._ids[email] = cursor.lastrowid
-        return self._ids[email]
+def _address_id(conn: sqlite3.Connection, address_ids: dict[str, int], email: str) -> int:
+    if email not in address_ids:
+        address_ids[email] = conn.execute("INSERT INTO addresses (email) VALUES (?)", (email,)).lastrowid
+    return address_ids[email]

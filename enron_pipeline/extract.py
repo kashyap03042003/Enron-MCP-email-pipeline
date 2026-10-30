@@ -24,15 +24,8 @@ def extract(paths: Iterable[Path], project_root: Path) -> ExtractionResult:
         try:
             result.emails.append(parse_file(path, project_root))
         except ParseError as exc:
-            result.failures.append((_relative(path, project_root), str(exc)))
+            result.failures.append((path.relative_to(project_root).as_posix(), str(exc)))
         except Exception as exc:  # malformed input must never crash the pipeline
             reason = f"unexpected {type(exc).__name__}: {exc}"
-            result.failures.append((_relative(path, project_root), reason))
+            result.failures.append((path.relative_to(project_root).as_posix(), reason))
     return result
-
-
-def _relative(path: Path, project_root: Path) -> str:
-    try:
-        return path.relative_to(project_root).as_posix()
-    except ValueError:
-        return str(path)

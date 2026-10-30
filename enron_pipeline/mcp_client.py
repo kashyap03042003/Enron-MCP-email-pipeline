@@ -8,8 +8,6 @@ and the AI tool share one server definition.
 import asyncio
 import json
 import sys
-import threading
-from concurrent.futures import Future
 from pathlib import Path
 
 from mcp import Client, StdioServerParameters
@@ -44,58 +42,42 @@ def load_server_config(config_path: Path, server_name: str = "gmail") -> tuple[S
 
 
 class McpEmailSender:
-    """Synchronous `Sender` backed by one MCP session for the whole run.
+    """A `Sender` that calls the MCP server's send_email tool.
 
-    The MCP client is async, and its session must be opened and closed by the
-    same task. A background thread therefore runs an event loop with a single
-    task that owns the session and serves send requests from a queue.
+    Each send opens a short MCP session: start the server, call the tool,
+    close. That costs about half a second per email, which is fine at the
+    volumes Gmail allows, and keeps the code free of threads or shared state.
+    Entering the `with` block checks once that the server starts and offers
+    send_email, so a broken config fails before any notice is attempted.
     """
 
     def __init__(self, server: StdioServerParameters, timeout: float = 60.0):
         self._server = server
         self._timeout = timeout
-        self._ready: Future[None] = Future()
-        self._loop: asyncio.AbstractEventLoop | None = None
-        self._requests: asyncio.Queue | None = None
 
     def __enter__(self) -> "McpEmailSender":
-        self._thread = threading.Thread(target=asyncio.run, args=(self._serve(),), daemon=True)
-        self._thread.start()
         try:
-            self._ready.result(timeout=self._timeout)  # re-raises if the server failed to start
+            tool_names = asyncio.run(asyncio.wait_for(self._list_tools(), self._timeout))
         except Exception as exc:
             raise McpSendError(f"could not start MCP server: {exc}") from exc
+        if TOOL_NAME not in tool_names:
+            raise McpSendError(f"could not start MCP server: no {TOOL_NAME} tool")
         return self
 
     def __exit__(self, *exc_info) -> None:
-        if self._loop is not None and not self._loop.is_closed():
-            self._loop.call_soon_threadsafe(self._requests.put_nowait, None)
-        self._thread.join(timeout=self._timeout)
+        pass
 
     def send(self, *, to: str, subject: str, body: str, headers: dict[str, str]) -> None:
-        reply: Future = Future()
         arguments = {"to": [to], "subject": subject, "body": body, "headers": headers}
-        self._loop.call_soon_threadsafe(self._requests.put_nowait, (arguments, reply))
-        result = reply.result(timeout=self._timeout)
+        result = asyncio.run(asyncio.wait_for(self._call(arguments), self._timeout))
         if result.is_error:
             text = " ".join(getattr(block, "text", "") for block in result.content).strip()
             raise McpSendError(text or f"{TOOL_NAME} failed")
 
-    async def _serve(self) -> None:
-        try:
-            self._loop = asyncio.get_running_loop()
-            self._requests = asyncio.Queue()
-            async with Client(self._server) as client:
-                tools = await client.list_tools()
-                if TOOL_NAME not in {tool.name for tool in tools.tools}:
-                    raise McpSendError(f"server does not provide a {TOOL_NAME} tool")
-                self._ready.set_result(None)
-                while (request := await self._requests.get()) is not None:
-                    arguments, reply = request
-                    try:
-                        reply.set_result(await client.call_tool(TOOL_NAME, arguments))
-                    except Exception as exc:
-                        reply.set_exception(exc)
-        except Exception as exc:
-            if not self._ready.done():
-                self._ready.set_exception(exc)
+    async def _list_tools(self) -> set[str]:
+        async with Client(self._server) as client:
+            return {tool.name for tool in (await client.list_tools()).tools}
+
+    async def _call(self, arguments: dict):
+        async with Client(self._server) as client:
+            return await client.call_tool(TOOL_NAME, arguments)

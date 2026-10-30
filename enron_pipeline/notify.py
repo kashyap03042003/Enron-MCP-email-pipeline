@@ -144,62 +144,48 @@ def send_live(
     number of send attempts per run.
     """
     summary = SendSummary()
-    with SendLog(log_path) as log:
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    write_header = not log_path.exists() or log_path.stat().st_size == 0
+    with log_path.open("a", newline="", encoding="utf-8") as log_file:
+        log = csv.writer(log_file)
+        if write_header:
+            log.writerow(SEND_LOG_COLUMNS)
+
         for notification in notifications:
             if notification.already_sent:
                 summary.skipped += 1
                 continue
             if limit is not None and summary.sent + summary.failed >= limit:
                 break
+
             now = datetime.now(timezone.utc)
             try:
                 sender.send(
                     to=test_recipient,
                     subject=notification.subject,
                     body=f"[Test delivery: intended for {notification.to}]\n\n{notification.body}",
-                    headers={
-                        "References": notification.references,
-                        "X-Original-To": notification.to,
-                    },
+                    headers={"References": notification.references, "X-Original-To": notification.to},
                 )
+                status, error = "sent", ""
             except Exception as exc:  # one failed send must not stop the rest
+                status, error = "failed", f"{type(exc).__name__}: {exc}"
+
+            log.writerow([
+                now.isoformat(timespec="seconds"), test_recipient, notification.subject, status, error,
+                notification.to, notification.references,
+            ])
+            log_file.flush()  # keep the log accurate even if the run is interrupted
+
+            if status == "failed":
                 summary.failed += 1
-                log.write(now, test_recipient, notification, "failed", f"{type(exc).__name__}: {exc}")
                 continue
             summary.sent += 1
-            log.write(now, test_recipient, notification, "sent", "")
             with conn:
                 conn.execute(
                     "UPDATE emails SET notification_sent = 1, notification_date = ? WHERE message_id = ?",
                     (to_db_datetime(now), notification.references),
                 )
     return summary
-
-
-class SendLog:
-    """Append-only CSV of live send attempts."""
-
-    def __init__(self, path: Path):
-        self._path = path
-
-    def __enter__(self) -> "SendLog":
-        self._path.parent.mkdir(parents=True, exist_ok=True)
-        is_new = not self._path.exists() or self._path.stat().st_size == 0
-        self._fh = self._path.open("a", newline="", encoding="utf-8")
-        self._writer = csv.writer(self._fh)
-        if is_new:
-            self._writer.writerow(SEND_LOG_COLUMNS)
-        return self
-
-    def __exit__(self, *exc_info) -> None:
-        self._fh.close()
-
-    def write(self, when: datetime, recipient: str, notification: Notification, status: str, error: str) -> None:
-        self._writer.writerow([
-            when.isoformat(timespec="seconds"), recipient, notification.subject, status, error,
-            notification.to, notification.references,
-        ])
-        self._fh.flush()  # keep the log accurate even if the run is interrupted
 
 
 def _safe_filename(message_id: str) -> str:
