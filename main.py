@@ -82,12 +82,12 @@ def send_notices(args: argparse.Namespace) -> None:
 
         if not args.mcp_config.exists():
             sys.exit(f"error: {args.mcp_config.name} not found. Copy mcp_config.json.example "
-                     "to mcp_config.json and fill in your Gmail credentials (see README).")
+                     "to mcp_config.json; configure Gmail credentials in .env or the environment.")
         server, server_env = load_server_config(args.mcp_config)
         # Notices go to a test inbox, never to the real (Enron) senders.
         recipient = args.test_recipient or server_env.get("GMAIL_ADDRESS")
         if not recipient:
-            sys.exit("error: no test inbox. Pass --test-recipient or set GMAIL_ADDRESS in the MCP config.")
+            sys.exit("error: no test inbox. Pass --test-recipient or set GMAIL_ADDRESS in .env or the environment.")
 
         print(f"Live mode: sending up to {args.limit} notice(s) to {recipient} via MCP send_email")
         with McpEmailSender(server) as sender:
@@ -122,7 +122,7 @@ def parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=5,
                         help="maximum notices to send in this run (default: %(default)s)")
     parser.add_argument("--test-recipient",
-                        help="inbox for live notices (default: GMAIL_ADDRESS from the MCP config)")
+                        help="inbox for live notices (default: GMAIL_ADDRESS from the environment or .env)")
     parser.add_argument("--mcp-config", type=Path, default=MCP_CONFIG,
                         help="mcpServers config file (default: mcp_config.json)")
     args = parser.parse_args(argv)

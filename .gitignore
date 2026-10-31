@@ -227,4 +227,7 @@ maildir/
 *.db-journal
 # Real MCP credentials (only the .example template is committed)
 mcp_config.json
+# Local secret files; placeholder templates are safe to commit.
+.env.*
+!.env.example
 .DS_Store

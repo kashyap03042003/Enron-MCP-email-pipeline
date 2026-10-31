@@ -1,8 +1,8 @@
 """Gmail MCP server: exposes a `send_email` tool over stdio.
 
 Sends through Gmail's SMTP server with an App Password, so no Google Cloud
-project or OAuth flow is needed. Configure with environment variables (set
-in the "env" block of mcp_config.json):
+project or OAuth flow is needed. Configure with environment variables or
+a local .env file in the project root:
 
     GMAIL_ADDRESS       the Gmail account to send from
     GMAIL_APP_PASSWORD  16-character App Password (spaces are ignored)
@@ -14,8 +14,12 @@ launch it; it speaks MCP over stdin/stdout.
 import os
 import re
 import smtplib
+import ssl
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
+from pathlib import Path
+
+from dotenv import load_dotenv
 
 from mcp.server.mcpserver import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
@@ -64,7 +68,9 @@ def send_email(
         raise ToolError(str(exc)) from exc
 
     try:
-        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=30) as smtp:
+        with smtplib.SMTP_SSL(
+            SMTP_HOST, SMTP_PORT, timeout=30, context=ssl.create_default_context()
+        ) as smtp:
             smtp.login(sender, password)
             refused = smtp.send_message(msg)  # recipients the server rejected
     except smtplib.SMTPAuthenticationError as exc:
@@ -116,9 +122,10 @@ def build_message(
 def _require_env(name: str) -> str:
     value = os.environ.get(name, "").strip()
     if not value:
-        raise ToolError(f"{name} is not set; add it to the server's env in mcp_config.json")
+        raise ToolError(f"{name} is not set; export it or add it to the project's .env file")
     return value
 
 
 if __name__ == "__main__":
+    load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=False, interpolate=False)
     mcp.run("stdio")

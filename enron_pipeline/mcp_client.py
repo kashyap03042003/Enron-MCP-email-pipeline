@@ -7,12 +7,15 @@ and the AI tool share one server definition.
 
 import asyncio
 import json
+import os
 import sys
 from pathlib import Path
 
 from mcp import Client, StdioServerParameters
+from dotenv import dotenv_values
 
 TOOL_NAME = "send_email"
+_CREDENTIAL_KEYS = ("GMAIL_ADDRESS", "GMAIL_APP_PASSWORD")
 
 
 class McpSendError(RuntimeError):
@@ -20,10 +23,13 @@ class McpSendError(RuntimeError):
 
 
 def load_server_config(config_path: Path, server_name: str = "gmail") -> tuple[StdioServerParameters, dict]:
-    """Read one server entry; returns its launch parameters and its env block.
+    """Read one server entry; return launch parameters and resolved server env.
 
     A bare `python` command becomes this interpreter (so the server runs in the
     same virtualenv), and relative paths resolve against the config's folder.
+    Gmail credentials come from the process environment, then .env beside
+    the config, then a legacy config env block. Other process secrets are
+    not copied into the server's environment.
     """
     config = json.loads(config_path.read_text())
     try:
@@ -37,7 +43,13 @@ def load_server_config(config_path: Path, server_name: str = "gmail") -> tuple[S
         command = sys.executable
     elif "/" in command and not Path(command).is_absolute():
         command = str(base / command)
-    env = entry.get("env") or {}
+    env = dict(entry.get("env") or {})
+    local_env = dotenv_values(base / ".env", interpolate=False)
+    for name in _CREDENTIAL_KEYS:
+        if name in os.environ:
+            env[name] = os.environ[name]
+        elif local_env.get(name) is not None:
+            env[name] = local_env[name]
     return StdioServerParameters(command=command, args=entry.get("args", []), env=env, cwd=base), env
 
 
